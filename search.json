@@ -299,7 +299,7 @@
     "href": "01-aide_memoire_r_sas.html#fin-du-programme",
     "title": "Aide-mémoire SAS - R",
     "section": "19 Fin du programme",
-    "text": "19 Fin du programme\n\n19.1 Supprimer toutes les bases de la mémoire vive (work RAM)\n\nSASR baseDuckdb\n\n\n/* Supprimer toutes les bases de la mémoire vive (la work) =&gt; rm(list = ls()) */\nproc datasets lib = work nolist kill;run;\n\n\n\nrm(list = ls())\n\n\n\n\nDBI::dbDisconnect(con, shutdown = TRUE)\n\nError in h(simpleError(msg, call)): error in evaluating the argument 'conn' in selecting a method for function 'dbDisconnect': object 'con' not found",
+    "text": "19 Fin du programme\n\n19.1 Supprimer toutes les bases de la mémoire vive (work RAM)\n\nSASR baseDuckdb\n\n\n/* Supprimer toutes les bases de la mémoire vive (la work) =&gt; rm(list = ls()) */\nproc datasets lib = work nolist kill;run;\n\n\n\n#rm(list = ls()) #conflit avec cellule d'après sinon \n\n\n\n\nDBI::dbDisconnect(con, shutdown = TRUE)",
     "crumbs": [
       "Introduction"
     ]
