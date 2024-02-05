@@ -109,7 +109,7 @@
     "href": "01-aide_memoire_r_sas.html",
     "title": "Aide-mémoire SAS - R",
     "section": "",
-    "text": "L’aide-mémoire a pour but de fournir des codes écrits en SAS et d’en donner la traduction en R de trois manières possibles :\nLes éléments utilisés sont des codes typiques qui sont appliqués dans la production statistique ou dans la réalisation d’études descriptives.\nCe code s’adresse aux utilisateurs de SAS qui veulent connaître la traduction du code SAS en R ainsi qu’aux utilisateurs de R qui ont besoin de comprendre le code SAS.\nTest",
+    "text": "L’aide-mémoire a pour but de fournir des codes écrits en SAS et d’en donner la traduction en R de trois manières possibles :\nLes éléments utilisés sont des codes typiques qui sont appliqués dans la production statistique ou dans la réalisation d’études descriptives.\nCe code s’adresse aux utilisateurs de SAS qui veulent connaître la traduction du code SAS en R ainsi qu’aux utilisateurs de R qui ont besoin de comprendre le code SAS.",
     "crumbs": [
       "Introduction"
     ]
