@@ -214,7 +214,7 @@
     "href": "01-aide_memoire_r_sas.html#footnotes",
     "title": "Aide-mémoire SAS - R",
     "section": "Notes de bas de page",
-    "text": "Notes de bas de page\n\n\nDares/DIP, damien.euzenat@travail.gouv.fr↩︎\nDares/DFA, sebastien.li-thiao-te@travail.gouv.fr↩︎\nDares/SCS, nassab.abdallah@travail.gouv.fr↩︎\nDares/DIP, damien.euzenat@travail.gouv.fr↩︎\nDares/DFA, sebastien.li-thiao-te@travail.gouv.fr↩︎",
+    "text": "Notes de bas de page\n\n\nDares/SCS, nassab.abdallah@travail.gouv.fr↩︎\nDares/DIP, damien.euzenat@travail.gouv.fr↩︎\nDares/DFA, sebastien.li-thiao-te@travail.gouv.fr↩︎",
     "crumbs": [
       "Introduction"
     ]
@@ -316,12 +316,5 @@
     "title": "Trucs et astuces en R",
     "section": "2.3 Avantages et inconvénients des environnements R",
     "text": "2.3 Avantages et inconvénients des environnements R\n\n2.3.1 R Base\n\n2.3.1.1 Avantages :\n\nabsence de dépendance (ne s’appuie sur aucun package) : pas besoin d’installer un package, de gérer sa mise à jour, de craindre pour sa disparition\ngarantit la rétrocompatibilité du code : utile dans des environnements de production\ndans certains cas, se révèle la solution la plus simple\nparfois, la seule façon de faire\n\n\n\n2.3.1.2 Inconvénients :\n\nne permet pas de gérer des bases de données plus volumineuses que la mémoire vive\nsyntaxe plus complexe et parfois incohérente\nsouvent moins rapide que les autres environnements\ndemande plus de connaissance sur le fonctionnement du langage R\ncertaines tâches sont plus simples à traiter avec les autres environnements\n\n\n\n\n2.3.2 Tidyverse\n\n2.3.2.1 Avantages :\n\nplus simple à prendre en main\nsyntaxe plus simple que les autres environnements et cohérente\nlargement utilisé dans la communauté R\ntend à s’imposer comme la référence de la gestion de données sur R\nsyntaxe utilisée également dans les packages Arrow / DuckDb\n\n\n\n2.3.2.2 Inconvénients :\n\nne permet pas de gérer des bases de données plus volumineuses que la mémoire vive\nforte dépendance : la rétrocompatibilité n’est pas assurée, potentiel problème dans un environnement de production\nglobalement moins rapide que data.table\ntâches non prévues plus difficiles à réaliser\ncertaines tâches sont plus simples à traiter avec les autres environnements\n\n\n\n\n2.3.3 data.table\n\n2.3.3.1 Avantages :\n\nfaible dépendance : garantit une rétrocompatibilité élevée\nsyntaxe proche du R Base\nplus rapide et puissant que ses concurrents\n\n\n\n2.3.3.2 Inconvénients :\n\nne permet pas de gérer des bases de données plus volumineuses que la mémoire vive\nsyntaxe parfois déroutante, incohérente, et peu explicite\nmoins utilisé\ncertaines tâches sont plus simples à traiter avec les autres environnements"
-  },
-  {
-    "objectID": "Trucs et astuces en R.html#footnotes",
-    "href": "Trucs et astuces en R.html#footnotes",
-    "title": "Trucs et astuces en R",
-    "section": "Notes de bas de page",
-    "text": "Notes de bas de page\n\n\nDares/SCS, nassab.abdallah@travail.gouv.fr↩︎\nDares/DIP, damien.euzenat@travail.gouv.fr↩︎"
   }
 ]
