@@ -184,12 +184,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#comment-utiliser-cet-aide-mémoire" id="toc-comment-utiliser-cet-aide-mémoire" class="nav-link" data-scroll-target="#comment-utiliser-cet-aide-mémoire"><span class="header-section-number">2.1</span> Comment utiliser cet aide-mémoire ?</a></li>
   <li><a href="#spécificités-de-sas-par-rapport-à-r" id="toc-spécificités-de-sas-par-rapport-à-r" class="nav-link" data-scroll-target="#spécificités-de-sas-par-rapport-à-r"><span class="header-section-number">2.2</span> Spécificités de SAS par rapport à R</a></li>
-  <li><a href="#avantages-et-inconvénients-des-environnements-r" id="toc-avantages-et-inconvénients-des-environnements-r" class="nav-link" data-scroll-target="#avantages-et-inconvénients-des-environnements-r"><span class="header-section-number">2.3</span> Avantages et inconvénients des environnements R</a>
-  <ul class="collapse">
-  <li><a href="#r-base" id="toc-r-base" class="nav-link" data-scroll-target="#r-base"><span class="header-section-number">2.3.1</span> R Base</a></li>
-  <li><a href="#tidyverse" id="toc-tidyverse" class="nav-link" data-scroll-target="#tidyverse"><span class="header-section-number">2.3.2</span> Tidyverse</a></li>
-  <li><a href="#data.table" id="toc-data.table" class="nav-link" data-scroll-target="#data.table"><span class="header-section-number">2.3.3</span> data.table</a></li>
-  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -229,7 +223,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">20 février 2024</p>
+      <p class="date">4 mars 2024</p>
     </div>
   </div>
   
@@ -1161,76 +1155,8 @@ $`2`
 <li>fonctions plutôt que macro</li>
 <li>gestion de la mémoire spécifique : shallow / deep copy, créer une colonne / une ligne pour l’exemple / Exemple de boucle inefficace / certaines façons sont +/- efficaces</li>
 </ul>
-</section>
-<section id="avantages-et-inconvénients-des-environnements-r" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="avantages-et-inconvénients-des-environnements-r"><span class="header-section-number">2.3</span> Avantages et inconvénients des environnements R</h2>
-<section id="r-base" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="r-base"><span class="header-section-number">2.3.1</span> R Base</h3>
-<section id="avantages" class="level4" data-number="2.3.1.1">
-<h4 data-number="2.3.1.1" class="anchored" data-anchor-id="avantages"><span class="header-section-number">2.3.1.1</span> Avantages :</h4>
-<ul>
-<li>absence de dépendance (ne s’appuie sur aucun package) : pas besoin d’installer un package, de gérer sa mise à jour, de craindre pour sa disparition</li>
-<li>garantit la rétrocompatibilité du code : utile dans des environnements de production</li>
-<li>dans certains cas, se révèle la solution la plus simple</li>
-<li>parfois, la seule façon de faire</li>
-</ul>
-</section>
-<section id="inconvénients" class="level4" data-number="2.3.1.2">
-<h4 data-number="2.3.1.2" class="anchored" data-anchor-id="inconvénients"><span class="header-section-number">2.3.1.2</span> Inconvénients :</h4>
-<ul>
-<li>ne permet pas de gérer des bases de données plus volumineuses que la mémoire vive</li>
-<li>syntaxe plus complexe et parfois incohérente</li>
-<li>souvent moins rapide que les autres environnements</li>
-<li>demande plus de connaissance sur le fonctionnement du langage R</li>
-<li>certaines tâches sont plus simples à traiter avec les autres environnements</li>
-</ul>
-</section>
-</section>
-<section id="tidyverse" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="tidyverse"><span class="header-section-number">2.3.2</span> Tidyverse</h3>
-<section id="avantages-1" class="level4" data-number="2.3.2.1">
-<h4 data-number="2.3.2.1" class="anchored" data-anchor-id="avantages-1"><span class="header-section-number">2.3.2.1</span> Avantages :</h4>
-<ul>
-<li>plus simple à prendre en main</li>
-<li>syntaxe plus simple que les autres environnements et cohérente</li>
-<li>largement utilisé dans la communauté R</li>
-<li>tend à s’imposer comme la référence de la gestion de données sur R</li>
-<li>syntaxe utilisée également dans les packages Arrow / DuckDb</li>
-</ul>
-</section>
-<section id="inconvénients-1" class="level4" data-number="2.3.2.2">
-<h4 data-number="2.3.2.2" class="anchored" data-anchor-id="inconvénients-1"><span class="header-section-number">2.3.2.2</span> Inconvénients :</h4>
-<ul>
-<li>ne permet pas de gérer des bases de données plus volumineuses que la mémoire vive</li>
-<li>forte dépendance : la rétrocompatibilité n’est pas assurée, potentiel problème dans un environnement de production</li>
-<li>globalement moins rapide que data.table</li>
-<li>tâches non prévues plus difficiles à réaliser</li>
-<li>certaines tâches sont plus simples à traiter avec les autres environnements</li>
-</ul>
-</section>
-</section>
-<section id="data.table" class="level3" data-number="2.3.3">
-<h3 data-number="2.3.3" class="anchored" data-anchor-id="data.table"><span class="header-section-number">2.3.3</span> data.table</h3>
-<section id="avantages-2" class="level4" data-number="2.3.3.1">
-<h4 data-number="2.3.3.1" class="anchored" data-anchor-id="avantages-2"><span class="header-section-number">2.3.3.1</span> Avantages :</h4>
-<ul>
-<li>faible dépendance : garantit une rétrocompatibilité élevée</li>
-<li>syntaxe proche du R Base</li>
-<li>plus rapide et puissant que ses concurrents</li>
-</ul>
-</section>
-<section id="inconvénients-2" class="level4" data-number="2.3.3.2">
-<h4 data-number="2.3.3.2" class="anchored" data-anchor-id="inconvénients-2"><span class="header-section-number">2.3.3.2</span> Inconvénients :</h4>
-<ul>
-<li>ne permet pas de gérer des bases de données plus volumineuses que la mémoire vive</li>
-<li>syntaxe parfois déroutante, incohérente, et peu explicite</li>
-<li>moins utilisé</li>
-<li>certaines tâches sont plus simples à traiter avec les autres environnements</li>
-</ul>
 
 
-</section>
-</section>
 </section>
 </section>
 

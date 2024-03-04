@@ -302,7 +302,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">20 février 2024</p>
+      <p class="date">4 mars 2024</p>
     </div>
   </div>
   
@@ -322,7 +322,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>arrow/duckdb</p></li>
 </ul>
 <p>Les éléments utilisés sont des codes typiques qui sont appliqués dans la production statistique ou dans la réalisation d’études descriptives.</p>
-<p>Ce document s’adresse aux utilisateurs de SAS qui veulent connaître la traduction du code SAS en R ainsi qu’aux utilisateurs de R qui ont besoin de comprendre le code SAS.</p>
+<p>Ce document s’adresse notamment aux utilisateurs de SAS qui veulent connaître la traduction du code SAS en R, aux utilisateurs de R qui ont besoin de comprendre le code SAS, ainsi qu’aux utilisateurs d’un environnement R qui sont intéressés par la traduction dans un autre environnement R.</p>
+<p>Il se veut complémentaire de la documentation en ligne en français Utilit’R, née à l’Insee (<a href="https://www.book.utilitr.org/" class="uri">https://www.book.utilitr.org/</a>). Le lecteur est invité à s’y référer pour obtenir des informations importantes sur l’utilisation de R et qui ne sont pas discutées dans ce document, comme l’importation de données en R (<a href="https://www.book.utilitr.org/03_fiches_thematiques/fiche_import_fichiers_plats" class="uri">https://www.book.utilitr.org/03_fiches_thematiques/fiche_import_fichiers_plats</a>).</p>
 <section id="importation-des-packages" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="importation-des-packages"><span class="header-section-number">1</span> Importation des packages</h2>
 </section>
@@ -574,7 +575,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>con <span class="sc">%&gt;%</span> <span class="fu">tbl</span>(<span class="st">"table_duckdb"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Source:   table&lt;table_duckdb&gt; [?? x 13]
-# Database: DuckDB v0.9.2 [unknown@Linux 6.2.0-1019-azure:R 4.2.0/:memory:]
+# Database: DuckDB v0.9.2 [unknown@Linux 6.5.0-1015-azure:R 4.2.0/:memory:]
    Identifiant Sexe_red CSP   Niveau       Date_naissance Date_entree Duree
    &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;          &lt;chr&gt;       &lt;chr&gt;
  1 173         2        1     Qualifie     17/06/1998     01/01/2021  308  
@@ -654,36 +655,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Autre possibilité</span></span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">setNames</span>(donnees_datatable, <span class="fu">tolower</span>(<span class="fu">names</span>(donnees_datatable)))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    identifiant sexe_red csp       niveau date_naissance date_entree duree
- 1:         173        2   1     Qualifie     17/06/1998  01/01/2021   308
- 2:         173        2   1     qualifie     17/06/1998  01/01/2022   365
- 3:         173        2   1     qualifie     17/06/1998  06/01/2022   185
- 4:         173        2   1 Non Qualifie     17/06/1998  02/01/2023   365
- 5:         174        1   1     qualifie     08/12/1984  17/08/2021   183
- 6:         175        1   1     qualifie     16/09/1989  21/12/2022   730
- 7:         198        2   4 Non qualifie     17/03/1987  28/07/2022    30
- 8:         198        2   4     Qualifie     17/03/1987  17/11/2022   164
- 9:         198        2   4     Qualifie     17/03/1987  21/02/2023   365
-10:         168        1   2     Qualifie     30/07/2002  04/09/2019   365
-11:         211        2   3 Non qualifie           &lt;NA&gt;  17/12/2021   135
-12:         278        1   5     Qualifie     10/08/1948  07/06/2018   365
-13:         347        2   5     Qualifie     13/09/1955        &lt;NA&gt;   180
-14:         112        1   3 Non qualifie     13/09/2001  02/03/2022   212
-15:         112        1   3 Non qualifie     13/09/2001  01/03/2021   365
-16:         112        1   3     qualifie     13/09/2001  01/12/2023   365
-17:         087        1   3 Non qualifie           &lt;NA&gt;        &lt;NA&gt;   365
-18:         087        1   3 Non qualifie           &lt;NA&gt;  31/10/2020   365
-19:         099        1   3     qualifie     06/06/1998  01/03/2021   364
-20:         099        1   3     qualifie     06/06/1998  01/03/2022   364
-21:         099        1   3     qualifie     06/06/1998  01/03/2023   364
-22:         187        2   2     qualifie     05/12/1986  01/01/2022   364
-23:         187        2   2     qualifie     05/12/1986  01/01/2023   364
-24:         689        1   1         &lt;NA&gt;     01/12/2000  06/11/2017   123
-25:         765        1   4 Non qualifie     26/12/1995  17/04/2020   160
-26:         765        1   4 Non qualifie     26/12/1995  17/04/2020   160
-27:         765        1   4 Non qualifie     26/12/1995  17/04/2020   160
-    identifiant sexe_red csp       niveau date_naissance date_entree duree
+<pre><code>    identifiant sexe_red    csp       niveau date_naissance date_entree  duree
+         &lt;char&gt;   &lt;char&gt; &lt;char&gt;       &lt;char&gt;         &lt;char&gt;      &lt;char&gt; &lt;char&gt;
+ 1:         173        2      1     Qualifie     17/06/1998  01/01/2021    308
+ 2:         173        2      1     qualifie     17/06/1998  01/01/2022    365
+ 3:         173        2      1     qualifie     17/06/1998  06/01/2022    185
+ 4:         173        2      1 Non Qualifie     17/06/1998  02/01/2023    365
+ 5:         174        1      1     qualifie     08/12/1984  17/08/2021    183
+ 6:         175        1      1     qualifie     16/09/1989  21/12/2022    730
+ 7:         198        2      4 Non qualifie     17/03/1987  28/07/2022     30
+ 8:         198        2      4     Qualifie     17/03/1987  17/11/2022    164
+ 9:         198        2      4     Qualifie     17/03/1987  21/02/2023    365
+10:         168        1      2     Qualifie     30/07/2002  04/09/2019    365
+11:         211        2      3 Non qualifie           &lt;NA&gt;  17/12/2021    135
+12:         278        1      5     Qualifie     10/08/1948  07/06/2018    365
+13:         347        2      5     Qualifie     13/09/1955        &lt;NA&gt;    180
+14:         112        1      3 Non qualifie     13/09/2001  02/03/2022    212
+15:         112        1      3 Non qualifie     13/09/2001  01/03/2021    365
+16:         112        1      3     qualifie     13/09/2001  01/12/2023    365
+17:         087        1      3 Non qualifie           &lt;NA&gt;        &lt;NA&gt;    365
+18:         087        1      3 Non qualifie           &lt;NA&gt;  31/10/2020    365
+19:         099        1      3     qualifie     06/06/1998  01/03/2021    364
+20:         099        1      3     qualifie     06/06/1998  01/03/2022    364
+21:         099        1      3     qualifie     06/06/1998  01/03/2023    364
+22:         187        2      2     qualifie     05/12/1986  01/01/2022    364
+23:         187        2      2     qualifie     05/12/1986  01/01/2023    364
+24:         689        1      1         &lt;NA&gt;     01/12/2000  06/11/2017    123
+25:         765        1      4 Non qualifie     26/12/1995  17/04/2020    160
+26:         765        1      4 Non qualifie     26/12/1995  17/04/2020    160
+27:         765        1      4 Non qualifie     26/12/1995  17/04/2020    160
+    identifiant sexe_red    csp       niveau date_naissance date_entree  duree
     note_contenu note_formateur note_moyens note_accompagnement note_materiel
+          &lt;char&gt;         &lt;char&gt;      &lt;char&gt;              &lt;char&gt;        &lt;char&gt;
  1:           12              6          17                   4            19
  2:            6           &lt;NA&gt;          12                   7            14
  3:            8             10          11                   1             9
@@ -713,6 +716,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 27:           13             10          12                  18            10
     note_contenu note_formateur note_moyens note_accompagnement note_materiel
     poids_sondage
+           &lt;char&gt;
  1:         117.1
  2:          98.3
  3:         214.6
@@ -870,7 +874,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(enDate, Duree, Note_Contenu)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Source:   SQL [?? x 4]
-# Database: DuckDB v0.9.2 [unknown@Linux 6.2.0-1019-azure:R 4.2.0/:memory:]
+# Database: DuckDB v0.9.2 [unknown@Linux 6.5.0-1015-azure:R 4.2.0/:memory:]
    Date_naissance Date_entree Duree Note_Contenu
    &lt;date&gt;         &lt;date&gt;      &lt;int&gt;        &lt;int&gt;
  1 1998-06-17     2021-01-01    308           12
@@ -987,7 +991,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>requete_duckdb <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">sexe=</span>Sexe_red)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Source:   SQL [?? x 13]
-# Database: DuckDB v0.9.2 [unknown@Linux 6.2.0-1019-azure:R 4.2.0/:memory:]
+# Database: DuckDB v0.9.2 [unknown@Linux 6.5.0-1015-azure:R 4.2.0/:memory:]
    Identifiant sexe  CSP   Niveau  Date_naissance Date_entree Duree Note_Contenu
    &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;          &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;       
  1 173         2     1     Qualif… 17/06/1998     01/01/2021  308   12          
@@ -1057,7 +1061,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>requete_duckdb <span class="sc">%&gt;%</span> <span class="fu">count</span>() <span class="co"># retourne 27</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Source:   SQL [1 x 1]
-# Database: DuckDB v0.9.2 [unknown@Linux 6.2.0-1019-azure:R 4.2.0/:memory:]
+# Database: DuckDB v0.9.2 [unknown@Linux 6.5.0-1015-azure:R 4.2.0/:memory:]
       n
   &lt;dbl&gt;
 1    27</code></pre>
@@ -1151,7 +1155,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(note2)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Source:   SQL [?? x 1]
-# Database: DuckDB v0.9.2 [unknown@Linux 6.2.0-1019-azure:R 4.2.0/:memory:]
+# Database: DuckDB v0.9.2 [unknown@Linux 6.5.0-1015-azure:R 4.2.0/:memory:]
    note2
    &lt;dbl&gt;
  1  3   
@@ -1175,7 +1179,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Source:   SQL [?? x 1]
-# Database: DuckDB v0.9.2 [unknown@Linux 6.2.0-1019-azure:R 4.2.0/:memory:]
+# Database: DuckDB v0.9.2 [unknown@Linux 6.5.0-1015-azure:R 4.2.0/:memory:]
      age
    &lt;dbl&gt;
  1    22
@@ -1225,7 +1229,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>requete_duckdb <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span> CSP, <span class="sc">-</span><span class="fu">contains</span>(<span class="st">"Date"</span>), <span class="sc">-</span><span class="fu">starts_with</span>(<span class="st">"Note"</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Source:   SQL [?? x 5]
-# Database: DuckDB v0.9.2 [unknown@Linux 6.2.0-1019-azure:R 4.2.0/:memory:]
+# Database: DuckDB v0.9.2 [unknown@Linux 6.5.0-1015-azure:R 4.2.0/:memory:]
    Identifiant Sexe_red Niveau       Duree poids_sondage
    &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;        
  1 173         2        Qualifie     308   117.1        
@@ -1314,7 +1318,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb90-13"><a href="#cb90-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Sexe_red, sexef, CSP, cspf)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Source:   SQL [?? x 4]
-# Database: DuckDB v0.9.2 [unknown@Linux 6.2.0-1019-azure:R 4.2.0/:memory:]
+# Database: DuckDB v0.9.2 [unknown@Linux 6.5.0-1015-azure:R 4.2.0/:memory:]
    Sexe_red sexef CSP   cspf                    
    &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;                   
  1 2        Femme 1     Cadre                   
@@ -1388,7 +1392,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb96-8"><a href="#cb96-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age, agef)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Source:   SQL [?? x 2]
-# Database: DuckDB v0.9.2 [unknown@Linux 6.2.0-1019-azure:R 4.2.0/:memory:]
+# Database: DuckDB v0.9.2 [unknown@Linux 6.5.0-1015-azure:R 4.2.0/:memory:]
      age agef             
    &lt;dbl&gt; &lt;chr&gt;            
  1    22 1. De 15 à 25 ans
@@ -1442,7 +1446,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb101"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a>requete_duckdb <span class="sc">%&gt;%</span> <span class="fu">select</span>(Identifiant, CSP, <span class="fu">starts_with</span>(<span class="st">"NI"</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Source:   SQL [?? x 3]
-# Database: DuckDB v0.9.2 [unknown@Linux 6.2.0-1019-azure:R 4.2.0/:memory:]
+# Database: DuckDB v0.9.2 [unknown@Linux 6.5.0-1015-azure:R 4.2.0/:memory:]
    Identifiant CSP   Niveau      
    &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;       
  1 173         1     Qualifie    
@@ -1491,7 +1495,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a>requete_duckdb <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Sexe_red<span class="sc">==</span><span class="dv">2</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Source:   SQL [?? x 13]
-# Database: DuckDB v0.9.2 [unknown@Linux 6.2.0-1019-azure:R 4.2.0/:memory:]
+# Database: DuckDB v0.9.2 [unknown@Linux 6.5.0-1015-azure:R 4.2.0/:memory:]
    Identifiant Sexe_red CSP   Niveau       Date_naissance Date_entree Duree
    &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;          &lt;chr&gt;       &lt;chr&gt;
  1 173         2        1     Qualifie     17/06/1998     01/01/2021  308  
@@ -1565,7 +1569,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb112-5"><a href="#cb112-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(mois, Date_entree)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Source:   SQL [?? x 2]
-# Database: DuckDB v0.9.2 [unknown@Linux 6.2.0-1019-azure:R 4.2.0/:memory:]
+# Database: DuckDB v0.9.2 [unknown@Linux 6.5.0-1015-azure:R 4.2.0/:memory:]
    mois  Date_entree
    &lt;chr&gt; &lt;date&gt;     
  1 01    2021-01-01 
@@ -1655,7 +1659,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb120-3"><a href="#cb120-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"Note"</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Source:   SQL [?? x 5]
-# Database: DuckDB v0.9.2 [unknown@Linux 6.2.0-1019-azure:R 4.2.0/:memory:]
+# Database: DuckDB v0.9.2 [unknown@Linux 6.5.0-1015-azure:R 4.2.0/:memory:]
    Note_Contenu Note_Formateur Note_Moyens Note_Accompagnement Note_Materiel
           &lt;dbl&gt;          &lt;dbl&gt;       &lt;dbl&gt;               &lt;dbl&gt;         &lt;dbl&gt;
  1           60             30          85                  20            95
@@ -1795,7 +1799,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb126-9"><a href="#cb126-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"poids"</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Source:   SQL [?? x 6]
-# Database: DuckDB v0.9.2 [unknown@Linux 6.2.0-1019-azure:R 4.2.0/:memory:]
+# Database: DuckDB v0.9.2 [unknown@Linux 6.5.0-1015-azure:R 4.2.0/:memory:]
    poids_sondage poids_arrondi_0 poids_arrondi_1 poids_arrondi_2 poids_floor
    &lt;chr&gt;                   &lt;dbl&gt;           &lt;dbl&gt;           &lt;dbl&gt;       &lt;dbl&gt;
  1 117.1                     117           117.              120         117
@@ -1867,7 +1871,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb132-4"><a href="#cb132-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Identifiant, Date_entree, <span class="fu">everything</span>())</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Source:   SQL [?? x 13]
-# Database: DuckDB v0.9.2 [unknown@Linux 6.2.0-1019-azure:R 4.2.0/:memory:]
+# Database: DuckDB v0.9.2 [unknown@Linux 6.5.0-1015-azure:R 4.2.0/:memory:]
    Identifiant Date_entree Sexe_red CSP   Niveau       Date_naissance Duree
    &lt;chr&gt;       &lt;date&gt;      &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;        &lt;date&gt;         &lt;chr&gt;
  1 173         2021-01-01  2        1     Qualifie     1998-06-17     308  
@@ -1890,7 +1894,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb134-3"><a href="#cb134-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(Identifiant, Date_entree)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Source:   SQL [?? x 13]
-# Database: DuckDB v0.9.2 [unknown@Linux 6.2.0-1019-azure:R 4.2.0/:memory:]
+# Database: DuckDB v0.9.2 [unknown@Linux 6.5.0-1015-azure:R 4.2.0/:memory:]
    Identifiant Date_entree Sexe_red CSP   Niveau       Date_naissance Duree
    &lt;chr&gt;       &lt;date&gt;      &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;        &lt;date&gt;         &lt;chr&gt;
  1 173         2021-01-01  2        1     Qualifie     1998-06-17     308  
@@ -1962,7 +1966,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb141-4"><a href="#cb141-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Identifiant, Date_entree) <span class="sc">%&gt;%</span> <span class="fu">select</span>(Identifiant, Date_entree, Note_Contenu)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Source:     SQL [?? x 3]
-# Database:   DuckDB v0.9.2 [unknown@Linux 6.2.0-1019-azure:R 4.2.0/:memory:]
+# Database:   DuckDB v0.9.2 [unknown@Linux 6.5.0-1015-azure:R 4.2.0/:memory:]
 # Ordered by: Identifiant, Date_entree
    Identifiant Date_entree Note_Contenu
    &lt;chr&gt;       &lt;date&gt;      &lt;chr&gt;       
@@ -1984,7 +1988,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb143-4"><a href="#cb143-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Identifiant, <span class="fu">desc</span>(Date_entree)) <span class="sc">%&gt;%</span> <span class="fu">select</span>(Identifiant, Date_entree, Note_Contenu)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Source:     SQL [?? x 3]
-# Database:   DuckDB v0.9.2 [unknown@Linux 6.2.0-1019-azure:R 4.2.0/:memory:]
+# Database:   DuckDB v0.9.2 [unknown@Linux 6.5.0-1015-azure:R 4.2.0/:memory:]
 # Ordered by: Identifiant, desc(Date_entree)
    Identifiant Date_entree Note_Contenu
    &lt;chr&gt;       &lt;date&gt;      &lt;chr&gt;       
@@ -2050,7 +2054,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb149-2"><a href="#cb149-2" aria-hidden="true" tabindex="-1"></a>requete_duckdb <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Identifiant, Note_Contenu) <span class="sc">%&gt;%</span> <span class="fu">select</span>(Identifiant, Note_Contenu)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Source:     SQL [?? x 2]
-# Database:   DuckDB v0.9.2 [unknown@Linux 6.2.0-1019-azure:R 4.2.0/:memory:]
+# Database:   DuckDB v0.9.2 [unknown@Linux 6.5.0-1015-azure:R 4.2.0/:memory:]
 # Ordered by: Identifiant, Note_Contenu
    Identifiant Note_Contenu
    &lt;chr&gt;       &lt;chr&gt;       
@@ -2071,7 +2075,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb151-3"><a href="#cb151-3" aria-hidden="true" tabindex="-1"></a>requete_duckdb <span class="sc">%&gt;%</span> <span class="fu">select</span>(Identifiant, Note_Contenu) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Identifiant, <span class="sc">!</span> <span class="fu">is.na</span>(Note_Contenu), Note_Contenu) </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Source:     SQL [?? x 2]
-# Database:   DuckDB v0.9.2 [unknown@Linux 6.2.0-1019-azure:R 4.2.0/:memory:]
+# Database:   DuckDB v0.9.2 [unknown@Linux 6.5.0-1015-azure:R 4.2.0/:memory:]
 # Ordered by: Identifiant, !is.na(Note_Contenu), Note_Contenu
    Identifiant Note_Contenu
    &lt;chr&gt;       &lt;chr&gt;       
