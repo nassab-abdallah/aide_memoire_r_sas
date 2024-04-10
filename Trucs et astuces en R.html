@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -104,6 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Recherche"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
 
 </head>
@@ -129,7 +130,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
@@ -196,10 +197,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -215,24 +216,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </div>
 
-
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Auteur·rice·s</div>
+<div class="quarto-title-meta-author column-page-right">
+  <div class="quarto-title-meta-heading">Auteur·rice·s</div>
+  <div class="quarto-title-meta-heading">Affiliations</div>
+  
     <div class="quarto-title-meta-contents">
-             <p>Nassab ABDALLAH </p>
-             <p>Damien EUZENAT </p>
-          </div>
+    <p class="author">Nassab ABDALLAH </p>
   </div>
-    
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Dares/SCS, <a href="mailto:nassab.abdallah@travail.gouv.fr" class="email">nassab.abdallah@travail.gouv.fr</a>
+          </p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Damien EUZENAT </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Dares/DIP, <a href="mailto:damien.euzenat@travail.gouv.fr" class="email">damien.euzenat@travail.gouv.fr</a>
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta column-page-right">
+
+      
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">4 mars 2024</p>
+      <p class="date">10 avril 2024</p>
     </div>
   </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modifié</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">10 avril 2024</p>
+    </div>
+  </div>
     
   </div>
   
@@ -242,7 +263,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <div class="justify">
-<p>Voici quelques trucs et astuces utiles à connaître sur R, des livres <a href="https://www.burns-stat.com/pages/Tutor/R_inferno.pdf">The R Inferno</a> et <a href="https://adv-r.hadley.nz/">Advanced R</a>, à consulter pour plus de détails.</p>
+<p>Voici quelques trucs et astuces utiles à connaître sur R, issus des livres <a href="https://www.burns-stat.com/pages/Tutor/R_inferno.pdf">The R Inferno</a> et <a href="https://adv-r.hadley.nz/">Advanced R</a>, à consulter pour plus de détails.</p>
 </div>
 <section id="trucs-et-astuces-en-r" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Trucs et astuces en R</h1>
@@ -321,15 +342,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importance des espaces</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="dv">3</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># S'agit-il de ?</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>x <span class="sc">&lt;</span> <span class="sc">-</span><span class="dv">3</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># S'agit-il de ?</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Ou de ?</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>x <span class="sc">&lt;</span> <span class="sc">-</span><span class="dv">3</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Il s'agit du premier cas !</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -905,14 +928,16 @@ Comment vas-tu ?</code></pre>
 <div class="sourceCode cell-code" id="cb184"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb184-1"><a href="#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Référence à des noms de colonne non usuels</span></span>
 <span id="cb184-2"><a href="#cb184-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">5</span>), <span class="at">y =</span> <span class="fu">runif</span>(<span class="dv">5</span>))</span>
 <span id="cb184-3"><a href="#cb184-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df) <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span></span>
-<span id="cb184-4"><a href="#cb184-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Incorrect</span></span>
-<span id="cb184-5"><a href="#cb184-5" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span><span class="dv">1</span></span>
-<span id="cb184-6"><a href="#cb184-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Correct</span></span>
-<span id="cb184-7"><a href="#cb184-7" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span><span class="st">`</span><span class="at">1</span><span class="st">`</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb184-4"><a href="#cb184-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-5"><a href="#cb184-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Correct</span></span>
+<span id="cb184-6"><a href="#cb184-6" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span><span class="st">`</span><span class="at">1</span><span class="st">`</span></span>
+<span id="cb184-7"><a href="#cb184-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-8"><a href="#cb184-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Incorrect</span></span>
+<span id="cb184-9"><a href="#cb184-9" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span><span class="dv">1</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error: &lt;text&gt;:5:4: unexpected numeric constant
-4: # Incorrect
-5: df$1
+<pre><code>Error: &lt;text&gt;:9:4: unexpected numeric constant
+8: # Incorrect
+9: df$1
       ^</code></pre>
 </div>
 </div>
@@ -935,16 +960,9 @@ Comment vas-tu ?</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb190"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb190-1"><a href="#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajouter un élément à une liste</span></span>
 <span id="cb190-2"><a href="#cb190-2" aria-hidden="true" tabindex="-1"></a>liste <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>, <span class="dv">2</span>)</span>
-<span id="cb190-3"><a href="#cb190-3" aria-hidden="true" tabindex="-1"></a>liste</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[1]]
-[1] 1
-
-[[2]]
-[1] 2</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb192"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb192-1"><a href="#cb192-1" aria-hidden="true" tabindex="-1"></a>liste <span class="ot">&lt;-</span> <span class="fu">c</span>(liste, <span class="fu">list</span>(<span class="dv">3</span>))</span>
-<span id="cb192-2"><a href="#cb192-2" aria-hidden="true" tabindex="-1"></a>liste</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb190-3"><a href="#cb190-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Il faut passer par cette syntaxe</span></span>
+<span id="cb190-4"><a href="#cb190-4" aria-hidden="true" tabindex="-1"></a>liste <span class="ot">&lt;-</span> <span class="fu">c</span>(liste, <span class="fu">list</span>(<span class="dv">3</span>))</span>
+<span id="cb190-5"><a href="#cb190-5" aria-hidden="true" tabindex="-1"></a>liste</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 [1] 1
@@ -957,9 +975,9 @@ Comment vas-tu ?</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb194"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb194-1"><a href="#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Trier une liste</span></span>
-<span id="cb194-2"><a href="#cb194-2" aria-hidden="true" tabindex="-1"></a>liste <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"2"</span> <span class="ot">=</span> <span class="dv">2</span>, <span class="st">"0"</span> <span class="ot">=</span> <span class="dv">0</span>, <span class="st">"1"</span> <span class="ot">=</span> <span class="dv">1</span>)</span>
-<span id="cb194-3"><a href="#cb194-3" aria-hidden="true" tabindex="-1"></a>liste</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb192"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb192-1"><a href="#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Trier une liste</span></span>
+<span id="cb192-2"><a href="#cb192-2" aria-hidden="true" tabindex="-1"></a>liste <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"2"</span> <span class="ot">=</span> <span class="dv">2</span>, <span class="st">"0"</span> <span class="ot">=</span> <span class="dv">0</span>, <span class="st">"1"</span> <span class="ot">=</span> <span class="dv">1</span>)</span>
+<span id="cb192-3"><a href="#cb192-3" aria-hidden="true" tabindex="-1"></a>liste</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$`2`
 [1] 2
@@ -970,7 +988,7 @@ $`0`
 $`1`
 [1] 1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb196"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb196-1"><a href="#cb196-1" aria-hidden="true" tabindex="-1"></a>liste[<span class="fu">order</span>(<span class="fu">names</span>(liste))]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb194"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb194-1"><a href="#cb194-1" aria-hidden="true" tabindex="-1"></a>liste[<span class="fu">order</span>(<span class="fu">names</span>(liste))]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$`0`
 [1] 0
@@ -983,62 +1001,62 @@ $`2`
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb198"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb198-1"><a href="#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraction de listes</span></span>
-<span id="cb198-2"><a href="#cb198-2" aria-hidden="true" tabindex="-1"></a>liste <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">nombres =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">lettres =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span>
-<span id="cb198-3"><a href="#cb198-3" aria-hidden="true" tabindex="-1"></a>liste<span class="sc">$</span>nombres</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb196"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb196-1"><a href="#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraction de listes</span></span>
+<span id="cb196-2"><a href="#cb196-2" aria-hidden="true" tabindex="-1"></a>liste <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">nombres =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">lettres =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span>
+<span id="cb196-3"><a href="#cb196-3" aria-hidden="true" tabindex="-1"></a>liste<span class="sc">$</span>nombres</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3 4 5</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb200"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb200-1"><a href="#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="co"># On veut faire appel à un élement de la liste à partir d'une variable extérieure</span></span>
-<span id="cb200-2"><a href="#cb200-2" aria-hidden="true" tabindex="-1"></a>var <span class="ot">&lt;-</span> <span class="st">"nombres"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb198"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb198-1"><a href="#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="co"># On veut faire appel à un élement de la liste à partir d'une variable extérieure</span></span>
+<span id="cb198-2"><a href="#cb198-2" aria-hidden="true" tabindex="-1"></a>var <span class="ot">&lt;-</span> <span class="st">"nombres"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb201"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb201-1"><a href="#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ne marche pas, car nombres est en caractère</span></span>
-<span id="cb201-2"><a href="#cb201-2" aria-hidden="true" tabindex="-1"></a>liste<span class="sc">$</span>var</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb199"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb199-1"><a href="#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ne marche pas, car nombres est en caractère</span></span>
+<span id="cb199-2"><a href="#cb199-2" aria-hidden="true" tabindex="-1"></a>liste<span class="sc">$</span>var</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>NULL</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb203"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb203-1"><a href="#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonctionne</span></span>
-<span id="cb203-2"><a href="#cb203-2" aria-hidden="true" tabindex="-1"></a>liste[[var]]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb201"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb201-1"><a href="#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonctionne</span></span>
+<span id="cb201-2"><a href="#cb201-2" aria-hidden="true" tabindex="-1"></a>liste[[var]]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3 4 5</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb205"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb205-1"><a href="#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sélection dans une liste</span></span>
-<span id="cb205-2"><a href="#cb205-2" aria-hidden="true" tabindex="-1"></a>liste <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">nombres =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">lettres =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span>
-<span id="cb205-3"><a href="#cb205-3" aria-hidden="true" tabindex="-1"></a>liste[<span class="st">"nombres"</span>]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb203"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb203-1"><a href="#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sélection dans une liste</span></span>
+<span id="cb203-2"><a href="#cb203-2" aria-hidden="true" tabindex="-1"></a>liste <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">nombres =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">lettres =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span>
+<span id="cb203-3"><a href="#cb203-3" aria-hidden="true" tabindex="-1"></a>liste[<span class="st">"nombres"</span>]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$nombres
 [1] 1 2 3 4 5</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb207"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb207-1"><a href="#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.list</span>(liste[<span class="st">"nombres"</span>])</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb205"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb205-1"><a href="#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.list</span>(liste[<span class="st">"nombres"</span>])</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb209"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb209-1"><a href="#cb209-1" aria-hidden="true" tabindex="-1"></a>liste[[<span class="st">"nombres"</span>]]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb207"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb207-1"><a href="#cb207-1" aria-hidden="true" tabindex="-1"></a>liste[[<span class="st">"nombres"</span>]]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3 4 5</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb211"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb211-1"><a href="#cb211-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.list</span>(liste[[<span class="st">"nombres"</span>]])</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb209"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb209-1"><a href="#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.list</span>(liste[[<span class="st">"nombres"</span>]])</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb213"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb213-1"><a href="#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Suppression des éléments d'une liste</span></span>
-<span id="cb213-2"><a href="#cb213-2" aria-hidden="true" tabindex="-1"></a>liste <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">nombres =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">lettres =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span>
-<span id="cb213-3"><a href="#cb213-3" aria-hidden="true" tabindex="-1"></a>liste[<span class="sc">-</span><span class="dv">1</span>]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb211"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb211-1"><a href="#cb211-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Suppression des éléments d'une liste</span></span>
+<span id="cb211-2"><a href="#cb211-2" aria-hidden="true" tabindex="-1"></a>liste <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">nombres =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">lettres =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span>
+<span id="cb211-3"><a href="#cb211-3" aria-hidden="true" tabindex="-1"></a>liste[<span class="sc">-</span><span class="dv">1</span>]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$lettres
 [1] "a" "b" "c" "d" "e"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb215"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb215-1"><a href="#cb215-1" aria-hidden="true" tabindex="-1"></a>liste[<span class="st">"nombres"</span>] <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb215-2"><a href="#cb215-2" aria-hidden="true" tabindex="-1"></a>liste</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb213"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb213-1"><a href="#cb213-1" aria-hidden="true" tabindex="-1"></a>liste[<span class="st">"nombres"</span>] <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb213-2"><a href="#cb213-2" aria-hidden="true" tabindex="-1"></a>liste</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$lettres
 [1] "a" "b" "c" "d" "e"</code></pre>
@@ -1048,30 +1066,30 @@ $`2`
 <section id="informations-sur-r" class="level2" data-number="1.11">
 <h2 data-number="1.11" class="anchored" data-anchor-id="informations-sur-r"><span class="header-section-number">1.11</span> Informations sur R</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb217"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb217-1"><a href="#cb217-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Informations sur la session de R</span></span>
-<span id="cb217-2"><a href="#cb217-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span>
-<span id="cb217-3"><a href="#cb217-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.info</span>()</span>
-<span id="cb217-4"><a href="#cb217-4" aria-hidden="true" tabindex="-1"></a>.Platform</span>
-<span id="cb217-5"><a href="#cb217-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb217-6"><a href="#cb217-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Version de R</span></span>
-<span id="cb217-7"><a href="#cb217-7" aria-hidden="true" tabindex="-1"></a>R.version.string</span>
-<span id="cb217-8"><a href="#cb217-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb217-9"><a href="#cb217-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Lien vers le bureau de l'utilisateur</span></span>
-<span id="cb217-10"><a href="#cb217-10" aria-hidden="true" tabindex="-1"></a><span class="fu">file.path</span>(<span class="fu">path.expand</span>(<span class="st">'~'</span>), <span class="st">"Desktop"</span>)</span>
-<span id="cb217-11"><a href="#cb217-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb217-12"><a href="#cb217-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Chemin de l'exécutable R est-il installé ?</span></span>
-<span id="cb217-13"><a href="#cb217-13" aria-hidden="true" tabindex="-1"></a><span class="fu">R.home</span>(<span class="st">"bin"</span>)</span>
-<span id="cb217-14"><a href="#cb217-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb217-15"><a href="#cb217-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Où sont installés les packages R</span></span>
-<span id="cb217-16"><a href="#cb217-16" aria-hidden="true" tabindex="-1"></a><span class="fu">.libPaths</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb215"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb215-1"><a href="#cb215-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Informations sur la session de R</span></span>
+<span id="cb215-2"><a href="#cb215-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span>
+<span id="cb215-3"><a href="#cb215-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.info</span>()</span>
+<span id="cb215-4"><a href="#cb215-4" aria-hidden="true" tabindex="-1"></a>.Platform</span>
+<span id="cb215-5"><a href="#cb215-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb215-6"><a href="#cb215-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Version de R</span></span>
+<span id="cb215-7"><a href="#cb215-7" aria-hidden="true" tabindex="-1"></a>R.version.string</span>
+<span id="cb215-8"><a href="#cb215-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb215-9"><a href="#cb215-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Lien vers le bureau de l'utilisateur</span></span>
+<span id="cb215-10"><a href="#cb215-10" aria-hidden="true" tabindex="-1"></a><span class="fu">file.path</span>(<span class="fu">path.expand</span>(<span class="st">'~'</span>), <span class="st">"Desktop"</span>)</span>
+<span id="cb215-11"><a href="#cb215-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb215-12"><a href="#cb215-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Chemin de l'exécutable R est-il installé ?</span></span>
+<span id="cb215-13"><a href="#cb215-13" aria-hidden="true" tabindex="-1"></a><span class="fu">R.home</span>(<span class="st">"bin"</span>)</span>
+<span id="cb215-14"><a href="#cb215-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb215-15"><a href="#cb215-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Où sont installés les packages R</span></span>
+<span id="cb215-16"><a href="#cb215-16" aria-hidden="true" tabindex="-1"></a><span class="fu">.libPaths</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="trucs-et-astuces-divers" class="level2" data-number="1.12">
 <h2 data-number="1.12" class="anchored" data-anchor-id="trucs-et-astuces-divers"><span class="header-section-number">1.12</span> Trucs et astuces divers</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb218"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb218-1"><a href="#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un objet sous forme de code R !</span></span>
-<span id="cb218-2"><a href="#cb218-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"cars"</span>)</span>
-<span id="cb218-3"><a href="#cb218-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dput</span>(cars)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb216"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb216-1"><a href="#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un objet sous forme de code R !</span></span>
+<span id="cb216-2"><a href="#cb216-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"cars"</span>)</span>
+<span id="cb216-3"><a href="#cb216-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dput</span>(cars)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>structure(list(speed = c(4, 4, 7, 7, 8, 9, 10, 10, 10, 11, 11, 
 12, 12, 12, 12, 13, 13, 13, 13, 14, 14, 14, 14, 15, 15, 15, 16, 
@@ -1084,16 +1102,16 @@ $`2`
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb220"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb220-1"><a href="#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Outils de debuggage</span></span>
-<span id="cb220-2"><a href="#cb220-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">error =</span> recover)</span>
-<span id="cb220-3"><a href="#cb220-3" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">error=</span><span class="cn">NULL</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb218"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb218-1"><a href="#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Outils de debuggage</span></span>
+<span id="cb218-2"><a href="#cb218-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">error =</span> recover)</span>
+<span id="cb218-3"><a href="#cb218-3" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">error=</span><span class="cn">NULL</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb221"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb221-1"><a href="#cb221-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Définir ses propres opérateurs</span></span>
-<span id="cb221-2"><a href="#cb221-2" aria-hidden="true" tabindex="-1"></a><span class="co"># R reconnait le texte entre %% comme un opérateur binaire</span></span>
-<span id="cb221-3"><a href="#cb221-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple, simplifier la fonction paste</span></span>
-<span id="cb221-4"><a href="#cb221-4" aria-hidden="true" tabindex="-1"></a><span class="st">'%+%'</span> <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) { <span class="fu">paste</span>(x, y, <span class="at">sep =</span> <span class="st">""</span>) }</span>
-<span id="cb221-5"><a href="#cb221-5" aria-hidden="true" tabindex="-1"></a><span class="st">"Groupe_"</span> <span class="sc">%+%</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">9</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb219"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb219-1"><a href="#cb219-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Définir ses propres opérateurs</span></span>
+<span id="cb219-2"><a href="#cb219-2" aria-hidden="true" tabindex="-1"></a><span class="co"># R reconnait le texte entre %% comme un opérateur binaire</span></span>
+<span id="cb219-3"><a href="#cb219-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple, simplifier la fonction paste</span></span>
+<span id="cb219-4"><a href="#cb219-4" aria-hidden="true" tabindex="-1"></a><span class="st">'%+%'</span> <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) { <span class="fu">paste</span>(x, y, <span class="at">sep =</span> <span class="st">""</span>) }</span>
+<span id="cb219-5"><a href="#cb219-5" aria-hidden="true" tabindex="-1"></a><span class="st">"Groupe_"</span> <span class="sc">%+%</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">9</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "Groupe_0" "Groupe_1" "Groupe_2" "Groupe_3" "Groupe_4" "Groupe_5"
  [7] "Groupe_6" "Groupe_7" "Groupe_8" "Groupe_9"</code></pre>
@@ -1390,6 +1408,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/nassab-abdallah\.github\.io\/aide_memoire_r_sas\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1424,7 +1467,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -1716,4 +1763,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
