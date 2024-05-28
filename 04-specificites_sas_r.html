@@ -10,7 +10,7 @@
 <meta name="author" content="Damien EUZENAT">
 <meta name="description" content="Trucs et astuces en R.">
 
-<title>Aide-mémoire SAS - R - Mise en garde</title>
+<title>Aide-mémoire SAS - R - Spécificités de SAS par rapport à R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -148,9 +148,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#spécificités-de-sas-par-rapport-à-r" id="toc-spécificités-de-sas-par-rapport-à-r" class="nav-link active" data-scroll-target="#spécificités-de-sas-par-rapport-à-r"><span class="header-section-number">1</span> Spécificités de SAS par rapport à R</a></li>
-  <li><a href="#logiciel-libre" id="toc-logiciel-libre" class="nav-link" data-scroll-target="#logiciel-libre"><span class="header-section-number">2</span> Logiciel libre</a></li>
-  <li><a href="#gestion-de-la-mémoire" id="toc-gestion-de-la-mémoire" class="nav-link" data-scroll-target="#gestion-de-la-mémoire"><span class="header-section-number">3</span> Gestion de la mémoire</a></li>
+  <li><a href="#logiciel-libre" id="toc-logiciel-libre" class="nav-link active" data-scroll-target="#logiciel-libre"><span class="header-section-number">1</span> Logiciel libre</a></li>
+  <li><a href="#gestion-de-la-mémoire" id="toc-gestion-de-la-mémoire" class="nav-link" data-scroll-target="#gestion-de-la-mémoire"><span class="header-section-number">2</span> Gestion de la mémoire</a></li>
   </ul>
 </nav>
 </nav>
@@ -163,7 +162,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Mise en garde</h1>
+<h1 class="title">Spécificités de SAS par rapport à R</h1>
   <div class="quarto-categories">
     <div class="quarto-category">R</div>
   </div>
@@ -221,8 +220,6 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="spécificités-de-sas-par-rapport-à-r" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="spécificités-de-sas-par-rapport-à-r"><span class="header-section-number">1</span> Spécificités de SAS par rapport à R</h2>
 <p>Voici une liste non-exhaustive de spécificités de SAS par rapport à R à connaître.</p>
 <table class="table">
 <colgroup>
@@ -276,9 +273,8 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-</section>
-<section id="logiciel-libre" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="logiciel-libre"><span class="header-section-number">2</span> Logiciel libre</h2>
+<section id="logiciel-libre" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="logiciel-libre"><span class="header-section-number">1</span> Logiciel libre</h2>
 <p>De par son statut de logiciel libre, de multiples extensions existent (packages). L’usage des packages :</p>
 <ul>
 <li>peut être un atout, car les packages permettent de réaliser plus facilement des choses complexes ;</li>
@@ -286,8 +282,8 @@ ul.task-list li input[type="checkbox"] {
 <li>peut engendrer des problèmes de rétrocompatibilité (un code écrit dans le passé ne fonctionne plus suite à une mise-à-jour) : il convient d’être conscient de ces considérations avant d’utiliser aveuglément des packages.</li>
 </ul>
 </section>
-<section id="gestion-de-la-mémoire" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="gestion-de-la-mémoire"><span class="header-section-number">3</span> Gestion de la mémoire</h2>
+<section id="gestion-de-la-mémoire" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="gestion-de-la-mémoire"><span class="header-section-number">2</span> Gestion de la mémoire</h2>
 <p>La gestion de la mémoire est différente entre les logiciels. R importe l’ensemble des données en mémoire vive, SAS en copie une partie sur le disque dur. Ceci a plusieurs implications pour le travail statistique :</p>
 <ul>
 <li>si le volume des données excède la mémoire vive, il n’est pas possible de les traiter nativement en R. Il faut alors utiliser des stratégies alternatives ;</li>
