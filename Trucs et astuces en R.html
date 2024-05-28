@@ -183,17 +183,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#effets-des-calculs-en-virgule-flottante" id="toc-effets-des-calculs-en-virgule-flottante" class="nav-link active" data-scroll-target="#effets-des-calculs-en-virgule-flottante"><span class="header-section-number">1</span> Effets des calculs en virgule flottante</a></li>
-  <li><a href="#les-types-dobjet" id="toc-les-types-dobjet" class="nav-link" data-scroll-target="#les-types-dobjet"><span class="header-section-number">2</span> Les types d’objet</a></li>
-  <li><a href="#les-affectations" id="toc-les-affectations" class="nav-link" data-scroll-target="#les-affectations"><span class="header-section-number">3</span> Les affectations</a></li>
-  <li><a href="#principe-de-vectorisation" id="toc-principe-de-vectorisation" class="nav-link" data-scroll-target="#principe-de-vectorisation"><span class="header-section-number">4</span> Principe de vectorisation</a></li>
-  <li><a href="#principe-de-coercion" id="toc-principe-de-coercion" class="nav-link" data-scroll-target="#principe-de-coercion"><span class="header-section-number">5</span> Principe de coercion</a></li>
-  <li><a href="#principe-de-recycling" id="toc-principe-de-recycling" class="nav-link" data-scroll-target="#principe-de-recycling"><span class="header-section-number">6</span> Principe de recycling</a></li>
-  <li><a href="#opérateurs-de-contrôle" id="toc-opérateurs-de-contrôle" class="nav-link" data-scroll-target="#opérateurs-de-contrôle"><span class="header-section-number">7</span> Opérateurs de contrôle</a></li>
-  <li><a href="#les-valeurs-manquantes" id="toc-les-valeurs-manquantes" class="nav-link" data-scroll-target="#les-valeurs-manquantes"><span class="header-section-number">8</span> Les valeurs manquantes</a></li>
-  <li><a href="#sélection-déléments" id="toc-sélection-déléments" class="nav-link" data-scroll-target="#sélection-déléments"><span class="header-section-number">9</span> Sélection d’éléments</a></li>
-  <li><a href="#les-listes" id="toc-les-listes" class="nav-link" data-scroll-target="#les-listes"><span class="header-section-number">10</span> Les listes</a></li>
-  <li><a href="#informations-sur-r" id="toc-informations-sur-r" class="nav-link" data-scroll-target="#informations-sur-r"><span class="header-section-number">11</span> Informations sur R</a></li>
-  <li><a href="#trucs-et-astuces-divers" id="toc-trucs-et-astuces-divers" class="nav-link" data-scroll-target="#trucs-et-astuces-divers"><span class="header-section-number">12</span> Trucs et astuces divers</a></li>
+  <li><a href="#les-types-dobjet" id="toc-les-types-dobjet" class="nav-link" data-scroll-target="#les-types-dobjet"><span class="header-section-number">2</span> Les types d’objet</a>
+  <ul class="collapse">
+  <li><a href="#les-affectations" id="toc-les-affectations" class="nav-link" data-scroll-target="#les-affectations"><span class="header-section-number">2.1</span> Les affectations</a></li>
+  <li><a href="#principe-de-vectorisation" id="toc-principe-de-vectorisation" class="nav-link" data-scroll-target="#principe-de-vectorisation"><span class="header-section-number">2.2</span> Principe de vectorisation</a></li>
+  <li><a href="#principe-de-coercion" id="toc-principe-de-coercion" class="nav-link" data-scroll-target="#principe-de-coercion"><span class="header-section-number">2.3</span> Principe de coercion</a></li>
+  <li><a href="#principe-de-recycling" id="toc-principe-de-recycling" class="nav-link" data-scroll-target="#principe-de-recycling"><span class="header-section-number">2.4</span> Principe de recycling</a></li>
+  <li><a href="#opérateurs-de-contrôle" id="toc-opérateurs-de-contrôle" class="nav-link" data-scroll-target="#opérateurs-de-contrôle"><span class="header-section-number">2.5</span> Opérateurs de contrôle</a></li>
+  <li><a href="#les-valeurs-manquantes" id="toc-les-valeurs-manquantes" class="nav-link" data-scroll-target="#les-valeurs-manquantes"><span class="header-section-number">2.6</span> Les valeurs manquantes</a></li>
+  <li><a href="#sélection-déléments" id="toc-sélection-déléments" class="nav-link" data-scroll-target="#sélection-déléments"><span class="header-section-number">2.7</span> Sélection d’éléments</a></li>
+  <li><a href="#les-listes" id="toc-les-listes" class="nav-link" data-scroll-target="#les-listes"><span class="header-section-number">2.8</span> Les listes</a></li>
+  <li><a href="#informations-sur-r" id="toc-informations-sur-r" class="nav-link" data-scroll-target="#informations-sur-r"><span class="header-section-number">2.9</span> Informations sur R</a></li>
+  <li><a href="#trucs-et-astuces-divers" id="toc-trucs-et-astuces-divers" class="nav-link" data-scroll-target="#trucs-et-astuces-divers"><span class="header-section-number">2.10</span> Trucs et astuces divers</a></li>
+  <li><a href="#le-pipe-sur-r" id="toc-le-pipe-sur-r" class="nav-link" data-scroll-target="#le-pipe-sur-r"><span class="header-section-number">2.11</span> Le pipe sur R</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -336,9 +339,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] "integer"</code></pre>
 </div>
 </div>
-</section>
-<section id="les-affectations" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Les affectations</h1>
+<section id="les-affectations" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="les-affectations"><span class="header-section-number">2.1</span> Les affectations</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importance des espaces</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="dv">3</span></span>
@@ -476,8 +478,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="principe-de-vectorisation" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Principe de vectorisation</h1>
+<section id="principe-de-vectorisation" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="principe-de-vectorisation"><span class="header-section-number">2.2</span> Principe de vectorisation</h2>
 <p>La fonction s’applique à tous les éléments du vecteur !!</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de vecteur</span></span>
@@ -580,8 +582,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="principe-de-coercion" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Principe de coercion</h1>
+<section id="principe-de-coercion" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="principe-de-coercion"><span class="header-section-number">2.3</span> Principe de coercion</h2>
 <p>Dans les comparaisons, les objets R sont successivement convertis en logical, integer, numeric, complex et character, jusqu’à ce que la comparaison puisse se faire.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co"># TRUE / FALSE est transformé en integer (1 / 0)</span></span>
@@ -620,8 +622,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="principe-de-recycling" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Principe de recycling</h1>
+<section id="principe-de-recycling" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="principe-de-recycling"><span class="header-section-number">2.4</span> Principe de recycling</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonctionne sans soulever de message d'erreur</span></span>
 <span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
@@ -645,8 +647,8 @@ length</code></pre>
 </div>
 </div>
 </section>
-<section id="opérateurs-de-contrôle" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Opérateurs de contrôle</h1>
+<section id="opérateurs-de-contrôle" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="opérateurs-de-contrôle"><span class="header-section-number">2.5</span> Opérateurs de contrôle</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb116"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conditions if / else</span></span>
 <span id="cb116-2"><a href="#cb116-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -755,8 +757,8 @@ Comment vas-tu ?</code></pre>
 </div>
 </div>
 </section>
-<section id="les-valeurs-manquantes" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> Les valeurs manquantes</h1>
+<section id="les-valeurs-manquantes" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="les-valeurs-manquantes"><span class="header-section-number">2.6</span> Les valeurs manquantes</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb137"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transformer les valeurs manquantes en 0</span></span>
 <span id="cb137-2"><a href="#cb137-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">X1 =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="dv">2</span>), <span class="at">X2 =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NA</span>, <span class="dv">3</span>))</span>
@@ -858,8 +860,8 @@ Comment vas-tu ?</code></pre>
 </div>
 </div>
 </section>
-<section id="sélection-déléments" class="level1" data-number="9">
-<h1 data-number="9"><span class="header-section-number">9</span> Sélection d’éléments</h1>
+<section id="sélection-déléments" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="sélection-déléments"><span class="header-section-number">2.7</span> Sélection d’éléments</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb168"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb168-1"><a href="#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Le 1er élément est numéroté 1 et non 0 comme dans Python</span></span>
 <span id="cb168-2"><a href="#cb168-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span></span>
@@ -967,8 +969,8 @@ Comment vas-tu ?</code></pre>
 </div>
 </div>
 </section>
-<section id="les-listes" class="level1" data-number="10">
-<h1 data-number="10"><span class="header-section-number">10</span> Les listes</h1>
+<section id="les-listes" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="les-listes"><span class="header-section-number">2.8</span> Les listes</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb194"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb194-1"><a href="#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajouter un élément à une liste</span></span>
 <span id="cb194-2"><a href="#cb194-2" aria-hidden="true" tabindex="-1"></a>liste <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>, <span class="dv">2</span>)</span>
@@ -1075,8 +1077,8 @@ $`2`
 </div>
 </div>
 </section>
-<section id="informations-sur-r" class="level1" data-number="11">
-<h1 data-number="11"><span class="header-section-number">11</span> Informations sur R</h1>
+<section id="informations-sur-r" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="informations-sur-r"><span class="header-section-number">2.9</span> Informations sur R</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb219"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb219-1"><a href="#cb219-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Informations sur la session de R</span></span>
 <span id="cb219-2"><a href="#cb219-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span>
@@ -1096,8 +1098,8 @@ $`2`
 <span id="cb219-16"><a href="#cb219-16" aria-hidden="true" tabindex="-1"></a><span class="fu">.libPaths</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="trucs-et-astuces-divers" class="level1" data-number="12">
-<h1 data-number="12"><span class="header-section-number">12</span> Trucs et astuces divers</h1>
+<section id="trucs-et-astuces-divers" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="trucs-et-astuces-divers"><span class="header-section-number">2.10</span> Trucs et astuces divers</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb220"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb220-1"><a href="#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un objet sous forme de code R !</span></span>
 <span id="cb220-2"><a href="#cb220-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"mtcars"</span>)</span>
@@ -1174,8 +1176,66 @@ $`2`
  [7] "Groupe_6" "Groupe_7" "Groupe_8" "Groupe_9"</code></pre>
 </div>
 </div>
+</section>
+<section id="le-pipe-sur-r" class="level2" data-number="2.11">
+<h2 data-number="2.11" class="anchored" data-anchor-id="le-pipe-sur-r"><span class="header-section-number">2.11</span> Le pipe sur R</h2>
+<p>Cet opérateur permet d’enchaîner les opérations et d’avoir un code plus lisible.</p>
+<p>Il existe différents types :</p>
+<ul>
+<li><p><strong>Le pipe de Rbase :</strong> <code>|&gt;</code></p></li>
+<li><p><strong>Le pipe du tidyverse :</strong> <code>%&gt;%</code></p></li>
+</ul>
+<p>Les deux pipes fonctionnent de la même manière mais diffèrent sur les points suivants :</p>
+<table class="table">
+<colgroup>
+<col style="width: 32%">
+<col style="width: 18%">
+<col style="width: 48%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Thème</th>
+<th><code>|&gt;</code></th>
+<th><code>%&gt;%</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Placeholder (pour indiquer où placer l’objet)</td>
+<td><p><code>_</code></p>
+<p><code>x |&gt; f(y, a = _)</code></p></td>
+<td><p><code>.</code></p>
+<p><code>x %&gt;% f(y, a = .)</code></p></td>
+</tr>
+<tr class="even">
+<td>Package</td>
+<td>Aucun : directement sur R</td>
+<td>Magrittr (pipe disponible lorsqu’on effectue <code>library(tidyverse)</code>) |</td>
+</tr>
+<tr class="odd">
+<td>Fonction</td>
+<td>Impossible</td>
+<td>Possible</td>
+</tr>
+<tr class="even">
+<td>Temps de calcul</td>
+<td>Rapide</td>
+<td>Plus lent</td>
+</tr>
+<tr class="odd">
+<td>Opérateurs</td>
+<td><code>|&gt;</code></td>
+<td><code>%&gt;%</code> <code>%&lt;&gt;%</code> <code>%$%</code> <code>%!&gt;%</code> <code>%T&gt;%</code></td>
+</tr>
+</tbody>
+</table>
+<p><em>Source</em> :</p>
+<ul>
+<li>https://larmarange.github.io/guide-R/manipulation/pipe.html#le-pipe-natif-de-r</li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
