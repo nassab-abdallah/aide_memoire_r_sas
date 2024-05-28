@@ -242,7 +242,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modifié</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">24 mai 2024</p>
+      <p class="date-modified">24 mai, 2024</p>
     </div>
   </div>
     
@@ -926,45 +926,46 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Date published</span></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "`r Sys.Date()`"</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> "05/24/2024"</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="an">output:</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co">  rmdformats::robobook:</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co">    highlight: tango</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="co">    number_sections: true</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="co">  </span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="co">  - R</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="fu"># Comment utiliser cet aide-mémoire ?</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>Sont présentés dans cet aide-mémoire des programmes statistiques courants pour la gestion de données statistiques, traduits dans les langages SAS et R (environnements <span class="in">`R-Base`</span>, <span class="in">`Tidyverse`</span> et <span class="in">`data.table`</span> et <span class="in">`Arrow/DuckDb`</span>). Ces tâches sont standards dans l'analyse statistique et réalisables en un petit nombre d'instructions.</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>Cet aide-mémoire vise à faciliter la traduction des programmes statistiques entre ces différents langages (de SAS vers R, et d'un environnement R à un autre), et leur appropriation.</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>Il est présenté sous forme de tâches élémentaires statistiques (sélection de lignes ou de colonnes d'une base de données, repérage des doublons, etc.).</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>Quatre grands environnements R sont traités : <span class="in">`R-Base`</span>, <span class="in">`Tidyverse`</span> et <span class="in">`data.table`</span> et <span class="in">`Arrow/DuckDb`</span>). Ils ne doivent pas être vus comme des concurrents, mais comme des compléments :</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>certaines tâches peuvent être plus ou moins facilement réalisées avec l'un ou l'autre ;</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>ils présentent chacun des avantages et des inconvénients ;</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>ils laissent le choix de la stratégie de codage.</span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>Ce guide est destiné à vous permettre de jongler plus facilement entre les environnements.</span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>Plusieurs solutions pour réaliser la même tâche sont proposées dans ce guide :</span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>certaines solutions peuvent être plus concises, mais moins claires ;</span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>d'autres plus ou moins rapides en fonction des données et des matériels et logiciels utilisés ;</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>certaines façons de procéder sont plus efficaces que d'autres en R, mais cela peut dépendre des données et du matériel utilisé.</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>L'attention du lecteur est attirée sur le fait que :</span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>1)  ce guide n'est pas exhaustif. Ainsi, les environnements peuvent proposer des solutions *ad-hoc* simplifiant grandement la résolution de problèmes moins courants et qui ne sont pas présents dans les autres environnements (ex. des *rolling joins* de data.table) ;</span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>2)  ce guide ne traite pas de ces stratégies, et le lecteur est invité à se documenter sur les environnements pour en savoir plus ;</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>3)  l'exercice de traduction de SAS vers R peut s'apparenter à la traduction d'un texte en langue étrangère. De même qu'une traduction littérale d'un texte en peut parfois être de mauvaise qualité, la traduction littérale d'une masse de codes SAS en codes R au moyen de cet aide-mémoire peut produire des résultats décevants. En effet, toute bonne traduction nécessite au moins *a minima* d'adapter le code SAS à une "nouvelle langue", celle de R. La partie sur les spécificités de SAS par rapport à R peut vous aider sur ce point.</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="an">date-format:</span><span class="co"> "DD MMMM, YYYY"</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> "05/24/2024"</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="an">output:</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co">  rmdformats::robobook:</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="co">    highlight: tango</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="co">    number_sections: true</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="co">  </span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="co">  - R</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="fu"># Comment utiliser cet aide-mémoire ?</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>Sont présentés dans cet aide-mémoire des programmes statistiques courants pour la gestion de données statistiques, traduits dans les langages SAS et R (environnements <span class="in">`R-Base`</span>, <span class="in">`Tidyverse`</span> et <span class="in">`data.table`</span> et <span class="in">`Arrow/DuckDb`</span>). Ces tâches sont standards dans l'analyse statistique et réalisables en un petit nombre d'instructions.</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>Cet aide-mémoire vise à faciliter la traduction des programmes statistiques entre ces différents langages (de SAS vers R, et d'un environnement R à un autre), et leur appropriation.</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>Il est présenté sous forme de tâches élémentaires statistiques (sélection de lignes ou de colonnes d'une base de données, repérage des doublons, etc.).</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>Quatre grands environnements R sont traités : <span class="in">`R-Base`</span>, <span class="in">`Tidyverse`</span> et <span class="in">`data.table`</span> et <span class="in">`Arrow/DuckDb`</span>). Ils ne doivent pas être vus comme des concurrents, mais comme des compléments :</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>certaines tâches peuvent être plus ou moins facilement réalisées avec l'un ou l'autre ;</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>ils présentent chacun des avantages et des inconvénients ;</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>ils laissent le choix de la stratégie de codage.</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>Ce guide est destiné à vous permettre de jongler plus facilement entre les environnements.</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>Plusieurs solutions pour réaliser la même tâche sont proposées dans ce guide :</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>certaines solutions peuvent être plus concises, mais moins claires ;</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>d'autres plus ou moins rapides en fonction des données et des matériels et logiciels utilisés ;</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>certaines façons de procéder sont plus efficaces que d'autres en R, mais cela peut dépendre des données et du matériel utilisé.</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>L'attention du lecteur est attirée sur le fait que :</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>1)  ce guide n'est pas exhaustif. Ainsi, les environnements peuvent proposer des solutions *ad-hoc* simplifiant grandement la résolution de problèmes moins courants et qui ne sont pas présents dans les autres environnements (ex. des *rolling joins* de data.table) ;</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>2)  ce guide ne traite pas de ces stratégies, et le lecteur est invité à se documenter sur les environnements pour en savoir plus ;</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>3)  l'exercice de traduction de SAS vers R peut s'apparenter à la traduction d'un texte en langue étrangère. De même qu'une traduction littérale d'un texte en peut parfois être de mauvaise qualité, la traduction littérale d'une masse de codes SAS en codes R au moyen de cet aide-mémoire peut produire des résultats décevants. En effet, toute bonne traduction nécessite au moins *a minima* d'adapter le code SAS à une "nouvelle langue", celle de R. La partie sur les spécificités de SAS par rapport à R peut vous aider sur ce point.</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
