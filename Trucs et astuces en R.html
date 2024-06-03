@@ -195,6 +195,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#informations-sur-r" id="toc-informations-sur-r" class="nav-link" data-scroll-target="#informations-sur-r"><span class="header-section-number">11</span> Informations sur R</a></li>
   <li><a href="#trucs-et-astuces-divers" id="toc-trucs-et-astuces-divers" class="nav-link" data-scroll-target="#trucs-et-astuces-divers"><span class="header-section-number">12</span> Trucs et astuces divers</a></li>
   <li><a href="#le-pipe-sur-r" id="toc-le-pipe-sur-r" class="nav-link" data-scroll-target="#le-pipe-sur-r"><span class="header-section-number">13</span> Le pipe sur R</a></li>
+  <li><a href="#conseils-divers" id="toc-conseils-divers" class="nav-link" data-scroll-target="#conseils-divers"><span class="header-section-number">14</span> Conseils divers</a></li>
   </ul>
 </nav>
 </nav>
@@ -247,7 +248,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">28 mai 2024</p>
+      <p class="date">3 juin 2024</p>
     </div>
   </div>
   
@@ -1232,6 +1233,17 @@ $`2`
 <ul>
 <li>https://larmarange.github.io/guide-R/manipulation/pipe.html#le-pipe-natif-de-r</li>
 </ul>
+</section>
+<section id="conseils-divers" class="level1" data-number="14">
+<h1 data-number="14"><span class="header-section-number">14</span> Conseils divers</h1>
+<p>Il est conseillé d’éviter de nommer des variables temporaires <code>var</code>, car ce nom désigne la fonction <code>R</code> permettant de calculer une variance.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb227"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb227-1"><a href="#cb227-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple : variance d'un échantillon aléatoire de 1000 observations tiré d'une loi normale centrée réduite</span></span>
+<span id="cb227-2"><a href="#cb227-2" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(<span class="fu">rnorm</span>(<span class="dv">1000</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9873478</code></pre>
+</div>
+</div>
 
 
 <!-- -->
@@ -1850,675 +1862,685 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb227" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb227-1"><a href="#cb227-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb227-2"><a href="#cb227-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Trucs et astuces en `R`"</span></span>
-<span id="cb227-3"><a href="#cb227-3" aria-hidden="true" tabindex="-1"></a><span class="an">lang :</span><span class="co"> fr</span></span>
-<span id="cb227-4"><a href="#cb227-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span></span>
-<span id="cb227-5"><a href="#cb227-5" aria-hidden="true" tabindex="-1"></a><span class="co">  - name: Nassab ABDALLAH</span></span>
-<span id="cb227-6"><a href="#cb227-6" aria-hidden="true" tabindex="-1"></a><span class="co">    affiliation: Dares/SCS, &lt;nassab.abdallah@travail.gouv.fr&gt;</span></span>
-<span id="cb227-7"><a href="#cb227-7" aria-hidden="true" tabindex="-1"></a><span class="co">  - name: Damien EUZENAT</span></span>
-<span id="cb227-8"><a href="#cb227-8" aria-hidden="true" tabindex="-1"></a><span class="co">    affiliation: Dares/DIP, &lt;damien.euzenat@travail.gouv.fr&gt;</span></span>
-<span id="cb227-9"><a href="#cb227-9" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb227-10"><a href="#cb227-10" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb227-11"><a href="#cb227-11" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb227-12"><a href="#cb227-12" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-expand: 2</span></span>
-<span id="cb227-13"><a href="#cb227-13" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: left</span></span>
-<span id="cb227-14"><a href="#cb227-14" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
-<span id="cb227-15"><a href="#cb227-15" aria-hidden="true" tabindex="-1"></a><span class="co">    code-copy: true</span></span>
-<span id="cb227-16"><a href="#cb227-16" aria-hidden="true" tabindex="-1"></a><span class="co">    smooth-scroll: true</span></span>
-<span id="cb227-17"><a href="#cb227-17" aria-hidden="true" tabindex="-1"></a><span class="co">    link-external-icon: true</span></span>
-<span id="cb227-18"><a href="#cb227-18" aria-hidden="true" tabindex="-1"></a><span class="co">    link-external-newwindow: true</span></span>
-<span id="cb227-19"><a href="#cb227-19" aria-hidden="true" tabindex="-1"></a><span class="co">    page-layout: full</span></span>
-<span id="cb227-20"><a href="#cb227-20" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb227-21"><a href="#cb227-21" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb227-22"><a href="#cb227-22" aria-hidden="true" tabindex="-1"></a><span class="co"># format : native    </span></span>
-<span id="cb227-23"><a href="#cb227-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-24"><a href="#cb227-24" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> visual</span></span>
-<span id="cb227-25"><a href="#cb227-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-26"><a href="#cb227-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary for listings and search engines</span></span>
-<span id="cb227-27"><a href="#cb227-27" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> |</span></span>
-<span id="cb227-28"><a href="#cb227-28" aria-hidden="true" tabindex="-1"></a><span class="co">  Trucs et astuces en `R`.</span></span>
-<span id="cb227-29"><a href="#cb227-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-30"><a href="#cb227-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Date published</span></span>
-<span id="cb227-31"><a href="#cb227-31" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "`r Sys.Date()`"</span></span>
-<span id="cb227-32"><a href="#cb227-32" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> "05/28/2024"</span></span>
-<span id="cb227-33"><a href="#cb227-33" aria-hidden="true" tabindex="-1"></a><span class="an">output:</span></span>
-<span id="cb227-34"><a href="#cb227-34" aria-hidden="true" tabindex="-1"></a><span class="co">  rmdformats::robobook:</span></span>
-<span id="cb227-35"><a href="#cb227-35" aria-hidden="true" tabindex="-1"></a><span class="co">    highlight: tango</span></span>
-<span id="cb227-36"><a href="#cb227-36" aria-hidden="true" tabindex="-1"></a><span class="co">    number_sections: true</span></span>
-<span id="cb227-37"><a href="#cb227-37" aria-hidden="true" tabindex="-1"></a><span class="co">  </span></span>
-<span id="cb227-38"><a href="#cb227-38" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
-<span id="cb227-39"><a href="#cb227-39" aria-hidden="true" tabindex="-1"></a><span class="co">  - R</span></span>
-<span id="cb227-40"><a href="#cb227-40" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb227-41"><a href="#cb227-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-42"><a href="#cb227-42" aria-hidden="true" tabindex="-1"></a>::: justify</span>
-<span id="cb227-43"><a href="#cb227-43" aria-hidden="true" tabindex="-1"></a>Voici quelques trucs et astuces utiles à connaître sur R, issus en partie des livres <span class="co">[</span><span class="ot">The R Inferno</span><span class="co">](https://www.burns-stat.com/pages/Tutor/R_inferno.pdf)</span> et <span class="co">[</span><span class="ot">Advanced R</span><span class="co">](https://adv-r.hadley.nz/)</span>, à consulter pour plus de détails.</span>
-<span id="cb227-44"><a href="#cb227-44" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb227-45"><a href="#cb227-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-46"><a href="#cb227-46" aria-hidden="true" tabindex="-1"></a><span class="fu"># Effets des calculs en virgule flottante</span></span>
-<span id="cb227-47"><a href="#cb227-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-48"><a href="#cb227-48" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-49"><a href="#cb227-49" aria-hidden="true" tabindex="-1"></a><span class="in">sqrt(2) ^ 2 == 2</span></span>
-<span id="cb227-50"><a href="#cb227-50" aria-hidden="true" tabindex="-1"></a><span class="in">1 / 49 * 49 == 1</span></span>
-<span id="cb227-51"><a href="#cb227-51" aria-hidden="true" tabindex="-1"></a><span class="in">.1 == .3 / 3</span></span>
-<span id="cb227-52"><a href="#cb227-52" aria-hidden="true" tabindex="-1"></a><span class="in">seq(0, 1, by=.1) == .3</span></span>
-<span id="cb227-53"><a href="#cb227-53" aria-hidden="true" tabindex="-1"></a><span class="in">unique(c(.3, .4 - .1, .5 - .2, .6 - .3, .7 - .4))</span></span>
-<span id="cb227-54"><a href="#cb227-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-55"><a href="#cb227-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-56"><a href="#cb227-56" aria-hidden="true" tabindex="-1"></a><span class="fu"># Les types d'objet</span></span>
-<span id="cb227-57"><a href="#cb227-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-58"><a href="#cb227-58" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-59"><a href="#cb227-59" aria-hidden="true" tabindex="-1"></a><span class="in"># En savoir plus sur ses données</span></span>
-<span id="cb227-60"><a href="#cb227-60" aria-hidden="true" tabindex="-1"></a><span class="in">data("cars")</span></span>
-<span id="cb227-61"><a href="#cb227-61" aria-hidden="true" tabindex="-1"></a><span class="in">typeof(cars)</span></span>
-<span id="cb227-62"><a href="#cb227-62" aria-hidden="true" tabindex="-1"></a><span class="in">class(cars)</span></span>
-<span id="cb227-63"><a href="#cb227-63" aria-hidden="true" tabindex="-1"></a><span class="in">mode(cars)</span></span>
-<span id="cb227-64"><a href="#cb227-64" aria-hidden="true" tabindex="-1"></a><span class="in">str(cars)</span></span>
-<span id="cb227-65"><a href="#cb227-65" aria-hidden="true" tabindex="-1"></a><span class="in">dim(cars)</span></span>
-<span id="cb227-66"><a href="#cb227-66" aria-hidden="true" tabindex="-1"></a><span class="in">c(is.data.frame(cars), is.list(cars), is.vector(cars), is.array(cars))</span></span>
-<span id="cb227-67"><a href="#cb227-67" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-68"><a href="#cb227-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-69"><a href="#cb227-69" aria-hidden="true" tabindex="-1"></a>Notation L</span>
-<span id="cb227-70"><a href="#cb227-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-71"><a href="#cb227-71" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-72"><a href="#cb227-72" aria-hidden="true" tabindex="-1"></a><span class="in"># Notation L : imposer à R de créer un nombre sous format "integer", pour des raisons d'efficacité</span></span>
-<span id="cb227-73"><a href="#cb227-73" aria-hidden="true" tabindex="-1"></a><span class="in">class(1)</span></span>
-<span id="cb227-74"><a href="#cb227-74" aria-hidden="true" tabindex="-1"></a><span class="in">class(1L)</span></span>
-<span id="cb227-75"><a href="#cb227-75" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-76"><a href="#cb227-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-77"><a href="#cb227-77" aria-hidden="true" tabindex="-1"></a><span class="fu"># Les affectations</span></span>
-<span id="cb227-78"><a href="#cb227-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-79"><a href="#cb227-79" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-80"><a href="#cb227-80" aria-hidden="true" tabindex="-1"></a><span class="in"># Importance des espaces</span></span>
-<span id="cb227-81"><a href="#cb227-81" aria-hidden="true" tabindex="-1"></a><span class="in">x&lt;-3</span></span>
-<span id="cb227-82"><a href="#cb227-82" aria-hidden="true" tabindex="-1"></a><span class="in"># S'agit-il de ?</span></span>
-<span id="cb227-83"><a href="#cb227-83" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- 3</span></span>
-<span id="cb227-84"><a href="#cb227-84" aria-hidden="true" tabindex="-1"></a><span class="in"># Ou de ?</span></span>
-<span id="cb227-85"><a href="#cb227-85" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt; -3</span></span>
-<span id="cb227-86"><a href="#cb227-86" aria-hidden="true" tabindex="-1"></a><span class="in"># Il s'agit du premier cas !</span></span>
-<span id="cb227-87"><a href="#cb227-87" aria-hidden="true" tabindex="-1"></a><span class="in">x</span></span>
-<span id="cb227-88"><a href="#cb227-88" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-89"><a href="#cb227-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-90"><a href="#cb227-90" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-91"><a href="#cb227-91" aria-hidden="true" tabindex="-1"></a><span class="in"># Les {} permettent de réaliser une affectation (&lt;-) au sein d'un traitement plus complexe !</span></span>
-<span id="cb227-92"><a href="#cb227-92" aria-hidden="true" tabindex="-1"></a><span class="in"># Exemple ici : sommer les positions paires multipliées par 2 et les positions impaires multipliées par 3</span></span>
-<span id="cb227-93"><a href="#cb227-93" aria-hidden="true" tabindex="-1"></a><span class="in">sum({x &lt;- 1:6 ; x[1:length(x) %% 2 == 0] &lt;- x[1:length(x) %% 2 == 0] * 2 ; x[1:length(x) %% 2 != 0] &lt;- x[1:length(x) %% 2 != 0] * 3 ; x})</span></span>
-<span id="cb227-94"><a href="#cb227-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-95"><a href="#cb227-95" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-96"><a href="#cb227-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-97"><a href="#cb227-97" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-98"><a href="#cb227-98" aria-hidden="true" tabindex="-1"></a><span class="in"># Afficher ou non la valeur de l'objet affecté pendant l'affectation</span></span>
-<span id="cb227-99"><a href="#cb227-99" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- pi</span></span>
-<span id="cb227-100"><a href="#cb227-100" aria-hidden="true" tabindex="-1"></a><span class="in">(x &lt;- pi)</span></span>
-<span id="cb227-101"><a href="#cb227-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-102"><a href="#cb227-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-103"><a href="#cb227-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-104"><a href="#cb227-104" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE, error=TRUE}</span></span>
-<span id="cb227-105"><a href="#cb227-105" aria-hidden="true" tabindex="-1"></a><span class="in"># Comparaisons multiples</span></span>
-<span id="cb227-106"><a href="#cb227-106" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- 0.5</span></span>
-<span id="cb227-107"><a href="#cb227-107" aria-hidden="true" tabindex="-1"></a><span class="in"># Correct</span></span>
-<span id="cb227-108"><a href="#cb227-108" aria-hidden="true" tabindex="-1"></a><span class="in">0 &lt; x &amp; x &lt; 1</span></span>
-<span id="cb227-109"><a href="#cb227-109" aria-hidden="true" tabindex="-1"></a><span class="in"># Incorrect</span></span>
-<span id="cb227-110"><a href="#cb227-110" aria-hidden="true" tabindex="-1"></a><span class="in">0 &lt; x &lt; 1</span></span>
-<span id="cb227-111"><a href="#cb227-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-112"><a href="#cb227-112" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-113"><a href="#cb227-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-114"><a href="#cb227-114" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-115"><a href="#cb227-115" aria-hidden="true" tabindex="-1"></a><span class="in"># Ne pas confondre !</span></span>
-<span id="cb227-116"><a href="#cb227-116" aria-hidden="true" tabindex="-1"></a><span class="in">seq(0:10)</span></span>
-<span id="cb227-117"><a href="#cb227-117" aria-hidden="true" tabindex="-1"></a><span class="in">0:10</span></span>
-<span id="cb227-118"><a href="#cb227-118" aria-hidden="true" tabindex="-1"></a><span class="in">seq(0, 10)</span></span>
-<span id="cb227-119"><a href="#cb227-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-120"><a href="#cb227-120" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-121"><a href="#cb227-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-122"><a href="#cb227-122" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-123"><a href="#cb227-123" aria-hidden="true" tabindex="-1"></a><span class="in"># Privilégier seq_len à : lorsqu'il y a un risque de 0</span></span>
-<span id="cb227-124"><a href="#cb227-124" aria-hidden="true" tabindex="-1"></a><span class="in"># Fonctionnement identique</span></span>
-<span id="cb227-125"><a href="#cb227-125" aria-hidden="true" tabindex="-1"></a><span class="in">n &lt;- 5</span></span>
-<span id="cb227-126"><a href="#cb227-126" aria-hidden="true" tabindex="-1"></a><span class="in">1:n</span></span>
-<span id="cb227-127"><a href="#cb227-127" aria-hidden="true" tabindex="-1"></a><span class="in">seq_len(n)</span></span>
-<span id="cb227-128"><a href="#cb227-128" aria-hidden="true" tabindex="-1"></a><span class="in"># Problème avec les 0</span></span>
-<span id="cb227-129"><a href="#cb227-129" aria-hidden="true" tabindex="-1"></a><span class="in">n &lt;- 0</span></span>
-<span id="cb227-130"><a href="#cb227-130" aria-hidden="true" tabindex="-1"></a><span class="in">1:n</span></span>
-<span id="cb227-131"><a href="#cb227-131" aria-hidden="true" tabindex="-1"></a><span class="in">seq_len(n)</span></span>
-<span id="cb227-132"><a href="#cb227-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-133"><a href="#cb227-133" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-134"><a href="#cb227-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-135"><a href="#cb227-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-136"><a href="#cb227-136" aria-hidden="true" tabindex="-1"></a><span class="in"># Préférer seq_along à : au cas où la taille de l'objet est 0</span></span>
-<span id="cb227-137"><a href="#cb227-137" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- c() ;length(x)</span></span>
-<span id="cb227-138"><a href="#cb227-138" aria-hidden="true" tabindex="-1"></a><span class="in">for(i in 1:length(x)) print(i)</span></span>
-<span id="cb227-139"><a href="#cb227-139" aria-hidden="true" tabindex="-1"></a><span class="in">for(i in seq_along(x)) print(i)</span></span>
-<span id="cb227-140"><a href="#cb227-140" aria-hidden="true" tabindex="-1"></a><span class="in">for(i in seq(along=x)) print(i)</span></span>
-<span id="cb227-141"><a href="#cb227-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-142"><a href="#cb227-142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-143"><a href="#cb227-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-144"><a href="#cb227-144" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-145"><a href="#cb227-145" aria-hidden="true" tabindex="-1"></a><span class="in"># Equivalent des list-comprehensions de type Python en R</span></span>
-<span id="cb227-146"><a href="#cb227-146" aria-hidden="true" tabindex="-1"></a><span class="in"># Somme des entiers de 1 à 1 000 multiples de 3 ou 5, en une ligne !</span></span>
-<span id="cb227-147"><a href="#cb227-147" aria-hidden="true" tabindex="-1"></a><span class="in"># 4 manières de faire</span></span>
-<span id="cb227-148"><a href="#cb227-148" aria-hidden="true" tabindex="-1"></a><span class="in">sum({l &lt;- 1:1000 ; l[l %% 3 == 0 | l %% 5 == 0]})</span></span>
-<span id="cb227-149"><a href="#cb227-149" aria-hidden="true" tabindex="-1"></a><span class="in">sum({l &lt;- 1:1000 ; l[seq_along(l) %% 3 == 0 | seq_along(l) %% 5 == 0]})</span></span>
-<span id="cb227-150"><a href="#cb227-150" aria-hidden="true" tabindex="-1"></a><span class="in">sum(l&lt;-(1:1000)[l %% 3 == 0 | l %% 5 == 0])</span></span>
-<span id="cb227-151"><a href="#cb227-151" aria-hidden="true" tabindex="-1"></a><span class="in">sum((1:1000)[(1:1000 %% 3) == 0 | (1:1000 %% 5) == 0])</span></span>
-<span id="cb227-152"><a href="#cb227-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-153"><a href="#cb227-153" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-154"><a href="#cb227-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-155"><a href="#cb227-155" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-156"><a href="#cb227-156" aria-hidden="true" tabindex="-1"></a><span class="in"># Opérations mathématiques</span></span>
-<span id="cb227-157"><a href="#cb227-157" aria-hidden="true" tabindex="-1"></a><span class="in"># Infini</span></span>
-<span id="cb227-158"><a href="#cb227-158" aria-hidden="true" tabindex="-1"></a><span class="in">1/0</span></span>
-<span id="cb227-159"><a href="#cb227-159" aria-hidden="true" tabindex="-1"></a><span class="in"># Nan = not a number</span></span>
-<span id="cb227-160"><a href="#cb227-160" aria-hidden="true" tabindex="-1"></a><span class="in">0/0</span></span>
-<span id="cb227-161"><a href="#cb227-161" aria-hidden="true" tabindex="-1"></a><span class="in">log(-1)</span></span>
-<span id="cb227-162"><a href="#cb227-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-163"><a href="#cb227-163" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-164"><a href="#cb227-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-165"><a href="#cb227-165" aria-hidden="true" tabindex="-1"></a><span class="fu"># Principe de vectorisation</span></span>
-<span id="cb227-166"><a href="#cb227-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-167"><a href="#cb227-167" aria-hidden="true" tabindex="-1"></a>La fonction s'applique à tous les éléments du vecteur !!</span>
-<span id="cb227-168"><a href="#cb227-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-169"><a href="#cb227-169" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-170"><a href="#cb227-170" aria-hidden="true" tabindex="-1"></a><span class="in"># Exemple de vecteur</span></span>
-<span id="cb227-171"><a href="#cb227-171" aria-hidden="true" tabindex="-1"></a><span class="in">valeurs &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)</span></span>
-<span id="cb227-172"><a href="#cb227-172" aria-hidden="true" tabindex="-1"></a><span class="in">valeurs &lt;- 1:10</span></span>
-<span id="cb227-173"><a href="#cb227-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-174"><a href="#cb227-174" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-175"><a href="#cb227-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-176"><a href="#cb227-176" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-177"><a href="#cb227-177" aria-hidden="true" tabindex="-1"></a><span class="in"># Valeurs au carré</span></span>
-<span id="cb227-178"><a href="#cb227-178" aria-hidden="true" tabindex="-1"></a><span class="in">valeurs ** 2</span></span>
-<span id="cb227-179"><a href="#cb227-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-180"><a href="#cb227-180" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-181"><a href="#cb227-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-182"><a href="#cb227-182" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-183"><a href="#cb227-183" aria-hidden="true" tabindex="-1"></a><span class="in"># logarithme des valeurs</span></span>
-<span id="cb227-184"><a href="#cb227-184" aria-hidden="true" tabindex="-1"></a><span class="in">log(valeurs)</span></span>
-<span id="cb227-185"><a href="#cb227-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-186"><a href="#cb227-186" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-187"><a href="#cb227-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-188"><a href="#cb227-188" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-189"><a href="#cb227-189" aria-hidden="true" tabindex="-1"></a><span class="in"># Maximum des valeurs</span></span>
-<span id="cb227-190"><a href="#cb227-190" aria-hidden="true" tabindex="-1"></a><span class="in">max(valeurs)</span></span>
-<span id="cb227-191"><a href="#cb227-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-192"><a href="#cb227-192" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-193"><a href="#cb227-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-194"><a href="#cb227-194" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-195"><a href="#cb227-195" aria-hidden="true" tabindex="-1"></a><span class="in"># Limite des valeurs</span></span>
-<span id="cb227-196"><a href="#cb227-196" aria-hidden="true" tabindex="-1"></a><span class="in">range(valeurs)</span></span>
-<span id="cb227-197"><a href="#cb227-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-198"><a href="#cb227-198" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-199"><a href="#cb227-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-200"><a href="#cb227-200" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-201"><a href="#cb227-201" aria-hidden="true" tabindex="-1"></a><span class="in"># Correct</span></span>
-<span id="cb227-202"><a href="#cb227-202" aria-hidden="true" tabindex="-1"></a><span class="in">mean(valeurs)</span></span>
-<span id="cb227-203"><a href="#cb227-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-204"><a href="#cb227-204" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-205"><a href="#cb227-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-206"><a href="#cb227-206" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-207"><a href="#cb227-207" aria-hidden="true" tabindex="-1"></a><span class="in"># Correct</span></span>
-<span id="cb227-208"><a href="#cb227-208" aria-hidden="true" tabindex="-1"></a><span class="in">mean(c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))</span></span>
-<span id="cb227-209"><a href="#cb227-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-210"><a href="#cb227-210" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-211"><a href="#cb227-211" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-212"><a href="#cb227-212" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-213"><a href="#cb227-213" aria-hidden="true" tabindex="-1"></a><span class="in"># Inattendu</span></span>
-<span id="cb227-214"><a href="#cb227-214" aria-hidden="true" tabindex="-1"></a><span class="in">mean(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)</span></span>
-<span id="cb227-215"><a href="#cb227-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-216"><a href="#cb227-216" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-217"><a href="#cb227-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-218"><a href="#cb227-218" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-219"><a href="#cb227-219" aria-hidden="true" tabindex="-1"></a><span class="in"># Attention aux parenthèses !</span></span>
-<span id="cb227-220"><a href="#cb227-220" aria-hidden="true" tabindex="-1"></a><span class="in">n &lt;- 10</span></span>
-<span id="cb227-221"><a href="#cb227-221" aria-hidden="true" tabindex="-1"></a><span class="in"># Inattendu ! Correspond à (1-1, 2-1, 3-1, ..., 10-1)</span></span>
-<span id="cb227-222"><a href="#cb227-222" aria-hidden="true" tabindex="-1"></a><span class="in">1:n-1</span></span>
-<span id="cb227-223"><a href="#cb227-223" aria-hidden="true" tabindex="-1"></a><span class="in"># Correct</span></span>
-<span id="cb227-224"><a href="#cb227-224" aria-hidden="true" tabindex="-1"></a><span class="in">1:(n-1)</span></span>
-<span id="cb227-225"><a href="#cb227-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-226"><a href="#cb227-226" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-227"><a href="#cb227-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-228"><a href="#cb227-228" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-229"><a href="#cb227-229" aria-hidden="true" tabindex="-1"></a><span class="in"># Minimum ou maximum élément par élément</span></span>
-<span id="cb227-230"><a href="#cb227-230" aria-hidden="true" tabindex="-1"></a><span class="in">x1 &lt;- c(1, 2, 5, 6, 8)</span></span>
-<span id="cb227-231"><a href="#cb227-231" aria-hidden="true" tabindex="-1"></a><span class="in">x2 &lt;- c(4, 0, 7, 2, 1)</span></span>
-<span id="cb227-232"><a href="#cb227-232" aria-hidden="true" tabindex="-1"></a><span class="in"># Minimum : 2 possibilités</span></span>
-<span id="cb227-233"><a href="#cb227-233" aria-hidden="true" tabindex="-1"></a><span class="in">pmin(x1, x2)</span></span>
-<span id="cb227-234"><a href="#cb227-234" aria-hidden="true" tabindex="-1"></a><span class="in">mapply(min, x1, x2)</span></span>
-<span id="cb227-235"><a href="#cb227-235" aria-hidden="true" tabindex="-1"></a><span class="in"># Maximum : 2 possibilités</span></span>
-<span id="cb227-236"><a href="#cb227-236" aria-hidden="true" tabindex="-1"></a><span class="in">pmax(x1, x2)</span></span>
-<span id="cb227-237"><a href="#cb227-237" aria-hidden="true" tabindex="-1"></a><span class="in">mapply(max, x1, x2)</span></span>
-<span id="cb227-238"><a href="#cb227-238" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-239"><a href="#cb227-239" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-240"><a href="#cb227-240" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-241"><a href="#cb227-241" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-242"><a href="#cb227-242" aria-hidden="true" tabindex="-1"></a><span class="in"># Calculer (x - min) / (max - min) pour chaque élément x d'un vecteur</span></span>
-<span id="cb227-243"><a href="#cb227-243" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- c(1,2,3)</span></span>
-<span id="cb227-244"><a href="#cb227-244" aria-hidden="true" tabindex="-1"></a><span class="in">sapply(x, function(xi, mn, mx) {(xi - mn) / (mx - mn)}, mn = min(x), mx = max(x))</span></span>
-<span id="cb227-245"><a href="#cb227-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-246"><a href="#cb227-246" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-247"><a href="#cb227-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-248"><a href="#cb227-248" aria-hidden="true" tabindex="-1"></a><span class="fu"># Principe de coercion</span></span>
-<span id="cb227-249"><a href="#cb227-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-250"><a href="#cb227-250" aria-hidden="true" tabindex="-1"></a>Dans les comparaisons, les objets R sont successivement convertis en logical, integer, numeric, complex et character, jusqu'à ce que la comparaison puisse se faire.</span>
-<span id="cb227-251"><a href="#cb227-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-252"><a href="#cb227-252" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-253"><a href="#cb227-253" aria-hidden="true" tabindex="-1"></a><span class="in"># TRUE / FALSE est transformé en integer (1 / 0)</span></span>
-<span id="cb227-254"><a href="#cb227-254" aria-hidden="true" tabindex="-1"></a><span class="in">TRUE == 1</span></span>
-<span id="cb227-255"><a href="#cb227-255" aria-hidden="true" tabindex="-1"></a><span class="in">TRUE == 2</span></span>
-<span id="cb227-256"><a href="#cb227-256" aria-hidden="true" tabindex="-1"></a><span class="in">FALSE == 0</span></span>
-<span id="cb227-257"><a href="#cb227-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-258"><a href="#cb227-258" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-259"><a href="#cb227-259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-260"><a href="#cb227-260" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-261"><a href="#cb227-261" aria-hidden="true" tabindex="-1"></a><span class="in"># TRUE est convertit en character</span></span>
-<span id="cb227-262"><a href="#cb227-262" aria-hidden="true" tabindex="-1"></a><span class="in">TRUE == "1"</span></span>
-<span id="cb227-263"><a href="#cb227-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-264"><a href="#cb227-264" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-265"><a href="#cb227-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-266"><a href="#cb227-266" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-267"><a href="#cb227-267" aria-hidden="true" tabindex="-1"></a><span class="in"># 5 est convertit en character</span></span>
-<span id="cb227-268"><a href="#cb227-268" aria-hidden="true" tabindex="-1"></a><span class="in">5 &lt; '7'</span></span>
-<span id="cb227-269"><a href="#cb227-269" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-270"><a href="#cb227-270" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-271"><a href="#cb227-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-272"><a href="#cb227-272" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-273"><a href="#cb227-273" aria-hidden="true" tabindex="-1"></a><span class="in"># 50 est convertit en character</span></span>
-<span id="cb227-274"><a href="#cb227-274" aria-hidden="true" tabindex="-1"></a><span class="in">50 &lt; '7'</span></span>
-<span id="cb227-275"><a href="#cb227-275" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-276"><a href="#cb227-276" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-277"><a href="#cb227-277" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-278"><a href="#cb227-278" aria-hidden="true" tabindex="-1"></a><span class="fu"># Principe de recycling</span></span>
-<span id="cb227-279"><a href="#cb227-279" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-282"><a href="#cb227-282" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb227-283"><a href="#cb227-283" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonctionne sans soulever de message d'erreur</span></span>
-<span id="cb227-284"><a href="#cb227-284" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb227-285"><a href="#cb227-285" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
-<span id="cb227-286"><a href="#cb227-286" aria-hidden="true" tabindex="-1"></a>x <span class="sc">+</span> y</span>
-<span id="cb227-287"><a href="#cb227-287" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-288"><a href="#cb227-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-291"><a href="#cb227-291" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb227-292"><a href="#cb227-292" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonctionne, mais Warning</span></span>
-<span id="cb227-293"><a href="#cb227-293" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb227-294"><a href="#cb227-294" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>)</span>
-<span id="cb227-295"><a href="#cb227-295" aria-hidden="true" tabindex="-1"></a>x <span class="sc">+</span> y</span>
-<span id="cb227-296"><a href="#cb227-296" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-297"><a href="#cb227-297" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-298"><a href="#cb227-298" aria-hidden="true" tabindex="-1"></a><span class="fu"># Opérateurs de contrôle</span></span>
-<span id="cb227-299"><a href="#cb227-299" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-300"><a href="#cb227-300" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-301"><a href="#cb227-301" aria-hidden="true" tabindex="-1"></a><span class="in"># Conditions if / else</span></span>
-<span id="cb227-302"><a href="#cb227-302" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- 1</span></span>
-<span id="cb227-303"><a href="#cb227-303" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-304"><a href="#cb227-304" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-305"><a href="#cb227-305" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-306"><a href="#cb227-306" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-307"><a href="#cb227-307" aria-hidden="true" tabindex="-1"></a><span class="in"># Correct</span></span>
-<span id="cb227-308"><a href="#cb227-308" aria-hidden="true" tabindex="-1"></a><span class="in">if (identical(x, 1)) {</span></span>
-<span id="cb227-309"><a href="#cb227-309" aria-hidden="true" tabindex="-1"></a><span class="in">print("x est égal à 1")</span></span>
-<span id="cb227-310"><a href="#cb227-310" aria-hidden="true" tabindex="-1"></a><span class="in">} else {</span></span>
-<span id="cb227-311"><a href="#cb227-311" aria-hidden="true" tabindex="-1"></a><span class="in">print("x est différent de 1")</span></span>
-<span id="cb227-312"><a href="#cb227-312" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
-<span id="cb227-313"><a href="#cb227-313" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-314"><a href="#cb227-314" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-315"><a href="#cb227-315" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-316"><a href="#cb227-316" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-317"><a href="#cb227-317" aria-hidden="true" tabindex="-1"></a><span class="in"># Correct</span></span>
-<span id="cb227-318"><a href="#cb227-318" aria-hidden="true" tabindex="-1"></a><span class="in">if (identical(x, 1)) {print("x est égal à 1")</span></span>
-<span id="cb227-319"><a href="#cb227-319" aria-hidden="true" tabindex="-1"></a><span class="in">} else {print("x est différent de 1")}</span></span>
-<span id="cb227-320"><a href="#cb227-320" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-321"><a href="#cb227-321" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-322"><a href="#cb227-322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-323"><a href="#cb227-323" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-324"><a href="#cb227-324" aria-hidden="true" tabindex="-1"></a><span class="in"># Correct</span></span>
-<span id="cb227-325"><a href="#cb227-325" aria-hidden="true" tabindex="-1"></a><span class="in">if (identical(x, 1)) print("x est égal à 1") else</span></span>
-<span id="cb227-326"><a href="#cb227-326" aria-hidden="true" tabindex="-1"></a><span class="in">print("x est différent de 1")</span></span>
-<span id="cb227-327"><a href="#cb227-327" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-328"><a href="#cb227-328" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-329"><a href="#cb227-329" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-330"><a href="#cb227-330" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-331"><a href="#cb227-331" aria-hidden="true" tabindex="-1"></a><span class="in"># Correct</span></span>
-<span id="cb227-332"><a href="#cb227-332" aria-hidden="true" tabindex="-1"></a><span class="in">if (identical(x, 1)) print("x est égal à 1") else print("x est différent de 1")</span></span>
-<span id="cb227-333"><a href="#cb227-333" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-334"><a href="#cb227-334" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-335"><a href="#cb227-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-336"><a href="#cb227-336" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE, error=TRUE}</span></span>
-<span id="cb227-337"><a href="#cb227-337" aria-hidden="true" tabindex="-1"></a><span class="in"># Incorrect</span></span>
-<span id="cb227-338"><a href="#cb227-338" aria-hidden="true" tabindex="-1"></a><span class="in">if (identical(x, 1)) print("x est égal à 1")</span></span>
-<span id="cb227-339"><a href="#cb227-339" aria-hidden="true" tabindex="-1"></a><span class="in">else print("x est différent de 1")</span></span>
-<span id="cb227-340"><a href="#cb227-340" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-341"><a href="#cb227-341" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-342"><a href="#cb227-342" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-343"><a href="#cb227-343" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-344"><a href="#cb227-344" aria-hidden="true" tabindex="-1"></a><span class="in"># Switch</span></span>
-<span id="cb227-345"><a href="#cb227-345" aria-hidden="true" tabindex="-1"></a><span class="in"># Fonctions et conditions if / else</span></span>
-<span id="cb227-346"><a href="#cb227-346" aria-hidden="true" tabindex="-1"></a><span class="in">condition &lt;- function(langue = "Français") {</span></span>
-<span id="cb227-347"><a href="#cb227-347" aria-hidden="true" tabindex="-1"></a><span class="in">if (langue == "Français") {</span></span>
-<span id="cb227-348"><a href="#cb227-348" aria-hidden="true" tabindex="-1"></a><span class="in">"salut"</span></span>
-<span id="cb227-349"><a href="#cb227-349" aria-hidden="true" tabindex="-1"></a><span class="in">} else if (langue == "Anglais") {</span></span>
-<span id="cb227-350"><a href="#cb227-350" aria-hidden="true" tabindex="-1"></a><span class="in">"hello"</span></span>
-<span id="cb227-351"><a href="#cb227-351" aria-hidden="true" tabindex="-1"></a><span class="in">} else if (langue == "Russe") {</span></span>
-<span id="cb227-352"><a href="#cb227-352" aria-hidden="true" tabindex="-1"></a><span class="in">"привет"</span></span>
-<span id="cb227-353"><a href="#cb227-353" aria-hidden="true" tabindex="-1"></a><span class="in">} else {</span></span>
-<span id="cb227-354"><a href="#cb227-354" aria-hidden="true" tabindex="-1"></a><span class="in">stop("salut")</span></span>
-<span id="cb227-355"><a href="#cb227-355" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
-<span id="cb227-356"><a href="#cb227-356" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
-<span id="cb227-357"><a href="#cb227-357" aria-hidden="true" tabindex="-1"></a><span class="in">condition("Anglais")</span></span>
-<span id="cb227-358"><a href="#cb227-358" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-359"><a href="#cb227-359" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-360"><a href="#cb227-360" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-361"><a href="#cb227-361" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-362"><a href="#cb227-362" aria-hidden="true" tabindex="-1"></a><span class="in"># Autre possibilité avec switch, mais à réserver aux variables caractères !</span></span>
-<span id="cb227-363"><a href="#cb227-363" aria-hidden="true" tabindex="-1"></a><span class="in">condition &lt;- function(langue = "Français") {</span></span>
-<span id="cb227-364"><a href="#cb227-364" aria-hidden="true" tabindex="-1"></a><span class="in">switch(langue,</span></span>
-<span id="cb227-365"><a href="#cb227-365" aria-hidden="true" tabindex="-1"></a><span class="in">Français = "salut",</span></span>
-<span id="cb227-366"><a href="#cb227-366" aria-hidden="true" tabindex="-1"></a><span class="in">Anglais = "hello",</span></span>
-<span id="cb227-367"><a href="#cb227-367" aria-hidden="true" tabindex="-1"></a><span class="in">Russe = "привет",</span></span>
-<span id="cb227-368"><a href="#cb227-368" aria-hidden="true" tabindex="-1"></a><span class="in">stop("salut")</span></span>
-<span id="cb227-369"><a href="#cb227-369" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
-<span id="cb227-370"><a href="#cb227-370" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
-<span id="cb227-371"><a href="#cb227-371" aria-hidden="true" tabindex="-1"></a><span class="in">condition("Français")</span></span>
-<span id="cb227-372"><a href="#cb227-372" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-373"><a href="#cb227-373" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-374"><a href="#cb227-374" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-375"><a href="#cb227-375" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-376"><a href="#cb227-376" aria-hidden="true" tabindex="-1"></a><span class="in"># Penser au print</span></span>
-<span id="cb227-377"><a href="#cb227-377" aria-hidden="true" tabindex="-1"></a><span class="in">for(i in 1:5) i</span></span>
-<span id="cb227-378"><a href="#cb227-378" aria-hidden="true" tabindex="-1"></a><span class="in">for(i in 1:5) print(i)</span></span>
-<span id="cb227-379"><a href="#cb227-379" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-380"><a href="#cb227-380" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-381"><a href="#cb227-381" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-382"><a href="#cb227-382" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-383"><a href="#cb227-383" aria-hidden="true" tabindex="-1"></a><span class="in"># Différences print et cat</span></span>
-<span id="cb227-384"><a href="#cb227-384" aria-hidden="true" tabindex="-1"></a><span class="in">cat("Salut !\nComment vas-tu ?")</span></span>
-<span id="cb227-385"><a href="#cb227-385" aria-hidden="true" tabindex="-1"></a><span class="in">print("Salut !\nComment vas-tu ?")</span></span>
-<span id="cb227-386"><a href="#cb227-386" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-387"><a href="#cb227-387" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-388"><a href="#cb227-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-389"><a href="#cb227-389" aria-hidden="true" tabindex="-1"></a><span class="fu"># Les valeurs manquantes</span></span>
-<span id="cb227-390"><a href="#cb227-390" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-391"><a href="#cb227-391" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-392"><a href="#cb227-392" aria-hidden="true" tabindex="-1"></a><span class="in"># Transformer les valeurs manquantes en 0</span></span>
-<span id="cb227-393"><a href="#cb227-393" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- data.frame(X1 = c(1, NA, 2), X2 = c(NA, NA, 3))</span></span>
-<span id="cb227-394"><a href="#cb227-394" aria-hidden="true" tabindex="-1"></a><span class="in">x</span></span>
-<span id="cb227-395"><a href="#cb227-395" aria-hidden="true" tabindex="-1"></a><span class="in">x[is.na(x)] &lt;- 0</span></span>
-<span id="cb227-396"><a href="#cb227-396" aria-hidden="true" tabindex="-1"></a><span class="in">x</span></span>
-<span id="cb227-397"><a href="#cb227-397" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-398"><a href="#cb227-398" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-399"><a href="#cb227-399" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-400"><a href="#cb227-400" aria-hidden="true" tabindex="-1"></a><span class="in"># Pour les valeurs manquantes, toujours utiliser is.na et non ==</span></span>
-<span id="cb227-401"><a href="#cb227-401" aria-hidden="true" tabindex="-1"></a><span class="in">NA == c(3, 1, 3, NA)</span></span>
-<span id="cb227-402"><a href="#cb227-402" aria-hidden="true" tabindex="-1"></a><span class="in">is.na(c(3, 1, 3, NA))</span></span>
-<span id="cb227-403"><a href="#cb227-403" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-404"><a href="#cb227-404" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-405"><a href="#cb227-405" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-406"><a href="#cb227-406" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-407"><a href="#cb227-407" aria-hidden="true" tabindex="-1"></a><span class="in"># Utiliser %in% et non == pour vérifier une appartenance à plusieurs variables</span></span>
-<span id="cb227-408"><a href="#cb227-408" aria-hidden="true" tabindex="-1"></a><span class="in">x1 &lt;- 1:6</span></span>
-<span id="cb227-409"><a href="#cb227-409" aria-hidden="true" tabindex="-1"></a><span class="in">x1 == c(1, 5)</span></span>
-<span id="cb227-410"><a href="#cb227-410" aria-hidden="true" tabindex="-1"></a><span class="in">x1 %in% c(1, 5)</span></span>
-<span id="cb227-411"><a href="#cb227-411" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-412"><a href="#cb227-412" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-413"><a href="#cb227-413" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-414"><a href="#cb227-414" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-415"><a href="#cb227-415" aria-hidden="true" tabindex="-1"></a><span class="in"># Sélection de données en cas de valeurs manquantes</span></span>
-<span id="cb227-416"><a href="#cb227-416" aria-hidden="true" tabindex="-1"></a><span class="in">xna &lt;- c(1, NA, 3, 2, 4, 2)</span></span>
-<span id="cb227-417"><a href="#cb227-417" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-418"><a href="#cb227-418" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-419"><a href="#cb227-419" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-420"><a href="#cb227-420" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-421"><a href="#cb227-421" aria-hidden="true" tabindex="-1"></a><span class="in"># Avec ce code, les NA sont conservés</span></span>
-<span id="cb227-422"><a href="#cb227-422" aria-hidden="true" tabindex="-1"></a><span class="in">xna[xna == 2]</span></span>
-<span id="cb227-423"><a href="#cb227-423" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-424"><a href="#cb227-424" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-425"><a href="#cb227-425" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-426"><a href="#cb227-426" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-427"><a href="#cb227-427" aria-hidden="true" tabindex="-1"></a><span class="in"># Code sans les NA</span></span>
-<span id="cb227-428"><a href="#cb227-428" aria-hidden="true" tabindex="-1"></a><span class="in">xna[!is.na(xna) &amp; xna == 2]</span></span>
-<span id="cb227-429"><a href="#cb227-429" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-430"><a href="#cb227-430" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-431"><a href="#cb227-431" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-432"><a href="#cb227-432" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-433"><a href="#cb227-433" aria-hidden="true" tabindex="-1"></a><span class="in"># Code compact sans les NA</span></span>
-<span id="cb227-434"><a href="#cb227-434" aria-hidden="true" tabindex="-1"></a><span class="in">xna[which(xna == 2)]</span></span>
-<span id="cb227-435"><a href="#cb227-435" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-436"><a href="#cb227-436" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-437"><a href="#cb227-437" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-438"><a href="#cb227-438" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-439"><a href="#cb227-439" aria-hidden="true" tabindex="-1"></a><span class="in"># Incidence des NA dans le calcul de statistiques !</span></span>
-<span id="cb227-440"><a href="#cb227-440" aria-hidden="true" tabindex="-1"></a><span class="in"># Besoin de l'instruction na.rm = TRUE pour en supprimer l'incidence</span></span>
-<span id="cb227-441"><a href="#cb227-441" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- c(1, 5, 6, NA, 8)</span></span>
-<span id="cb227-442"><a href="#cb227-442" aria-hidden="true" tabindex="-1"></a><span class="in">mean(x)</span></span>
-<span id="cb227-443"><a href="#cb227-443" aria-hidden="true" tabindex="-1"></a><span class="in">mean(x, na.rm = TRUE)</span></span>
-<span id="cb227-444"><a href="#cb227-444" aria-hidden="true" tabindex="-1"></a><span class="in">max(x)</span></span>
-<span id="cb227-445"><a href="#cb227-445" aria-hidden="true" tabindex="-1"></a><span class="in">max(x, na.rm = TRUE)</span></span>
-<span id="cb227-446"><a href="#cb227-446" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-447"><a href="#cb227-447" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-448"><a href="#cb227-448" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-449"><a href="#cb227-449" aria-hidden="true" tabindex="-1"></a><span class="in"># Une moyenne de NA donne NaN (Not a Number) avec na.rm = TRUE !</span></span>
-<span id="cb227-450"><a href="#cb227-450" aria-hidden="true" tabindex="-1"></a><span class="in">mean(c(NA, NA, NA), na.rm = TRUE)</span></span>
-<span id="cb227-451"><a href="#cb227-451" aria-hidden="true" tabindex="-1"></a><span class="in"># Et donne NA avec na.rm = FALSE !</span></span>
-<span id="cb227-452"><a href="#cb227-452" aria-hidden="true" tabindex="-1"></a><span class="in">mean(c(NA, NA, NA), na.rm = FALSE)</span></span>
-<span id="cb227-453"><a href="#cb227-453" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-454"><a href="#cb227-454" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-455"><a href="#cb227-455" aria-hidden="true" tabindex="-1"></a><span class="fu"># Sélection d'éléments</span></span>
-<span id="cb227-456"><a href="#cb227-456" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-457"><a href="#cb227-457" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-458"><a href="#cb227-458" aria-hidden="true" tabindex="-1"></a><span class="in"># Le 1er élément est numéroté 1 et non 0 comme dans Python</span></span>
-<span id="cb227-459"><a href="#cb227-459" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- 1:3</span></span>
-<span id="cb227-460"><a href="#cb227-460" aria-hidden="true" tabindex="-1"></a><span class="in">x[c(0, 4)] &lt;- c(-1, 9)</span></span>
-<span id="cb227-461"><a href="#cb227-461" aria-hidden="true" tabindex="-1"></a><span class="in"># Marche !!</span></span>
-<span id="cb227-462"><a href="#cb227-462" aria-hidden="true" tabindex="-1"></a><span class="in">for(i in 0:3) print(x[i])</span></span>
-<span id="cb227-463"><a href="#cb227-463" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-464"><a href="#cb227-464" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-465"><a href="#cb227-465" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-466"><a href="#cb227-466" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-467"><a href="#cb227-467" aria-hidden="true" tabindex="-1"></a><span class="in"># Cas où les noms ne sont pas uniques</span></span>
-<span id="cb227-468"><a href="#cb227-468" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- c(a = 1, b = 2, a = 3)</span></span>
-<span id="cb227-469"><a href="#cb227-469" aria-hidden="true" tabindex="-1"></a><span class="in">x["a"]</span></span>
-<span id="cb227-470"><a href="#cb227-470" aria-hidden="true" tabindex="-1"></a><span class="in">x[names(x) %in% "a"]</span></span>
-<span id="cb227-471"><a href="#cb227-471" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-472"><a href="#cb227-472" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-473"><a href="#cb227-473" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-474"><a href="#cb227-474" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-475"><a href="#cb227-475" aria-hidden="true" tabindex="-1"></a><span class="in"># Options drop = FALSE</span></span>
-<span id="cb227-476"><a href="#cb227-476" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- data.frame(X1 = c(1,2), X2 = c(3,4), x3 = c(5,6))</span></span>
-<span id="cb227-477"><a href="#cb227-477" aria-hidden="true" tabindex="-1"></a><span class="in">is.data.frame(x[, c(1,2)])</span></span>
-<span id="cb227-478"><a href="#cb227-478" aria-hidden="true" tabindex="-1"></a><span class="in">is.data.frame(x[, c(1)])</span></span>
-<span id="cb227-479"><a href="#cb227-479" aria-hidden="true" tabindex="-1"></a><span class="in">is.data.frame(x[, c(1), drop = FALSE])</span></span>
-<span id="cb227-480"><a href="#cb227-480" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-481"><a href="#cb227-481" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-482"><a href="#cb227-482" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-483"><a href="#cb227-483" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-484"><a href="#cb227-484" aria-hidden="true" tabindex="-1"></a><span class="in"># Fonction subset</span></span>
-<span id="cb227-485"><a href="#cb227-485" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- data.frame(x1 = c(1,2), x2 = c(3,4), x3 = c(5,6))</span></span>
-<span id="cb227-486"><a href="#cb227-486" aria-hidden="true" tabindex="-1"></a><span class="in">subset(x, select = x1)</span></span>
-<span id="cb227-487"><a href="#cb227-487" aria-hidden="true" tabindex="-1"></a><span class="in">subset(x, select = -x1)</span></span>
-<span id="cb227-488"><a href="#cb227-488" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-489"><a href="#cb227-489" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-490"><a href="#cb227-490" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-491"><a href="#cb227-491" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-492"><a href="#cb227-492" aria-hidden="true" tabindex="-1"></a><span class="in"># Correct</span></span>
-<span id="cb227-493"><a href="#cb227-493" aria-hidden="true" tabindex="-1"></a><span class="in">subset(x, x1 == 1)</span></span>
-<span id="cb227-494"><a href="#cb227-494" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-495"><a href="#cb227-495" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-496"><a href="#cb227-496" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-497"><a href="#cb227-497" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-498"><a href="#cb227-498" aria-hidden="true" tabindex="-1"></a><span class="in"># Incorrect</span></span>
-<span id="cb227-499"><a href="#cb227-499" aria-hidden="true" tabindex="-1"></a><span class="in">subset(x, x1 = 1)</span></span>
-<span id="cb227-500"><a href="#cb227-500" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-501"><a href="#cb227-501" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-502"><a href="#cb227-502" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-503"><a href="#cb227-503" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE, error=TRUE}</span></span>
-<span id="cb227-504"><a href="#cb227-504" aria-hidden="true" tabindex="-1"></a><span class="in"># Référence à des noms de colonne non usuels</span></span>
-<span id="cb227-505"><a href="#cb227-505" aria-hidden="true" tabindex="-1"></a><span class="in">df &lt;- data.frame(x = rnorm(5), y = runif(5))</span></span>
-<span id="cb227-506"><a href="#cb227-506" aria-hidden="true" tabindex="-1"></a><span class="in">names(df) &lt;- 1:2</span></span>
-<span id="cb227-507"><a href="#cb227-507" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-508"><a href="#cb227-508" aria-hidden="true" tabindex="-1"></a><span class="in"># Correct</span></span>
-<span id="cb227-509"><a href="#cb227-509" aria-hidden="true" tabindex="-1"></a><span class="in">df$`1`</span></span>
-<span id="cb227-510"><a href="#cb227-510" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-511"><a href="#cb227-511" aria-hidden="true" tabindex="-1"></a><span class="in"># Incorrect</span></span>
-<span id="cb227-512"><a href="#cb227-512" aria-hidden="true" tabindex="-1"></a><span class="in">df$1</span></span>
-<span id="cb227-513"><a href="#cb227-513" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-514"><a href="#cb227-514" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-515"><a href="#cb227-515" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-516"><a href="#cb227-516" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-517"><a href="#cb227-517" aria-hidden="true" tabindex="-1"></a><span class="in"># Utilisation de assign pour assigner une valeur à un objet en le désignant sous forme caractère</span></span>
-<span id="cb227-518"><a href="#cb227-518" aria-hidden="true" tabindex="-1"></a><span class="in">assign('objet', 3:5)</span></span>
-<span id="cb227-519"><a href="#cb227-519" aria-hidden="true" tabindex="-1"></a><span class="in">objet</span></span>
-<span id="cb227-520"><a href="#cb227-520" aria-hidden="true" tabindex="-1"></a><span class="in">for(i in 1:5) assign(paste('objet', i, sep = '_'), i)</span></span>
-<span id="cb227-521"><a href="#cb227-521" aria-hidden="true" tabindex="-1"></a><span class="in">objet_5</span></span>
-<span id="cb227-522"><a href="#cb227-522" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-523"><a href="#cb227-523" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-524"><a href="#cb227-524" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-525"><a href="#cb227-525" aria-hidden="true" tabindex="-1"></a><span class="fu"># Les listes</span></span>
-<span id="cb227-526"><a href="#cb227-526" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-527"><a href="#cb227-527" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-528"><a href="#cb227-528" aria-hidden="true" tabindex="-1"></a><span class="in"># Ajouter un élément à une liste</span></span>
-<span id="cb227-529"><a href="#cb227-529" aria-hidden="true" tabindex="-1"></a><span class="in">liste &lt;- list(1, 2)</span></span>
-<span id="cb227-530"><a href="#cb227-530" aria-hidden="true" tabindex="-1"></a><span class="in"># Il faut passer par cette syntaxe</span></span>
-<span id="cb227-531"><a href="#cb227-531" aria-hidden="true" tabindex="-1"></a><span class="in">liste &lt;- c(liste, list(3))</span></span>
-<span id="cb227-532"><a href="#cb227-532" aria-hidden="true" tabindex="-1"></a><span class="in">liste</span></span>
-<span id="cb227-533"><a href="#cb227-533" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-534"><a href="#cb227-534" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-535"><a href="#cb227-535" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-536"><a href="#cb227-536" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-537"><a href="#cb227-537" aria-hidden="true" tabindex="-1"></a><span class="in"># Trier une liste</span></span>
-<span id="cb227-538"><a href="#cb227-538" aria-hidden="true" tabindex="-1"></a><span class="in">liste &lt;- list("2" = 2, "0" = 0, "1" = 1)</span></span>
-<span id="cb227-539"><a href="#cb227-539" aria-hidden="true" tabindex="-1"></a><span class="in">liste</span></span>
-<span id="cb227-540"><a href="#cb227-540" aria-hidden="true" tabindex="-1"></a><span class="in">liste[order(names(liste))]</span></span>
-<span id="cb227-541"><a href="#cb227-541" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-542"><a href="#cb227-542" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-543"><a href="#cb227-543" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-544"><a href="#cb227-544" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-545"><a href="#cb227-545" aria-hidden="true" tabindex="-1"></a><span class="in"># Extraction de listes</span></span>
-<span id="cb227-546"><a href="#cb227-546" aria-hidden="true" tabindex="-1"></a><span class="in">liste &lt;- list(nombres = 1:5, lettres = letters[1:5])</span></span>
-<span id="cb227-547"><a href="#cb227-547" aria-hidden="true" tabindex="-1"></a><span class="in">liste$nombres</span></span>
-<span id="cb227-548"><a href="#cb227-548" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-549"><a href="#cb227-549" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-550"><a href="#cb227-550" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-551"><a href="#cb227-551" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-552"><a href="#cb227-552" aria-hidden="true" tabindex="-1"></a><span class="in"># On veut faire appel à un élement de la liste à partir d'une variable extérieure</span></span>
-<span id="cb227-553"><a href="#cb227-553" aria-hidden="true" tabindex="-1"></a><span class="in">var &lt;- "nombres"</span></span>
-<span id="cb227-554"><a href="#cb227-554" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-555"><a href="#cb227-555" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-556"><a href="#cb227-556" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-557"><a href="#cb227-557" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-558"><a href="#cb227-558" aria-hidden="true" tabindex="-1"></a><span class="in"># Ne marche pas, car nombres est en caractère</span></span>
-<span id="cb227-559"><a href="#cb227-559" aria-hidden="true" tabindex="-1"></a><span class="in">liste$var</span></span>
-<span id="cb227-560"><a href="#cb227-560" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-561"><a href="#cb227-561" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-562"><a href="#cb227-562" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-563"><a href="#cb227-563" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-564"><a href="#cb227-564" aria-hidden="true" tabindex="-1"></a><span class="in"># Fonctionne</span></span>
-<span id="cb227-565"><a href="#cb227-565" aria-hidden="true" tabindex="-1"></a><span class="in">liste[[var]]</span></span>
-<span id="cb227-566"><a href="#cb227-566" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-567"><a href="#cb227-567" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-568"><a href="#cb227-568" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-569"><a href="#cb227-569" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-570"><a href="#cb227-570" aria-hidden="true" tabindex="-1"></a><span class="in"># Sélection dans une liste</span></span>
-<span id="cb227-571"><a href="#cb227-571" aria-hidden="true" tabindex="-1"></a><span class="in">liste &lt;- list(nombres = 1:5, lettres = letters[1:5])</span></span>
-<span id="cb227-572"><a href="#cb227-572" aria-hidden="true" tabindex="-1"></a><span class="in">liste["nombres"]</span></span>
-<span id="cb227-573"><a href="#cb227-573" aria-hidden="true" tabindex="-1"></a><span class="in">is.list(liste["nombres"])</span></span>
-<span id="cb227-574"><a href="#cb227-574" aria-hidden="true" tabindex="-1"></a><span class="in">liste[["nombres"]]</span></span>
-<span id="cb227-575"><a href="#cb227-575" aria-hidden="true" tabindex="-1"></a><span class="in">is.list(liste[["nombres"]])</span></span>
-<span id="cb227-576"><a href="#cb227-576" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-577"><a href="#cb227-577" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-578"><a href="#cb227-578" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-579"><a href="#cb227-579" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-580"><a href="#cb227-580" aria-hidden="true" tabindex="-1"></a><span class="in"># Suppression des éléments d'une liste</span></span>
-<span id="cb227-581"><a href="#cb227-581" aria-hidden="true" tabindex="-1"></a><span class="in">liste &lt;- list(nombres = 1:5, lettres = letters[1:5])</span></span>
-<span id="cb227-582"><a href="#cb227-582" aria-hidden="true" tabindex="-1"></a><span class="in">liste[-1]</span></span>
-<span id="cb227-583"><a href="#cb227-583" aria-hidden="true" tabindex="-1"></a><span class="in">liste["nombres"] &lt;- NULL</span></span>
-<span id="cb227-584"><a href="#cb227-584" aria-hidden="true" tabindex="-1"></a><span class="in">liste</span></span>
-<span id="cb227-585"><a href="#cb227-585" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-586"><a href="#cb227-586" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-587"><a href="#cb227-587" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-588"><a href="#cb227-588" aria-hidden="true" tabindex="-1"></a><span class="fu"># Informations sur R</span></span>
-<span id="cb227-589"><a href="#cb227-589" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-590"><a href="#cb227-590" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE, results='hide'}</span></span>
-<span id="cb227-591"><a href="#cb227-591" aria-hidden="true" tabindex="-1"></a><span class="in"># Informations sur la session de R</span></span>
-<span id="cb227-592"><a href="#cb227-592" aria-hidden="true" tabindex="-1"></a><span class="in">sessionInfo()</span></span>
-<span id="cb227-593"><a href="#cb227-593" aria-hidden="true" tabindex="-1"></a><span class="in">Sys.info()</span></span>
-<span id="cb227-594"><a href="#cb227-594" aria-hidden="true" tabindex="-1"></a><span class="in">.Platform</span></span>
-<span id="cb227-595"><a href="#cb227-595" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-596"><a href="#cb227-596" aria-hidden="true" tabindex="-1"></a><span class="in"># Version de R</span></span>
-<span id="cb227-597"><a href="#cb227-597" aria-hidden="true" tabindex="-1"></a><span class="in">R.version.string</span></span>
-<span id="cb227-598"><a href="#cb227-598" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-599"><a href="#cb227-599" aria-hidden="true" tabindex="-1"></a><span class="in"># Lien vers le bureau de l'utilisateur</span></span>
-<span id="cb227-600"><a href="#cb227-600" aria-hidden="true" tabindex="-1"></a><span class="in">file.path(path.expand('~'), "Desktop")</span></span>
-<span id="cb227-601"><a href="#cb227-601" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-602"><a href="#cb227-602" aria-hidden="true" tabindex="-1"></a><span class="in"># Chemin de l'exécutable R est-il installé ?</span></span>
-<span id="cb227-603"><a href="#cb227-603" aria-hidden="true" tabindex="-1"></a><span class="in">R.home("bin")</span></span>
-<span id="cb227-604"><a href="#cb227-604" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-605"><a href="#cb227-605" aria-hidden="true" tabindex="-1"></a><span class="in"># Où sont installés les packages R</span></span>
-<span id="cb227-606"><a href="#cb227-606" aria-hidden="true" tabindex="-1"></a><span class="in">.libPaths()</span></span>
-<span id="cb227-607"><a href="#cb227-607" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-608"><a href="#cb227-608" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-609"><a href="#cb227-609" aria-hidden="true" tabindex="-1"></a><span class="fu"># Trucs et astuces divers</span></span>
-<span id="cb227-610"><a href="#cb227-610" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-611"><a href="#cb227-611" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-612"><a href="#cb227-612" aria-hidden="true" tabindex="-1"></a><span class="in"># Créer un objet sous forme de code R !</span></span>
-<span id="cb227-613"><a href="#cb227-613" aria-hidden="true" tabindex="-1"></a><span class="in">data("mtcars")</span></span>
-<span id="cb227-614"><a href="#cb227-614" aria-hidden="true" tabindex="-1"></a><span class="in">dput(mtcars)</span></span>
-<span id="cb227-615"><a href="#cb227-615" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-616"><a href="#cb227-616" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-617"><a href="#cb227-617" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-618"><a href="#cb227-618" aria-hidden="true" tabindex="-1"></a><span class="in"># En tidyverse, la fonction tribble peut être utile pour créer des bases lignes par lignes</span></span>
-<span id="cb227-619"><a href="#cb227-619" aria-hidden="true" tabindex="-1"></a><span class="in">library(tidyverse)</span></span>
-<span id="cb227-620"><a href="#cb227-620" aria-hidden="true" tabindex="-1"></a><span class="in">tribble(</span></span>
-<span id="cb227-621"><a href="#cb227-621" aria-hidden="true" tabindex="-1"></a><span class="in">  ~x, ~y,</span></span>
-<span id="cb227-622"><a href="#cb227-622" aria-hidden="true" tabindex="-1"></a><span class="in">  "a",   1,</span></span>
-<span id="cb227-623"><a href="#cb227-623" aria-hidden="true" tabindex="-1"></a><span class="in">  "b",   2</span></span>
-<span id="cb227-624"><a href="#cb227-624" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
-<span id="cb227-625"><a href="#cb227-625" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-626"><a href="#cb227-626" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-627"><a href="#cb227-627" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-628"><a href="#cb227-628" aria-hidden="true" tabindex="-1"></a><span class="in"># Outils de debuggage</span></span>
-<span id="cb227-629"><a href="#cb227-629" aria-hidden="true" tabindex="-1"></a><span class="in">options(error = recover)</span></span>
-<span id="cb227-630"><a href="#cb227-630" aria-hidden="true" tabindex="-1"></a><span class="in">options(error=NULL)</span></span>
-<span id="cb227-631"><a href="#cb227-631" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-632"><a href="#cb227-632" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-633"><a href="#cb227-633" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-634"><a href="#cb227-634" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb227-635"><a href="#cb227-635" aria-hidden="true" tabindex="-1"></a><span class="in"># Définir ses propres opérateurs</span></span>
-<span id="cb227-636"><a href="#cb227-636" aria-hidden="true" tabindex="-1"></a><span class="in"># R reconnait le texte entre %% comme un opérateur binaire</span></span>
-<span id="cb227-637"><a href="#cb227-637" aria-hidden="true" tabindex="-1"></a><span class="in"># Exemple, simplifier la fonction paste</span></span>
-<span id="cb227-638"><a href="#cb227-638" aria-hidden="true" tabindex="-1"></a><span class="in">'%+%' &lt;- function(x, y) { paste(x, y, sep = "") }</span></span>
-<span id="cb227-639"><a href="#cb227-639" aria-hidden="true" tabindex="-1"></a><span class="in">"Groupe_" %+% 0:9</span></span>
-<span id="cb227-640"><a href="#cb227-640" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-641"><a href="#cb227-641" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb227-642"><a href="#cb227-642" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-643"><a href="#cb227-643" aria-hidden="true" tabindex="-1"></a><span class="fu"># Le pipe sur R</span></span>
-<span id="cb227-644"><a href="#cb227-644" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-645"><a href="#cb227-645" aria-hidden="true" tabindex="-1"></a>Cet opérateur permet d'enchaîner les opérations et d'avoir un code plus lisible.</span>
-<span id="cb227-646"><a href="#cb227-646" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-647"><a href="#cb227-647" aria-hidden="true" tabindex="-1"></a>Il existe différents types :</span>
-<span id="cb227-648"><a href="#cb227-648" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-649"><a href="#cb227-649" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Le pipe de Rbase :** <span class="in">`|&gt;`</span></span>
-<span id="cb227-650"><a href="#cb227-650" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-651"><a href="#cb227-651" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Le pipe du tidyverse :** <span class="in">`%&gt;%`</span></span>
-<span id="cb227-652"><a href="#cb227-652" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-653"><a href="#cb227-653" aria-hidden="true" tabindex="-1"></a>Les deux pipes fonctionnent de la même manière mais diffèrent sur les points suivants :</span>
-<span id="cb227-654"><a href="#cb227-654" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-655"><a href="#cb227-655" aria-hidden="true" tabindex="-1"></a>+-----------------------------------------------+---------------------------+-----------------------------------------------------------------------+</span>
-<span id="cb227-656"><a href="#cb227-656" aria-hidden="true" tabindex="-1"></a>| Thème                                         | <span class="in">`|&gt;`</span>                      | <span class="in">`%&gt;%`</span>                                                                 |</span>
-<span id="cb227-657"><a href="#cb227-657" aria-hidden="true" tabindex="-1"></a>+===============================================+===========================+=======================================================================+</span>
-<span id="cb227-658"><a href="#cb227-658" aria-hidden="true" tabindex="-1"></a>| Placeholder (pour indiquer où placer l'objet) | <span class="in">`_`</span>                       | <span class="in">`.`</span>                                                                   |</span>
-<span id="cb227-659"><a href="#cb227-659" aria-hidden="true" tabindex="-1"></a>|                                               |                           |                                                                       |</span>
-<span id="cb227-660"><a href="#cb227-660" aria-hidden="true" tabindex="-1"></a>|                                               | <span class="in">`x |&gt; f(y, a = _)`</span>        | <span class="in">`x %&gt;% f(y, a = .)`</span>                                                   |</span>
-<span id="cb227-661"><a href="#cb227-661" aria-hidden="true" tabindex="-1"></a>+-----------------------------------------------+---------------------------+-----------------------------------------------------------------------+</span>
-<span id="cb227-662"><a href="#cb227-662" aria-hidden="true" tabindex="-1"></a>| Package                                       | Aucun : directement sur R | Magrittr (pipe disponible lorsqu'on effectue <span class="in">`library(tidyverse)`</span>) \| |</span>
-<span id="cb227-663"><a href="#cb227-663" aria-hidden="true" tabindex="-1"></a>+-----------------------------------------------+---------------------------+-----------------------------------------------------------------------+</span>
-<span id="cb227-664"><a href="#cb227-664" aria-hidden="true" tabindex="-1"></a>| Fonction                                      | Impossible                | Possible                                                              |</span>
-<span id="cb227-665"><a href="#cb227-665" aria-hidden="true" tabindex="-1"></a>+-----------------------------------------------+---------------------------+-----------------------------------------------------------------------+</span>
-<span id="cb227-666"><a href="#cb227-666" aria-hidden="true" tabindex="-1"></a>| Temps de calcul                               | Rapide                    | Plus lent                                                             |</span>
-<span id="cb227-667"><a href="#cb227-667" aria-hidden="true" tabindex="-1"></a>+-----------------------------------------------+---------------------------+-----------------------------------------------------------------------+</span>
-<span id="cb227-668"><a href="#cb227-668" aria-hidden="true" tabindex="-1"></a>| Opérateurs                                    | <span class="in">`|&gt;`</span>                      | <span class="in">`%&gt;%`</span> <span class="in">`%&lt;&gt;%`</span> <span class="in">`%$%`</span> <span class="in">`%!&gt;%`</span> <span class="in">`%T&gt;%`</span>                                      |</span>
-<span id="cb227-669"><a href="#cb227-669" aria-hidden="true" tabindex="-1"></a>+-----------------------------------------------+---------------------------+-----------------------------------------------------------------------+</span>
-<span id="cb227-670"><a href="#cb227-670" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-671"><a href="#cb227-671" aria-hidden="true" tabindex="-1"></a>*Source* :</span>
-<span id="cb227-672"><a href="#cb227-672" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-673"><a href="#cb227-673" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>https://larmarange.github.io/guide-R/manipulation/pipe.html#le-pipe-natif-de-r</span>
+<div class="sourceCode" id="cb229" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb229-1"><a href="#cb229-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb229-2"><a href="#cb229-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Trucs et astuces en `R`"</span></span>
+<span id="cb229-3"><a href="#cb229-3" aria-hidden="true" tabindex="-1"></a><span class="an">lang :</span><span class="co"> fr</span></span>
+<span id="cb229-4"><a href="#cb229-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span></span>
+<span id="cb229-5"><a href="#cb229-5" aria-hidden="true" tabindex="-1"></a><span class="co">  - name: Nassab ABDALLAH</span></span>
+<span id="cb229-6"><a href="#cb229-6" aria-hidden="true" tabindex="-1"></a><span class="co">    affiliation: Dares/SCS, &lt;nassab.abdallah@travail.gouv.fr&gt;</span></span>
+<span id="cb229-7"><a href="#cb229-7" aria-hidden="true" tabindex="-1"></a><span class="co">  - name: Damien EUZENAT</span></span>
+<span id="cb229-8"><a href="#cb229-8" aria-hidden="true" tabindex="-1"></a><span class="co">    affiliation: Dares/DIP, &lt;damien.euzenat@travail.gouv.fr&gt;</span></span>
+<span id="cb229-9"><a href="#cb229-9" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb229-10"><a href="#cb229-10" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb229-11"><a href="#cb229-11" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb229-12"><a href="#cb229-12" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-expand: 2</span></span>
+<span id="cb229-13"><a href="#cb229-13" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: left</span></span>
+<span id="cb229-14"><a href="#cb229-14" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
+<span id="cb229-15"><a href="#cb229-15" aria-hidden="true" tabindex="-1"></a><span class="co">    code-copy: true</span></span>
+<span id="cb229-16"><a href="#cb229-16" aria-hidden="true" tabindex="-1"></a><span class="co">    smooth-scroll: true</span></span>
+<span id="cb229-17"><a href="#cb229-17" aria-hidden="true" tabindex="-1"></a><span class="co">    link-external-icon: true</span></span>
+<span id="cb229-18"><a href="#cb229-18" aria-hidden="true" tabindex="-1"></a><span class="co">    link-external-newwindow: true</span></span>
+<span id="cb229-19"><a href="#cb229-19" aria-hidden="true" tabindex="-1"></a><span class="co">    page-layout: full</span></span>
+<span id="cb229-20"><a href="#cb229-20" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb229-21"><a href="#cb229-21" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb229-22"><a href="#cb229-22" aria-hidden="true" tabindex="-1"></a><span class="co"># format : native    </span></span>
+<span id="cb229-23"><a href="#cb229-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-24"><a href="#cb229-24" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> visual</span></span>
+<span id="cb229-25"><a href="#cb229-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-26"><a href="#cb229-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary for listings and search engines</span></span>
+<span id="cb229-27"><a href="#cb229-27" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> |</span></span>
+<span id="cb229-28"><a href="#cb229-28" aria-hidden="true" tabindex="-1"></a><span class="co">  Trucs et astuces en `R`.</span></span>
+<span id="cb229-29"><a href="#cb229-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-30"><a href="#cb229-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Date published</span></span>
+<span id="cb229-31"><a href="#cb229-31" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "`r Sys.Date()`"</span></span>
+<span id="cb229-32"><a href="#cb229-32" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> "05/28/2024"</span></span>
+<span id="cb229-33"><a href="#cb229-33" aria-hidden="true" tabindex="-1"></a><span class="an">output:</span></span>
+<span id="cb229-34"><a href="#cb229-34" aria-hidden="true" tabindex="-1"></a><span class="co">  rmdformats::robobook:</span></span>
+<span id="cb229-35"><a href="#cb229-35" aria-hidden="true" tabindex="-1"></a><span class="co">    highlight: tango</span></span>
+<span id="cb229-36"><a href="#cb229-36" aria-hidden="true" tabindex="-1"></a><span class="co">    number_sections: true</span></span>
+<span id="cb229-37"><a href="#cb229-37" aria-hidden="true" tabindex="-1"></a><span class="co">  </span></span>
+<span id="cb229-38"><a href="#cb229-38" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
+<span id="cb229-39"><a href="#cb229-39" aria-hidden="true" tabindex="-1"></a><span class="co">  - R</span></span>
+<span id="cb229-40"><a href="#cb229-40" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb229-41"><a href="#cb229-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-42"><a href="#cb229-42" aria-hidden="true" tabindex="-1"></a>::: justify</span>
+<span id="cb229-43"><a href="#cb229-43" aria-hidden="true" tabindex="-1"></a>Voici quelques trucs et astuces utiles à connaître sur R, issus en partie des livres <span class="co">[</span><span class="ot">The R Inferno</span><span class="co">](https://www.burns-stat.com/pages/Tutor/R_inferno.pdf)</span> et <span class="co">[</span><span class="ot">Advanced R</span><span class="co">](https://adv-r.hadley.nz/)</span>, à consulter pour plus de détails.</span>
+<span id="cb229-44"><a href="#cb229-44" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb229-45"><a href="#cb229-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-46"><a href="#cb229-46" aria-hidden="true" tabindex="-1"></a><span class="fu"># Effets des calculs en virgule flottante</span></span>
+<span id="cb229-47"><a href="#cb229-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-48"><a href="#cb229-48" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-49"><a href="#cb229-49" aria-hidden="true" tabindex="-1"></a><span class="in">sqrt(2) ^ 2 == 2</span></span>
+<span id="cb229-50"><a href="#cb229-50" aria-hidden="true" tabindex="-1"></a><span class="in">1 / 49 * 49 == 1</span></span>
+<span id="cb229-51"><a href="#cb229-51" aria-hidden="true" tabindex="-1"></a><span class="in">.1 == .3 / 3</span></span>
+<span id="cb229-52"><a href="#cb229-52" aria-hidden="true" tabindex="-1"></a><span class="in">seq(0, 1, by=.1) == .3</span></span>
+<span id="cb229-53"><a href="#cb229-53" aria-hidden="true" tabindex="-1"></a><span class="in">unique(c(.3, .4 - .1, .5 - .2, .6 - .3, .7 - .4))</span></span>
+<span id="cb229-54"><a href="#cb229-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-55"><a href="#cb229-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-56"><a href="#cb229-56" aria-hidden="true" tabindex="-1"></a><span class="fu"># Les types d'objet</span></span>
+<span id="cb229-57"><a href="#cb229-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-58"><a href="#cb229-58" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-59"><a href="#cb229-59" aria-hidden="true" tabindex="-1"></a><span class="in"># En savoir plus sur ses données</span></span>
+<span id="cb229-60"><a href="#cb229-60" aria-hidden="true" tabindex="-1"></a><span class="in">data("cars")</span></span>
+<span id="cb229-61"><a href="#cb229-61" aria-hidden="true" tabindex="-1"></a><span class="in">typeof(cars)</span></span>
+<span id="cb229-62"><a href="#cb229-62" aria-hidden="true" tabindex="-1"></a><span class="in">class(cars)</span></span>
+<span id="cb229-63"><a href="#cb229-63" aria-hidden="true" tabindex="-1"></a><span class="in">mode(cars)</span></span>
+<span id="cb229-64"><a href="#cb229-64" aria-hidden="true" tabindex="-1"></a><span class="in">str(cars)</span></span>
+<span id="cb229-65"><a href="#cb229-65" aria-hidden="true" tabindex="-1"></a><span class="in">dim(cars)</span></span>
+<span id="cb229-66"><a href="#cb229-66" aria-hidden="true" tabindex="-1"></a><span class="in">c(is.data.frame(cars), is.list(cars), is.vector(cars), is.array(cars))</span></span>
+<span id="cb229-67"><a href="#cb229-67" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-68"><a href="#cb229-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-69"><a href="#cb229-69" aria-hidden="true" tabindex="-1"></a>Notation L</span>
+<span id="cb229-70"><a href="#cb229-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-71"><a href="#cb229-71" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-72"><a href="#cb229-72" aria-hidden="true" tabindex="-1"></a><span class="in"># Notation L : imposer à R de créer un nombre sous format "integer", pour des raisons d'efficacité</span></span>
+<span id="cb229-73"><a href="#cb229-73" aria-hidden="true" tabindex="-1"></a><span class="in">class(1)</span></span>
+<span id="cb229-74"><a href="#cb229-74" aria-hidden="true" tabindex="-1"></a><span class="in">class(1L)</span></span>
+<span id="cb229-75"><a href="#cb229-75" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-76"><a href="#cb229-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-77"><a href="#cb229-77" aria-hidden="true" tabindex="-1"></a><span class="fu"># Les affectations</span></span>
+<span id="cb229-78"><a href="#cb229-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-79"><a href="#cb229-79" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-80"><a href="#cb229-80" aria-hidden="true" tabindex="-1"></a><span class="in"># Importance des espaces</span></span>
+<span id="cb229-81"><a href="#cb229-81" aria-hidden="true" tabindex="-1"></a><span class="in">x&lt;-3</span></span>
+<span id="cb229-82"><a href="#cb229-82" aria-hidden="true" tabindex="-1"></a><span class="in"># S'agit-il de ?</span></span>
+<span id="cb229-83"><a href="#cb229-83" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- 3</span></span>
+<span id="cb229-84"><a href="#cb229-84" aria-hidden="true" tabindex="-1"></a><span class="in"># Ou de ?</span></span>
+<span id="cb229-85"><a href="#cb229-85" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt; -3</span></span>
+<span id="cb229-86"><a href="#cb229-86" aria-hidden="true" tabindex="-1"></a><span class="in"># Il s'agit du premier cas !</span></span>
+<span id="cb229-87"><a href="#cb229-87" aria-hidden="true" tabindex="-1"></a><span class="in">x</span></span>
+<span id="cb229-88"><a href="#cb229-88" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-89"><a href="#cb229-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-90"><a href="#cb229-90" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-91"><a href="#cb229-91" aria-hidden="true" tabindex="-1"></a><span class="in"># Les {} permettent de réaliser une affectation (&lt;-) au sein d'un traitement plus complexe !</span></span>
+<span id="cb229-92"><a href="#cb229-92" aria-hidden="true" tabindex="-1"></a><span class="in"># Exemple ici : sommer les positions paires multipliées par 2 et les positions impaires multipliées par 3</span></span>
+<span id="cb229-93"><a href="#cb229-93" aria-hidden="true" tabindex="-1"></a><span class="in">sum({x &lt;- 1:6 ; x[1:length(x) %% 2 == 0] &lt;- x[1:length(x) %% 2 == 0] * 2 ; x[1:length(x) %% 2 != 0] &lt;- x[1:length(x) %% 2 != 0] * 3 ; x})</span></span>
+<span id="cb229-94"><a href="#cb229-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-95"><a href="#cb229-95" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-96"><a href="#cb229-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-97"><a href="#cb229-97" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-98"><a href="#cb229-98" aria-hidden="true" tabindex="-1"></a><span class="in"># Afficher ou non la valeur de l'objet affecté pendant l'affectation</span></span>
+<span id="cb229-99"><a href="#cb229-99" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- pi</span></span>
+<span id="cb229-100"><a href="#cb229-100" aria-hidden="true" tabindex="-1"></a><span class="in">(x &lt;- pi)</span></span>
+<span id="cb229-101"><a href="#cb229-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-102"><a href="#cb229-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-103"><a href="#cb229-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-104"><a href="#cb229-104" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE, error=TRUE}</span></span>
+<span id="cb229-105"><a href="#cb229-105" aria-hidden="true" tabindex="-1"></a><span class="in"># Comparaisons multiples</span></span>
+<span id="cb229-106"><a href="#cb229-106" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- 0.5</span></span>
+<span id="cb229-107"><a href="#cb229-107" aria-hidden="true" tabindex="-1"></a><span class="in"># Correct</span></span>
+<span id="cb229-108"><a href="#cb229-108" aria-hidden="true" tabindex="-1"></a><span class="in">0 &lt; x &amp; x &lt; 1</span></span>
+<span id="cb229-109"><a href="#cb229-109" aria-hidden="true" tabindex="-1"></a><span class="in"># Incorrect</span></span>
+<span id="cb229-110"><a href="#cb229-110" aria-hidden="true" tabindex="-1"></a><span class="in">0 &lt; x &lt; 1</span></span>
+<span id="cb229-111"><a href="#cb229-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-112"><a href="#cb229-112" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-113"><a href="#cb229-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-114"><a href="#cb229-114" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-115"><a href="#cb229-115" aria-hidden="true" tabindex="-1"></a><span class="in"># Ne pas confondre !</span></span>
+<span id="cb229-116"><a href="#cb229-116" aria-hidden="true" tabindex="-1"></a><span class="in">seq(0:10)</span></span>
+<span id="cb229-117"><a href="#cb229-117" aria-hidden="true" tabindex="-1"></a><span class="in">0:10</span></span>
+<span id="cb229-118"><a href="#cb229-118" aria-hidden="true" tabindex="-1"></a><span class="in">seq(0, 10)</span></span>
+<span id="cb229-119"><a href="#cb229-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-120"><a href="#cb229-120" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-121"><a href="#cb229-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-122"><a href="#cb229-122" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-123"><a href="#cb229-123" aria-hidden="true" tabindex="-1"></a><span class="in"># Privilégier seq_len à : lorsqu'il y a un risque de 0</span></span>
+<span id="cb229-124"><a href="#cb229-124" aria-hidden="true" tabindex="-1"></a><span class="in"># Fonctionnement identique</span></span>
+<span id="cb229-125"><a href="#cb229-125" aria-hidden="true" tabindex="-1"></a><span class="in">n &lt;- 5</span></span>
+<span id="cb229-126"><a href="#cb229-126" aria-hidden="true" tabindex="-1"></a><span class="in">1:n</span></span>
+<span id="cb229-127"><a href="#cb229-127" aria-hidden="true" tabindex="-1"></a><span class="in">seq_len(n)</span></span>
+<span id="cb229-128"><a href="#cb229-128" aria-hidden="true" tabindex="-1"></a><span class="in"># Problème avec les 0</span></span>
+<span id="cb229-129"><a href="#cb229-129" aria-hidden="true" tabindex="-1"></a><span class="in">n &lt;- 0</span></span>
+<span id="cb229-130"><a href="#cb229-130" aria-hidden="true" tabindex="-1"></a><span class="in">1:n</span></span>
+<span id="cb229-131"><a href="#cb229-131" aria-hidden="true" tabindex="-1"></a><span class="in">seq_len(n)</span></span>
+<span id="cb229-132"><a href="#cb229-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-133"><a href="#cb229-133" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-134"><a href="#cb229-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-135"><a href="#cb229-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-136"><a href="#cb229-136" aria-hidden="true" tabindex="-1"></a><span class="in"># Préférer seq_along à : au cas où la taille de l'objet est 0</span></span>
+<span id="cb229-137"><a href="#cb229-137" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- c() ;length(x)</span></span>
+<span id="cb229-138"><a href="#cb229-138" aria-hidden="true" tabindex="-1"></a><span class="in">for(i in 1:length(x)) print(i)</span></span>
+<span id="cb229-139"><a href="#cb229-139" aria-hidden="true" tabindex="-1"></a><span class="in">for(i in seq_along(x)) print(i)</span></span>
+<span id="cb229-140"><a href="#cb229-140" aria-hidden="true" tabindex="-1"></a><span class="in">for(i in seq(along=x)) print(i)</span></span>
+<span id="cb229-141"><a href="#cb229-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-142"><a href="#cb229-142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-143"><a href="#cb229-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-144"><a href="#cb229-144" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-145"><a href="#cb229-145" aria-hidden="true" tabindex="-1"></a><span class="in"># Equivalent des list-comprehensions de type Python en R</span></span>
+<span id="cb229-146"><a href="#cb229-146" aria-hidden="true" tabindex="-1"></a><span class="in"># Somme des entiers de 1 à 1 000 multiples de 3 ou 5, en une ligne !</span></span>
+<span id="cb229-147"><a href="#cb229-147" aria-hidden="true" tabindex="-1"></a><span class="in"># 4 manières de faire</span></span>
+<span id="cb229-148"><a href="#cb229-148" aria-hidden="true" tabindex="-1"></a><span class="in">sum({l &lt;- 1:1000 ; l[l %% 3 == 0 | l %% 5 == 0]})</span></span>
+<span id="cb229-149"><a href="#cb229-149" aria-hidden="true" tabindex="-1"></a><span class="in">sum({l &lt;- 1:1000 ; l[seq_along(l) %% 3 == 0 | seq_along(l) %% 5 == 0]})</span></span>
+<span id="cb229-150"><a href="#cb229-150" aria-hidden="true" tabindex="-1"></a><span class="in">sum(l&lt;-(1:1000)[l %% 3 == 0 | l %% 5 == 0])</span></span>
+<span id="cb229-151"><a href="#cb229-151" aria-hidden="true" tabindex="-1"></a><span class="in">sum((1:1000)[(1:1000 %% 3) == 0 | (1:1000 %% 5) == 0])</span></span>
+<span id="cb229-152"><a href="#cb229-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-153"><a href="#cb229-153" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-154"><a href="#cb229-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-155"><a href="#cb229-155" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-156"><a href="#cb229-156" aria-hidden="true" tabindex="-1"></a><span class="in"># Opérations mathématiques</span></span>
+<span id="cb229-157"><a href="#cb229-157" aria-hidden="true" tabindex="-1"></a><span class="in"># Infini</span></span>
+<span id="cb229-158"><a href="#cb229-158" aria-hidden="true" tabindex="-1"></a><span class="in">1/0</span></span>
+<span id="cb229-159"><a href="#cb229-159" aria-hidden="true" tabindex="-1"></a><span class="in"># Nan = not a number</span></span>
+<span id="cb229-160"><a href="#cb229-160" aria-hidden="true" tabindex="-1"></a><span class="in">0/0</span></span>
+<span id="cb229-161"><a href="#cb229-161" aria-hidden="true" tabindex="-1"></a><span class="in">log(-1)</span></span>
+<span id="cb229-162"><a href="#cb229-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-163"><a href="#cb229-163" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-164"><a href="#cb229-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-165"><a href="#cb229-165" aria-hidden="true" tabindex="-1"></a><span class="fu"># Principe de vectorisation</span></span>
+<span id="cb229-166"><a href="#cb229-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-167"><a href="#cb229-167" aria-hidden="true" tabindex="-1"></a>La fonction s'applique à tous les éléments du vecteur !!</span>
+<span id="cb229-168"><a href="#cb229-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-169"><a href="#cb229-169" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-170"><a href="#cb229-170" aria-hidden="true" tabindex="-1"></a><span class="in"># Exemple de vecteur</span></span>
+<span id="cb229-171"><a href="#cb229-171" aria-hidden="true" tabindex="-1"></a><span class="in">valeurs &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)</span></span>
+<span id="cb229-172"><a href="#cb229-172" aria-hidden="true" tabindex="-1"></a><span class="in">valeurs &lt;- 1:10</span></span>
+<span id="cb229-173"><a href="#cb229-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-174"><a href="#cb229-174" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-175"><a href="#cb229-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-176"><a href="#cb229-176" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-177"><a href="#cb229-177" aria-hidden="true" tabindex="-1"></a><span class="in"># Valeurs au carré</span></span>
+<span id="cb229-178"><a href="#cb229-178" aria-hidden="true" tabindex="-1"></a><span class="in">valeurs ** 2</span></span>
+<span id="cb229-179"><a href="#cb229-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-180"><a href="#cb229-180" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-181"><a href="#cb229-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-182"><a href="#cb229-182" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-183"><a href="#cb229-183" aria-hidden="true" tabindex="-1"></a><span class="in"># logarithme des valeurs</span></span>
+<span id="cb229-184"><a href="#cb229-184" aria-hidden="true" tabindex="-1"></a><span class="in">log(valeurs)</span></span>
+<span id="cb229-185"><a href="#cb229-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-186"><a href="#cb229-186" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-187"><a href="#cb229-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-188"><a href="#cb229-188" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-189"><a href="#cb229-189" aria-hidden="true" tabindex="-1"></a><span class="in"># Maximum des valeurs</span></span>
+<span id="cb229-190"><a href="#cb229-190" aria-hidden="true" tabindex="-1"></a><span class="in">max(valeurs)</span></span>
+<span id="cb229-191"><a href="#cb229-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-192"><a href="#cb229-192" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-193"><a href="#cb229-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-194"><a href="#cb229-194" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-195"><a href="#cb229-195" aria-hidden="true" tabindex="-1"></a><span class="in"># Limite des valeurs</span></span>
+<span id="cb229-196"><a href="#cb229-196" aria-hidden="true" tabindex="-1"></a><span class="in">range(valeurs)</span></span>
+<span id="cb229-197"><a href="#cb229-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-198"><a href="#cb229-198" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-199"><a href="#cb229-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-200"><a href="#cb229-200" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-201"><a href="#cb229-201" aria-hidden="true" tabindex="-1"></a><span class="in"># Correct</span></span>
+<span id="cb229-202"><a href="#cb229-202" aria-hidden="true" tabindex="-1"></a><span class="in">mean(valeurs)</span></span>
+<span id="cb229-203"><a href="#cb229-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-204"><a href="#cb229-204" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-205"><a href="#cb229-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-206"><a href="#cb229-206" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-207"><a href="#cb229-207" aria-hidden="true" tabindex="-1"></a><span class="in"># Correct</span></span>
+<span id="cb229-208"><a href="#cb229-208" aria-hidden="true" tabindex="-1"></a><span class="in">mean(c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))</span></span>
+<span id="cb229-209"><a href="#cb229-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-210"><a href="#cb229-210" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-211"><a href="#cb229-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-212"><a href="#cb229-212" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-213"><a href="#cb229-213" aria-hidden="true" tabindex="-1"></a><span class="in"># Inattendu</span></span>
+<span id="cb229-214"><a href="#cb229-214" aria-hidden="true" tabindex="-1"></a><span class="in">mean(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)</span></span>
+<span id="cb229-215"><a href="#cb229-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-216"><a href="#cb229-216" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-217"><a href="#cb229-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-218"><a href="#cb229-218" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-219"><a href="#cb229-219" aria-hidden="true" tabindex="-1"></a><span class="in"># Attention aux parenthèses !</span></span>
+<span id="cb229-220"><a href="#cb229-220" aria-hidden="true" tabindex="-1"></a><span class="in">n &lt;- 10</span></span>
+<span id="cb229-221"><a href="#cb229-221" aria-hidden="true" tabindex="-1"></a><span class="in"># Inattendu ! Correspond à (1-1, 2-1, 3-1, ..., 10-1)</span></span>
+<span id="cb229-222"><a href="#cb229-222" aria-hidden="true" tabindex="-1"></a><span class="in">1:n-1</span></span>
+<span id="cb229-223"><a href="#cb229-223" aria-hidden="true" tabindex="-1"></a><span class="in"># Correct</span></span>
+<span id="cb229-224"><a href="#cb229-224" aria-hidden="true" tabindex="-1"></a><span class="in">1:(n-1)</span></span>
+<span id="cb229-225"><a href="#cb229-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-226"><a href="#cb229-226" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-227"><a href="#cb229-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-228"><a href="#cb229-228" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-229"><a href="#cb229-229" aria-hidden="true" tabindex="-1"></a><span class="in"># Minimum ou maximum élément par élément</span></span>
+<span id="cb229-230"><a href="#cb229-230" aria-hidden="true" tabindex="-1"></a><span class="in">x1 &lt;- c(1, 2, 5, 6, 8)</span></span>
+<span id="cb229-231"><a href="#cb229-231" aria-hidden="true" tabindex="-1"></a><span class="in">x2 &lt;- c(4, 0, 7, 2, 1)</span></span>
+<span id="cb229-232"><a href="#cb229-232" aria-hidden="true" tabindex="-1"></a><span class="in"># Minimum : 2 possibilités</span></span>
+<span id="cb229-233"><a href="#cb229-233" aria-hidden="true" tabindex="-1"></a><span class="in">pmin(x1, x2)</span></span>
+<span id="cb229-234"><a href="#cb229-234" aria-hidden="true" tabindex="-1"></a><span class="in">mapply(min, x1, x2)</span></span>
+<span id="cb229-235"><a href="#cb229-235" aria-hidden="true" tabindex="-1"></a><span class="in"># Maximum : 2 possibilités</span></span>
+<span id="cb229-236"><a href="#cb229-236" aria-hidden="true" tabindex="-1"></a><span class="in">pmax(x1, x2)</span></span>
+<span id="cb229-237"><a href="#cb229-237" aria-hidden="true" tabindex="-1"></a><span class="in">mapply(max, x1, x2)</span></span>
+<span id="cb229-238"><a href="#cb229-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-239"><a href="#cb229-239" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-240"><a href="#cb229-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-241"><a href="#cb229-241" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-242"><a href="#cb229-242" aria-hidden="true" tabindex="-1"></a><span class="in"># Calculer (x - min) / (max - min) pour chaque élément x d'un vecteur</span></span>
+<span id="cb229-243"><a href="#cb229-243" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- c(1,2,3)</span></span>
+<span id="cb229-244"><a href="#cb229-244" aria-hidden="true" tabindex="-1"></a><span class="in">sapply(x, function(xi, mn, mx) {(xi - mn) / (mx - mn)}, mn = min(x), mx = max(x))</span></span>
+<span id="cb229-245"><a href="#cb229-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-246"><a href="#cb229-246" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-247"><a href="#cb229-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-248"><a href="#cb229-248" aria-hidden="true" tabindex="-1"></a><span class="fu"># Principe de coercion</span></span>
+<span id="cb229-249"><a href="#cb229-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-250"><a href="#cb229-250" aria-hidden="true" tabindex="-1"></a>Dans les comparaisons, les objets R sont successivement convertis en logical, integer, numeric, complex et character, jusqu'à ce que la comparaison puisse se faire.</span>
+<span id="cb229-251"><a href="#cb229-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-252"><a href="#cb229-252" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-253"><a href="#cb229-253" aria-hidden="true" tabindex="-1"></a><span class="in"># TRUE / FALSE est transformé en integer (1 / 0)</span></span>
+<span id="cb229-254"><a href="#cb229-254" aria-hidden="true" tabindex="-1"></a><span class="in">TRUE == 1</span></span>
+<span id="cb229-255"><a href="#cb229-255" aria-hidden="true" tabindex="-1"></a><span class="in">TRUE == 2</span></span>
+<span id="cb229-256"><a href="#cb229-256" aria-hidden="true" tabindex="-1"></a><span class="in">FALSE == 0</span></span>
+<span id="cb229-257"><a href="#cb229-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-258"><a href="#cb229-258" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-259"><a href="#cb229-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-260"><a href="#cb229-260" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-261"><a href="#cb229-261" aria-hidden="true" tabindex="-1"></a><span class="in"># TRUE est convertit en character</span></span>
+<span id="cb229-262"><a href="#cb229-262" aria-hidden="true" tabindex="-1"></a><span class="in">TRUE == "1"</span></span>
+<span id="cb229-263"><a href="#cb229-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-264"><a href="#cb229-264" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-265"><a href="#cb229-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-266"><a href="#cb229-266" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-267"><a href="#cb229-267" aria-hidden="true" tabindex="-1"></a><span class="in"># 5 est convertit en character</span></span>
+<span id="cb229-268"><a href="#cb229-268" aria-hidden="true" tabindex="-1"></a><span class="in">5 &lt; '7'</span></span>
+<span id="cb229-269"><a href="#cb229-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-270"><a href="#cb229-270" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-271"><a href="#cb229-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-272"><a href="#cb229-272" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-273"><a href="#cb229-273" aria-hidden="true" tabindex="-1"></a><span class="in"># 50 est convertit en character</span></span>
+<span id="cb229-274"><a href="#cb229-274" aria-hidden="true" tabindex="-1"></a><span class="in">50 &lt; '7'</span></span>
+<span id="cb229-275"><a href="#cb229-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-276"><a href="#cb229-276" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-277"><a href="#cb229-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-278"><a href="#cb229-278" aria-hidden="true" tabindex="-1"></a><span class="fu"># Principe de recycling</span></span>
+<span id="cb229-279"><a href="#cb229-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-282"><a href="#cb229-282" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb229-283"><a href="#cb229-283" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonctionne sans soulever de message d'erreur</span></span>
+<span id="cb229-284"><a href="#cb229-284" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb229-285"><a href="#cb229-285" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
+<span id="cb229-286"><a href="#cb229-286" aria-hidden="true" tabindex="-1"></a>x <span class="sc">+</span> y</span>
+<span id="cb229-287"><a href="#cb229-287" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-288"><a href="#cb229-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-291"><a href="#cb229-291" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb229-292"><a href="#cb229-292" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonctionne, mais Warning</span></span>
+<span id="cb229-293"><a href="#cb229-293" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb229-294"><a href="#cb229-294" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>)</span>
+<span id="cb229-295"><a href="#cb229-295" aria-hidden="true" tabindex="-1"></a>x <span class="sc">+</span> y</span>
+<span id="cb229-296"><a href="#cb229-296" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-297"><a href="#cb229-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-298"><a href="#cb229-298" aria-hidden="true" tabindex="-1"></a><span class="fu"># Opérateurs de contrôle</span></span>
+<span id="cb229-299"><a href="#cb229-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-300"><a href="#cb229-300" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-301"><a href="#cb229-301" aria-hidden="true" tabindex="-1"></a><span class="in"># Conditions if / else</span></span>
+<span id="cb229-302"><a href="#cb229-302" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- 1</span></span>
+<span id="cb229-303"><a href="#cb229-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-304"><a href="#cb229-304" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-305"><a href="#cb229-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-306"><a href="#cb229-306" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-307"><a href="#cb229-307" aria-hidden="true" tabindex="-1"></a><span class="in"># Correct</span></span>
+<span id="cb229-308"><a href="#cb229-308" aria-hidden="true" tabindex="-1"></a><span class="in">if (identical(x, 1)) {</span></span>
+<span id="cb229-309"><a href="#cb229-309" aria-hidden="true" tabindex="-1"></a><span class="in">print("x est égal à 1")</span></span>
+<span id="cb229-310"><a href="#cb229-310" aria-hidden="true" tabindex="-1"></a><span class="in">} else {</span></span>
+<span id="cb229-311"><a href="#cb229-311" aria-hidden="true" tabindex="-1"></a><span class="in">print("x est différent de 1")</span></span>
+<span id="cb229-312"><a href="#cb229-312" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb229-313"><a href="#cb229-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-314"><a href="#cb229-314" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-315"><a href="#cb229-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-316"><a href="#cb229-316" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-317"><a href="#cb229-317" aria-hidden="true" tabindex="-1"></a><span class="in"># Correct</span></span>
+<span id="cb229-318"><a href="#cb229-318" aria-hidden="true" tabindex="-1"></a><span class="in">if (identical(x, 1)) {print("x est égal à 1")</span></span>
+<span id="cb229-319"><a href="#cb229-319" aria-hidden="true" tabindex="-1"></a><span class="in">} else {print("x est différent de 1")}</span></span>
+<span id="cb229-320"><a href="#cb229-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-321"><a href="#cb229-321" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-322"><a href="#cb229-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-323"><a href="#cb229-323" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-324"><a href="#cb229-324" aria-hidden="true" tabindex="-1"></a><span class="in"># Correct</span></span>
+<span id="cb229-325"><a href="#cb229-325" aria-hidden="true" tabindex="-1"></a><span class="in">if (identical(x, 1)) print("x est égal à 1") else</span></span>
+<span id="cb229-326"><a href="#cb229-326" aria-hidden="true" tabindex="-1"></a><span class="in">print("x est différent de 1")</span></span>
+<span id="cb229-327"><a href="#cb229-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-328"><a href="#cb229-328" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-329"><a href="#cb229-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-330"><a href="#cb229-330" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-331"><a href="#cb229-331" aria-hidden="true" tabindex="-1"></a><span class="in"># Correct</span></span>
+<span id="cb229-332"><a href="#cb229-332" aria-hidden="true" tabindex="-1"></a><span class="in">if (identical(x, 1)) print("x est égal à 1") else print("x est différent de 1")</span></span>
+<span id="cb229-333"><a href="#cb229-333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-334"><a href="#cb229-334" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-335"><a href="#cb229-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-336"><a href="#cb229-336" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE, error=TRUE}</span></span>
+<span id="cb229-337"><a href="#cb229-337" aria-hidden="true" tabindex="-1"></a><span class="in"># Incorrect</span></span>
+<span id="cb229-338"><a href="#cb229-338" aria-hidden="true" tabindex="-1"></a><span class="in">if (identical(x, 1)) print("x est égal à 1")</span></span>
+<span id="cb229-339"><a href="#cb229-339" aria-hidden="true" tabindex="-1"></a><span class="in">else print("x est différent de 1")</span></span>
+<span id="cb229-340"><a href="#cb229-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-341"><a href="#cb229-341" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-342"><a href="#cb229-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-343"><a href="#cb229-343" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-344"><a href="#cb229-344" aria-hidden="true" tabindex="-1"></a><span class="in"># Switch</span></span>
+<span id="cb229-345"><a href="#cb229-345" aria-hidden="true" tabindex="-1"></a><span class="in"># Fonctions et conditions if / else</span></span>
+<span id="cb229-346"><a href="#cb229-346" aria-hidden="true" tabindex="-1"></a><span class="in">condition &lt;- function(langue = "Français") {</span></span>
+<span id="cb229-347"><a href="#cb229-347" aria-hidden="true" tabindex="-1"></a><span class="in">if (langue == "Français") {</span></span>
+<span id="cb229-348"><a href="#cb229-348" aria-hidden="true" tabindex="-1"></a><span class="in">"salut"</span></span>
+<span id="cb229-349"><a href="#cb229-349" aria-hidden="true" tabindex="-1"></a><span class="in">} else if (langue == "Anglais") {</span></span>
+<span id="cb229-350"><a href="#cb229-350" aria-hidden="true" tabindex="-1"></a><span class="in">"hello"</span></span>
+<span id="cb229-351"><a href="#cb229-351" aria-hidden="true" tabindex="-1"></a><span class="in">} else if (langue == "Russe") {</span></span>
+<span id="cb229-352"><a href="#cb229-352" aria-hidden="true" tabindex="-1"></a><span class="in">"привет"</span></span>
+<span id="cb229-353"><a href="#cb229-353" aria-hidden="true" tabindex="-1"></a><span class="in">} else {</span></span>
+<span id="cb229-354"><a href="#cb229-354" aria-hidden="true" tabindex="-1"></a><span class="in">stop("salut")</span></span>
+<span id="cb229-355"><a href="#cb229-355" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb229-356"><a href="#cb229-356" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb229-357"><a href="#cb229-357" aria-hidden="true" tabindex="-1"></a><span class="in">condition("Anglais")</span></span>
+<span id="cb229-358"><a href="#cb229-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-359"><a href="#cb229-359" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-360"><a href="#cb229-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-361"><a href="#cb229-361" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-362"><a href="#cb229-362" aria-hidden="true" tabindex="-1"></a><span class="in"># Autre possibilité avec switch, mais à réserver aux variables caractères !</span></span>
+<span id="cb229-363"><a href="#cb229-363" aria-hidden="true" tabindex="-1"></a><span class="in">condition &lt;- function(langue = "Français") {</span></span>
+<span id="cb229-364"><a href="#cb229-364" aria-hidden="true" tabindex="-1"></a><span class="in">switch(langue,</span></span>
+<span id="cb229-365"><a href="#cb229-365" aria-hidden="true" tabindex="-1"></a><span class="in">Français = "salut",</span></span>
+<span id="cb229-366"><a href="#cb229-366" aria-hidden="true" tabindex="-1"></a><span class="in">Anglais = "hello",</span></span>
+<span id="cb229-367"><a href="#cb229-367" aria-hidden="true" tabindex="-1"></a><span class="in">Russe = "привет",</span></span>
+<span id="cb229-368"><a href="#cb229-368" aria-hidden="true" tabindex="-1"></a><span class="in">stop("salut")</span></span>
+<span id="cb229-369"><a href="#cb229-369" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb229-370"><a href="#cb229-370" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb229-371"><a href="#cb229-371" aria-hidden="true" tabindex="-1"></a><span class="in">condition("Français")</span></span>
+<span id="cb229-372"><a href="#cb229-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-373"><a href="#cb229-373" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-374"><a href="#cb229-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-375"><a href="#cb229-375" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-376"><a href="#cb229-376" aria-hidden="true" tabindex="-1"></a><span class="in"># Penser au print</span></span>
+<span id="cb229-377"><a href="#cb229-377" aria-hidden="true" tabindex="-1"></a><span class="in">for(i in 1:5) i</span></span>
+<span id="cb229-378"><a href="#cb229-378" aria-hidden="true" tabindex="-1"></a><span class="in">for(i in 1:5) print(i)</span></span>
+<span id="cb229-379"><a href="#cb229-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-380"><a href="#cb229-380" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-381"><a href="#cb229-381" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-382"><a href="#cb229-382" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-383"><a href="#cb229-383" aria-hidden="true" tabindex="-1"></a><span class="in"># Différences print et cat</span></span>
+<span id="cb229-384"><a href="#cb229-384" aria-hidden="true" tabindex="-1"></a><span class="in">cat("Salut !\nComment vas-tu ?")</span></span>
+<span id="cb229-385"><a href="#cb229-385" aria-hidden="true" tabindex="-1"></a><span class="in">print("Salut !\nComment vas-tu ?")</span></span>
+<span id="cb229-386"><a href="#cb229-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-387"><a href="#cb229-387" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-388"><a href="#cb229-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-389"><a href="#cb229-389" aria-hidden="true" tabindex="-1"></a><span class="fu"># Les valeurs manquantes</span></span>
+<span id="cb229-390"><a href="#cb229-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-391"><a href="#cb229-391" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-392"><a href="#cb229-392" aria-hidden="true" tabindex="-1"></a><span class="in"># Transformer les valeurs manquantes en 0</span></span>
+<span id="cb229-393"><a href="#cb229-393" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- data.frame(X1 = c(1, NA, 2), X2 = c(NA, NA, 3))</span></span>
+<span id="cb229-394"><a href="#cb229-394" aria-hidden="true" tabindex="-1"></a><span class="in">x</span></span>
+<span id="cb229-395"><a href="#cb229-395" aria-hidden="true" tabindex="-1"></a><span class="in">x[is.na(x)] &lt;- 0</span></span>
+<span id="cb229-396"><a href="#cb229-396" aria-hidden="true" tabindex="-1"></a><span class="in">x</span></span>
+<span id="cb229-397"><a href="#cb229-397" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-398"><a href="#cb229-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-399"><a href="#cb229-399" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-400"><a href="#cb229-400" aria-hidden="true" tabindex="-1"></a><span class="in"># Pour les valeurs manquantes, toujours utiliser is.na et non ==</span></span>
+<span id="cb229-401"><a href="#cb229-401" aria-hidden="true" tabindex="-1"></a><span class="in">NA == c(3, 1, 3, NA)</span></span>
+<span id="cb229-402"><a href="#cb229-402" aria-hidden="true" tabindex="-1"></a><span class="in">is.na(c(3, 1, 3, NA))</span></span>
+<span id="cb229-403"><a href="#cb229-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-404"><a href="#cb229-404" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-405"><a href="#cb229-405" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-406"><a href="#cb229-406" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-407"><a href="#cb229-407" aria-hidden="true" tabindex="-1"></a><span class="in"># Utiliser %in% et non == pour vérifier une appartenance à plusieurs variables</span></span>
+<span id="cb229-408"><a href="#cb229-408" aria-hidden="true" tabindex="-1"></a><span class="in">x1 &lt;- 1:6</span></span>
+<span id="cb229-409"><a href="#cb229-409" aria-hidden="true" tabindex="-1"></a><span class="in">x1 == c(1, 5)</span></span>
+<span id="cb229-410"><a href="#cb229-410" aria-hidden="true" tabindex="-1"></a><span class="in">x1 %in% c(1, 5)</span></span>
+<span id="cb229-411"><a href="#cb229-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-412"><a href="#cb229-412" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-413"><a href="#cb229-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-414"><a href="#cb229-414" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-415"><a href="#cb229-415" aria-hidden="true" tabindex="-1"></a><span class="in"># Sélection de données en cas de valeurs manquantes</span></span>
+<span id="cb229-416"><a href="#cb229-416" aria-hidden="true" tabindex="-1"></a><span class="in">xna &lt;- c(1, NA, 3, 2, 4, 2)</span></span>
+<span id="cb229-417"><a href="#cb229-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-418"><a href="#cb229-418" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-419"><a href="#cb229-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-420"><a href="#cb229-420" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-421"><a href="#cb229-421" aria-hidden="true" tabindex="-1"></a><span class="in"># Avec ce code, les NA sont conservés</span></span>
+<span id="cb229-422"><a href="#cb229-422" aria-hidden="true" tabindex="-1"></a><span class="in">xna[xna == 2]</span></span>
+<span id="cb229-423"><a href="#cb229-423" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-424"><a href="#cb229-424" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-425"><a href="#cb229-425" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-426"><a href="#cb229-426" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-427"><a href="#cb229-427" aria-hidden="true" tabindex="-1"></a><span class="in"># Code sans les NA</span></span>
+<span id="cb229-428"><a href="#cb229-428" aria-hidden="true" tabindex="-1"></a><span class="in">xna[!is.na(xna) &amp; xna == 2]</span></span>
+<span id="cb229-429"><a href="#cb229-429" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-430"><a href="#cb229-430" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-431"><a href="#cb229-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-432"><a href="#cb229-432" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-433"><a href="#cb229-433" aria-hidden="true" tabindex="-1"></a><span class="in"># Code compact sans les NA</span></span>
+<span id="cb229-434"><a href="#cb229-434" aria-hidden="true" tabindex="-1"></a><span class="in">xna[which(xna == 2)]</span></span>
+<span id="cb229-435"><a href="#cb229-435" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-436"><a href="#cb229-436" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-437"><a href="#cb229-437" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-438"><a href="#cb229-438" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-439"><a href="#cb229-439" aria-hidden="true" tabindex="-1"></a><span class="in"># Incidence des NA dans le calcul de statistiques !</span></span>
+<span id="cb229-440"><a href="#cb229-440" aria-hidden="true" tabindex="-1"></a><span class="in"># Besoin de l'instruction na.rm = TRUE pour en supprimer l'incidence</span></span>
+<span id="cb229-441"><a href="#cb229-441" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- c(1, 5, 6, NA, 8)</span></span>
+<span id="cb229-442"><a href="#cb229-442" aria-hidden="true" tabindex="-1"></a><span class="in">mean(x)</span></span>
+<span id="cb229-443"><a href="#cb229-443" aria-hidden="true" tabindex="-1"></a><span class="in">mean(x, na.rm = TRUE)</span></span>
+<span id="cb229-444"><a href="#cb229-444" aria-hidden="true" tabindex="-1"></a><span class="in">max(x)</span></span>
+<span id="cb229-445"><a href="#cb229-445" aria-hidden="true" tabindex="-1"></a><span class="in">max(x, na.rm = TRUE)</span></span>
+<span id="cb229-446"><a href="#cb229-446" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-447"><a href="#cb229-447" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-448"><a href="#cb229-448" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-449"><a href="#cb229-449" aria-hidden="true" tabindex="-1"></a><span class="in"># Une moyenne de NA donne NaN (Not a Number) avec na.rm = TRUE !</span></span>
+<span id="cb229-450"><a href="#cb229-450" aria-hidden="true" tabindex="-1"></a><span class="in">mean(c(NA, NA, NA), na.rm = TRUE)</span></span>
+<span id="cb229-451"><a href="#cb229-451" aria-hidden="true" tabindex="-1"></a><span class="in"># Et donne NA avec na.rm = FALSE !</span></span>
+<span id="cb229-452"><a href="#cb229-452" aria-hidden="true" tabindex="-1"></a><span class="in">mean(c(NA, NA, NA), na.rm = FALSE)</span></span>
+<span id="cb229-453"><a href="#cb229-453" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-454"><a href="#cb229-454" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-455"><a href="#cb229-455" aria-hidden="true" tabindex="-1"></a><span class="fu"># Sélection d'éléments</span></span>
+<span id="cb229-456"><a href="#cb229-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-457"><a href="#cb229-457" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-458"><a href="#cb229-458" aria-hidden="true" tabindex="-1"></a><span class="in"># Le 1er élément est numéroté 1 et non 0 comme dans Python</span></span>
+<span id="cb229-459"><a href="#cb229-459" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- 1:3</span></span>
+<span id="cb229-460"><a href="#cb229-460" aria-hidden="true" tabindex="-1"></a><span class="in">x[c(0, 4)] &lt;- c(-1, 9)</span></span>
+<span id="cb229-461"><a href="#cb229-461" aria-hidden="true" tabindex="-1"></a><span class="in"># Marche !!</span></span>
+<span id="cb229-462"><a href="#cb229-462" aria-hidden="true" tabindex="-1"></a><span class="in">for(i in 0:3) print(x[i])</span></span>
+<span id="cb229-463"><a href="#cb229-463" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-464"><a href="#cb229-464" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-465"><a href="#cb229-465" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-466"><a href="#cb229-466" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-467"><a href="#cb229-467" aria-hidden="true" tabindex="-1"></a><span class="in"># Cas où les noms ne sont pas uniques</span></span>
+<span id="cb229-468"><a href="#cb229-468" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- c(a = 1, b = 2, a = 3)</span></span>
+<span id="cb229-469"><a href="#cb229-469" aria-hidden="true" tabindex="-1"></a><span class="in">x["a"]</span></span>
+<span id="cb229-470"><a href="#cb229-470" aria-hidden="true" tabindex="-1"></a><span class="in">x[names(x) %in% "a"]</span></span>
+<span id="cb229-471"><a href="#cb229-471" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-472"><a href="#cb229-472" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-473"><a href="#cb229-473" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-474"><a href="#cb229-474" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-475"><a href="#cb229-475" aria-hidden="true" tabindex="-1"></a><span class="in"># Options drop = FALSE</span></span>
+<span id="cb229-476"><a href="#cb229-476" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- data.frame(X1 = c(1,2), X2 = c(3,4), x3 = c(5,6))</span></span>
+<span id="cb229-477"><a href="#cb229-477" aria-hidden="true" tabindex="-1"></a><span class="in">is.data.frame(x[, c(1,2)])</span></span>
+<span id="cb229-478"><a href="#cb229-478" aria-hidden="true" tabindex="-1"></a><span class="in">is.data.frame(x[, c(1)])</span></span>
+<span id="cb229-479"><a href="#cb229-479" aria-hidden="true" tabindex="-1"></a><span class="in">is.data.frame(x[, c(1), drop = FALSE])</span></span>
+<span id="cb229-480"><a href="#cb229-480" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-481"><a href="#cb229-481" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-482"><a href="#cb229-482" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-483"><a href="#cb229-483" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-484"><a href="#cb229-484" aria-hidden="true" tabindex="-1"></a><span class="in"># Fonction subset</span></span>
+<span id="cb229-485"><a href="#cb229-485" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- data.frame(x1 = c(1,2), x2 = c(3,4), x3 = c(5,6))</span></span>
+<span id="cb229-486"><a href="#cb229-486" aria-hidden="true" tabindex="-1"></a><span class="in">subset(x, select = x1)</span></span>
+<span id="cb229-487"><a href="#cb229-487" aria-hidden="true" tabindex="-1"></a><span class="in">subset(x, select = -x1)</span></span>
+<span id="cb229-488"><a href="#cb229-488" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-489"><a href="#cb229-489" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-490"><a href="#cb229-490" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-491"><a href="#cb229-491" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-492"><a href="#cb229-492" aria-hidden="true" tabindex="-1"></a><span class="in"># Correct</span></span>
+<span id="cb229-493"><a href="#cb229-493" aria-hidden="true" tabindex="-1"></a><span class="in">subset(x, x1 == 1)</span></span>
+<span id="cb229-494"><a href="#cb229-494" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-495"><a href="#cb229-495" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-496"><a href="#cb229-496" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-497"><a href="#cb229-497" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-498"><a href="#cb229-498" aria-hidden="true" tabindex="-1"></a><span class="in"># Incorrect</span></span>
+<span id="cb229-499"><a href="#cb229-499" aria-hidden="true" tabindex="-1"></a><span class="in">subset(x, x1 = 1)</span></span>
+<span id="cb229-500"><a href="#cb229-500" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-501"><a href="#cb229-501" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-502"><a href="#cb229-502" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-503"><a href="#cb229-503" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE, error=TRUE}</span></span>
+<span id="cb229-504"><a href="#cb229-504" aria-hidden="true" tabindex="-1"></a><span class="in"># Référence à des noms de colonne non usuels</span></span>
+<span id="cb229-505"><a href="#cb229-505" aria-hidden="true" tabindex="-1"></a><span class="in">df &lt;- data.frame(x = rnorm(5), y = runif(5))</span></span>
+<span id="cb229-506"><a href="#cb229-506" aria-hidden="true" tabindex="-1"></a><span class="in">names(df) &lt;- 1:2</span></span>
+<span id="cb229-507"><a href="#cb229-507" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-508"><a href="#cb229-508" aria-hidden="true" tabindex="-1"></a><span class="in"># Correct</span></span>
+<span id="cb229-509"><a href="#cb229-509" aria-hidden="true" tabindex="-1"></a><span class="in">df$`1`</span></span>
+<span id="cb229-510"><a href="#cb229-510" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-511"><a href="#cb229-511" aria-hidden="true" tabindex="-1"></a><span class="in"># Incorrect</span></span>
+<span id="cb229-512"><a href="#cb229-512" aria-hidden="true" tabindex="-1"></a><span class="in">df$1</span></span>
+<span id="cb229-513"><a href="#cb229-513" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-514"><a href="#cb229-514" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-515"><a href="#cb229-515" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-516"><a href="#cb229-516" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-517"><a href="#cb229-517" aria-hidden="true" tabindex="-1"></a><span class="in"># Utilisation de assign pour assigner une valeur à un objet en le désignant sous forme caractère</span></span>
+<span id="cb229-518"><a href="#cb229-518" aria-hidden="true" tabindex="-1"></a><span class="in">assign('objet', 3:5)</span></span>
+<span id="cb229-519"><a href="#cb229-519" aria-hidden="true" tabindex="-1"></a><span class="in">objet</span></span>
+<span id="cb229-520"><a href="#cb229-520" aria-hidden="true" tabindex="-1"></a><span class="in">for(i in 1:5) assign(paste('objet', i, sep = '_'), i)</span></span>
+<span id="cb229-521"><a href="#cb229-521" aria-hidden="true" tabindex="-1"></a><span class="in">objet_5</span></span>
+<span id="cb229-522"><a href="#cb229-522" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-523"><a href="#cb229-523" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-524"><a href="#cb229-524" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-525"><a href="#cb229-525" aria-hidden="true" tabindex="-1"></a><span class="fu"># Les listes</span></span>
+<span id="cb229-526"><a href="#cb229-526" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-527"><a href="#cb229-527" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-528"><a href="#cb229-528" aria-hidden="true" tabindex="-1"></a><span class="in"># Ajouter un élément à une liste</span></span>
+<span id="cb229-529"><a href="#cb229-529" aria-hidden="true" tabindex="-1"></a><span class="in">liste &lt;- list(1, 2)</span></span>
+<span id="cb229-530"><a href="#cb229-530" aria-hidden="true" tabindex="-1"></a><span class="in"># Il faut passer par cette syntaxe</span></span>
+<span id="cb229-531"><a href="#cb229-531" aria-hidden="true" tabindex="-1"></a><span class="in">liste &lt;- c(liste, list(3))</span></span>
+<span id="cb229-532"><a href="#cb229-532" aria-hidden="true" tabindex="-1"></a><span class="in">liste</span></span>
+<span id="cb229-533"><a href="#cb229-533" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-534"><a href="#cb229-534" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-535"><a href="#cb229-535" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-536"><a href="#cb229-536" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-537"><a href="#cb229-537" aria-hidden="true" tabindex="-1"></a><span class="in"># Trier une liste</span></span>
+<span id="cb229-538"><a href="#cb229-538" aria-hidden="true" tabindex="-1"></a><span class="in">liste &lt;- list("2" = 2, "0" = 0, "1" = 1)</span></span>
+<span id="cb229-539"><a href="#cb229-539" aria-hidden="true" tabindex="-1"></a><span class="in">liste</span></span>
+<span id="cb229-540"><a href="#cb229-540" aria-hidden="true" tabindex="-1"></a><span class="in">liste[order(names(liste))]</span></span>
+<span id="cb229-541"><a href="#cb229-541" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-542"><a href="#cb229-542" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-543"><a href="#cb229-543" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-544"><a href="#cb229-544" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-545"><a href="#cb229-545" aria-hidden="true" tabindex="-1"></a><span class="in"># Extraction de listes</span></span>
+<span id="cb229-546"><a href="#cb229-546" aria-hidden="true" tabindex="-1"></a><span class="in">liste &lt;- list(nombres = 1:5, lettres = letters[1:5])</span></span>
+<span id="cb229-547"><a href="#cb229-547" aria-hidden="true" tabindex="-1"></a><span class="in">liste$nombres</span></span>
+<span id="cb229-548"><a href="#cb229-548" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-549"><a href="#cb229-549" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-550"><a href="#cb229-550" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-551"><a href="#cb229-551" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-552"><a href="#cb229-552" aria-hidden="true" tabindex="-1"></a><span class="in"># On veut faire appel à un élement de la liste à partir d'une variable extérieure</span></span>
+<span id="cb229-553"><a href="#cb229-553" aria-hidden="true" tabindex="-1"></a><span class="in">var &lt;- "nombres"</span></span>
+<span id="cb229-554"><a href="#cb229-554" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-555"><a href="#cb229-555" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-556"><a href="#cb229-556" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-557"><a href="#cb229-557" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-558"><a href="#cb229-558" aria-hidden="true" tabindex="-1"></a><span class="in"># Ne marche pas, car nombres est en caractère</span></span>
+<span id="cb229-559"><a href="#cb229-559" aria-hidden="true" tabindex="-1"></a><span class="in">liste$var</span></span>
+<span id="cb229-560"><a href="#cb229-560" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-561"><a href="#cb229-561" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-562"><a href="#cb229-562" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-563"><a href="#cb229-563" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-564"><a href="#cb229-564" aria-hidden="true" tabindex="-1"></a><span class="in"># Fonctionne</span></span>
+<span id="cb229-565"><a href="#cb229-565" aria-hidden="true" tabindex="-1"></a><span class="in">liste[[var]]</span></span>
+<span id="cb229-566"><a href="#cb229-566" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-567"><a href="#cb229-567" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-568"><a href="#cb229-568" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-569"><a href="#cb229-569" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-570"><a href="#cb229-570" aria-hidden="true" tabindex="-1"></a><span class="in"># Sélection dans une liste</span></span>
+<span id="cb229-571"><a href="#cb229-571" aria-hidden="true" tabindex="-1"></a><span class="in">liste &lt;- list(nombres = 1:5, lettres = letters[1:5])</span></span>
+<span id="cb229-572"><a href="#cb229-572" aria-hidden="true" tabindex="-1"></a><span class="in">liste["nombres"]</span></span>
+<span id="cb229-573"><a href="#cb229-573" aria-hidden="true" tabindex="-1"></a><span class="in">is.list(liste["nombres"])</span></span>
+<span id="cb229-574"><a href="#cb229-574" aria-hidden="true" tabindex="-1"></a><span class="in">liste[["nombres"]]</span></span>
+<span id="cb229-575"><a href="#cb229-575" aria-hidden="true" tabindex="-1"></a><span class="in">is.list(liste[["nombres"]])</span></span>
+<span id="cb229-576"><a href="#cb229-576" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-577"><a href="#cb229-577" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-578"><a href="#cb229-578" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-579"><a href="#cb229-579" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-580"><a href="#cb229-580" aria-hidden="true" tabindex="-1"></a><span class="in"># Suppression des éléments d'une liste</span></span>
+<span id="cb229-581"><a href="#cb229-581" aria-hidden="true" tabindex="-1"></a><span class="in">liste &lt;- list(nombres = 1:5, lettres = letters[1:5])</span></span>
+<span id="cb229-582"><a href="#cb229-582" aria-hidden="true" tabindex="-1"></a><span class="in">liste[-1]</span></span>
+<span id="cb229-583"><a href="#cb229-583" aria-hidden="true" tabindex="-1"></a><span class="in">liste["nombres"] &lt;- NULL</span></span>
+<span id="cb229-584"><a href="#cb229-584" aria-hidden="true" tabindex="-1"></a><span class="in">liste</span></span>
+<span id="cb229-585"><a href="#cb229-585" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-586"><a href="#cb229-586" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-587"><a href="#cb229-587" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-588"><a href="#cb229-588" aria-hidden="true" tabindex="-1"></a><span class="fu"># Informations sur R</span></span>
+<span id="cb229-589"><a href="#cb229-589" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-590"><a href="#cb229-590" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE, results='hide'}</span></span>
+<span id="cb229-591"><a href="#cb229-591" aria-hidden="true" tabindex="-1"></a><span class="in"># Informations sur la session de R</span></span>
+<span id="cb229-592"><a href="#cb229-592" aria-hidden="true" tabindex="-1"></a><span class="in">sessionInfo()</span></span>
+<span id="cb229-593"><a href="#cb229-593" aria-hidden="true" tabindex="-1"></a><span class="in">Sys.info()</span></span>
+<span id="cb229-594"><a href="#cb229-594" aria-hidden="true" tabindex="-1"></a><span class="in">.Platform</span></span>
+<span id="cb229-595"><a href="#cb229-595" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-596"><a href="#cb229-596" aria-hidden="true" tabindex="-1"></a><span class="in"># Version de R</span></span>
+<span id="cb229-597"><a href="#cb229-597" aria-hidden="true" tabindex="-1"></a><span class="in">R.version.string</span></span>
+<span id="cb229-598"><a href="#cb229-598" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-599"><a href="#cb229-599" aria-hidden="true" tabindex="-1"></a><span class="in"># Lien vers le bureau de l'utilisateur</span></span>
+<span id="cb229-600"><a href="#cb229-600" aria-hidden="true" tabindex="-1"></a><span class="in">file.path(path.expand('~'), "Desktop")</span></span>
+<span id="cb229-601"><a href="#cb229-601" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-602"><a href="#cb229-602" aria-hidden="true" tabindex="-1"></a><span class="in"># Chemin de l'exécutable R est-il installé ?</span></span>
+<span id="cb229-603"><a href="#cb229-603" aria-hidden="true" tabindex="-1"></a><span class="in">R.home("bin")</span></span>
+<span id="cb229-604"><a href="#cb229-604" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-605"><a href="#cb229-605" aria-hidden="true" tabindex="-1"></a><span class="in"># Où sont installés les packages R</span></span>
+<span id="cb229-606"><a href="#cb229-606" aria-hidden="true" tabindex="-1"></a><span class="in">.libPaths()</span></span>
+<span id="cb229-607"><a href="#cb229-607" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-608"><a href="#cb229-608" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-609"><a href="#cb229-609" aria-hidden="true" tabindex="-1"></a><span class="fu"># Trucs et astuces divers</span></span>
+<span id="cb229-610"><a href="#cb229-610" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-611"><a href="#cb229-611" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-612"><a href="#cb229-612" aria-hidden="true" tabindex="-1"></a><span class="in"># Créer un objet sous forme de code R !</span></span>
+<span id="cb229-613"><a href="#cb229-613" aria-hidden="true" tabindex="-1"></a><span class="in">data("mtcars")</span></span>
+<span id="cb229-614"><a href="#cb229-614" aria-hidden="true" tabindex="-1"></a><span class="in">dput(mtcars)</span></span>
+<span id="cb229-615"><a href="#cb229-615" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-616"><a href="#cb229-616" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-617"><a href="#cb229-617" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-618"><a href="#cb229-618" aria-hidden="true" tabindex="-1"></a><span class="in"># En tidyverse, la fonction tribble peut être utile pour créer des bases lignes par lignes</span></span>
+<span id="cb229-619"><a href="#cb229-619" aria-hidden="true" tabindex="-1"></a><span class="in">library(tidyverse)</span></span>
+<span id="cb229-620"><a href="#cb229-620" aria-hidden="true" tabindex="-1"></a><span class="in">tribble(</span></span>
+<span id="cb229-621"><a href="#cb229-621" aria-hidden="true" tabindex="-1"></a><span class="in">  ~x, ~y,</span></span>
+<span id="cb229-622"><a href="#cb229-622" aria-hidden="true" tabindex="-1"></a><span class="in">  "a",   1,</span></span>
+<span id="cb229-623"><a href="#cb229-623" aria-hidden="true" tabindex="-1"></a><span class="in">  "b",   2</span></span>
+<span id="cb229-624"><a href="#cb229-624" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb229-625"><a href="#cb229-625" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-626"><a href="#cb229-626" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-627"><a href="#cb229-627" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-628"><a href="#cb229-628" aria-hidden="true" tabindex="-1"></a><span class="in"># Outils de debuggage</span></span>
+<span id="cb229-629"><a href="#cb229-629" aria-hidden="true" tabindex="-1"></a><span class="in">options(error = recover)</span></span>
+<span id="cb229-630"><a href="#cb229-630" aria-hidden="true" tabindex="-1"></a><span class="in">options(error=NULL)</span></span>
+<span id="cb229-631"><a href="#cb229-631" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-632"><a href="#cb229-632" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-633"><a href="#cb229-633" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-634"><a href="#cb229-634" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-635"><a href="#cb229-635" aria-hidden="true" tabindex="-1"></a><span class="in"># Définir ses propres opérateurs</span></span>
+<span id="cb229-636"><a href="#cb229-636" aria-hidden="true" tabindex="-1"></a><span class="in"># R reconnait le texte entre %% comme un opérateur binaire</span></span>
+<span id="cb229-637"><a href="#cb229-637" aria-hidden="true" tabindex="-1"></a><span class="in"># Exemple, simplifier la fonction paste</span></span>
+<span id="cb229-638"><a href="#cb229-638" aria-hidden="true" tabindex="-1"></a><span class="in">'%+%' &lt;- function(x, y) { paste(x, y, sep = "") }</span></span>
+<span id="cb229-639"><a href="#cb229-639" aria-hidden="true" tabindex="-1"></a><span class="in">"Groupe_" %+% 0:9</span></span>
+<span id="cb229-640"><a href="#cb229-640" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-641"><a href="#cb229-641" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb229-642"><a href="#cb229-642" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-643"><a href="#cb229-643" aria-hidden="true" tabindex="-1"></a><span class="fu"># Le pipe sur R</span></span>
+<span id="cb229-644"><a href="#cb229-644" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-645"><a href="#cb229-645" aria-hidden="true" tabindex="-1"></a>Cet opérateur permet d'enchaîner les opérations et d'avoir un code plus lisible.</span>
+<span id="cb229-646"><a href="#cb229-646" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-647"><a href="#cb229-647" aria-hidden="true" tabindex="-1"></a>Il existe différents types :</span>
+<span id="cb229-648"><a href="#cb229-648" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-649"><a href="#cb229-649" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Le pipe de Rbase :** <span class="in">`|&gt;`</span></span>
+<span id="cb229-650"><a href="#cb229-650" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-651"><a href="#cb229-651" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Le pipe du tidyverse :** <span class="in">`%&gt;%`</span></span>
+<span id="cb229-652"><a href="#cb229-652" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-653"><a href="#cb229-653" aria-hidden="true" tabindex="-1"></a>Les deux pipes fonctionnent de la même manière mais diffèrent sur les points suivants :</span>
+<span id="cb229-654"><a href="#cb229-654" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-655"><a href="#cb229-655" aria-hidden="true" tabindex="-1"></a>+-----------------------------------------------+---------------------------+-----------------------------------------------------------------------+</span>
+<span id="cb229-656"><a href="#cb229-656" aria-hidden="true" tabindex="-1"></a>| Thème                                         | <span class="in">`|&gt;`</span>                      | <span class="in">`%&gt;%`</span>                                                                 |</span>
+<span id="cb229-657"><a href="#cb229-657" aria-hidden="true" tabindex="-1"></a>+===============================================+===========================+=======================================================================+</span>
+<span id="cb229-658"><a href="#cb229-658" aria-hidden="true" tabindex="-1"></a>| Placeholder (pour indiquer où placer l'objet) | <span class="in">`_`</span>                       | <span class="in">`.`</span>                                                                   |</span>
+<span id="cb229-659"><a href="#cb229-659" aria-hidden="true" tabindex="-1"></a>|                                               |                           |                                                                       |</span>
+<span id="cb229-660"><a href="#cb229-660" aria-hidden="true" tabindex="-1"></a>|                                               | <span class="in">`x |&gt; f(y, a = _)`</span>        | <span class="in">`x %&gt;% f(y, a = .)`</span>                                                   |</span>
+<span id="cb229-661"><a href="#cb229-661" aria-hidden="true" tabindex="-1"></a>+-----------------------------------------------+---------------------------+-----------------------------------------------------------------------+</span>
+<span id="cb229-662"><a href="#cb229-662" aria-hidden="true" tabindex="-1"></a>| Package                                       | Aucun : directement sur R | Magrittr (pipe disponible lorsqu'on effectue <span class="in">`library(tidyverse)`</span>) \| |</span>
+<span id="cb229-663"><a href="#cb229-663" aria-hidden="true" tabindex="-1"></a>+-----------------------------------------------+---------------------------+-----------------------------------------------------------------------+</span>
+<span id="cb229-664"><a href="#cb229-664" aria-hidden="true" tabindex="-1"></a>| Fonction                                      | Impossible                | Possible                                                              |</span>
+<span id="cb229-665"><a href="#cb229-665" aria-hidden="true" tabindex="-1"></a>+-----------------------------------------------+---------------------------+-----------------------------------------------------------------------+</span>
+<span id="cb229-666"><a href="#cb229-666" aria-hidden="true" tabindex="-1"></a>| Temps de calcul                               | Rapide                    | Plus lent                                                             |</span>
+<span id="cb229-667"><a href="#cb229-667" aria-hidden="true" tabindex="-1"></a>+-----------------------------------------------+---------------------------+-----------------------------------------------------------------------+</span>
+<span id="cb229-668"><a href="#cb229-668" aria-hidden="true" tabindex="-1"></a>| Opérateurs                                    | <span class="in">`|&gt;`</span>                      | <span class="in">`%&gt;%`</span> <span class="in">`%&lt;&gt;%`</span> <span class="in">`%$%`</span> <span class="in">`%!&gt;%`</span> <span class="in">`%T&gt;%`</span>                                      |</span>
+<span id="cb229-669"><a href="#cb229-669" aria-hidden="true" tabindex="-1"></a>+-----------------------------------------------+---------------------------+-----------------------------------------------------------------------+</span>
+<span id="cb229-670"><a href="#cb229-670" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-671"><a href="#cb229-671" aria-hidden="true" tabindex="-1"></a>*Source* :</span>
+<span id="cb229-672"><a href="#cb229-672" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-673"><a href="#cb229-673" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>https://larmarange.github.io/guide-R/manipulation/pipe.html#le-pipe-natif-de-r</span>
+<span id="cb229-674"><a href="#cb229-674" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-675"><a href="#cb229-675" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-676"><a href="#cb229-676" aria-hidden="true" tabindex="-1"></a><span class="fu"># Conseils divers</span></span>
+<span id="cb229-677"><a href="#cb229-677" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-678"><a href="#cb229-678" aria-hidden="true" tabindex="-1"></a>Il est conseillé d'éviter de nommer des variables temporaires <span class="in">`var`</span>, car ce nom désigne la fonction <span class="in">`R`</span> permettant de calculer une variance.</span>
+<span id="cb229-679"><a href="#cb229-679" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-680"><a href="#cb229-680" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb229-681"><a href="#cb229-681" aria-hidden="true" tabindex="-1"></a><span class="in"># Exemple : variance d'un échantillon aléatoire de 1000 observations tiré d'une loi normale centrée réduite</span></span>
+<span id="cb229-682"><a href="#cb229-682" aria-hidden="true" tabindex="-1"></a><span class="in">var(rnorm(1000))</span></span>
+<span id="cb229-683"><a href="#cb229-683" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
