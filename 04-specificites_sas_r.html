@@ -316,6 +316,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>peut aussi être source de problèmes, d’abord de maintenance du fait des dépendances (une mise-à-jour peut casser les dépendances), ensuite du fait que des packages peuvent disparaître ou ne plus être maintenus au cours du temps, engendrant des coûts de maintenance de code ;</li>
 <li>peut engendrer des problèmes de rétrocompatibilité (un code écrit dans le passé ne fonctionne plus suite à une mise-à-jour) : il convient d’être conscient de ces considérations avant d’utiliser aveuglément des packages.</li>
 </ul>
+<p>Pour en savoir plus sur les packages en <code>R</code> :</p>
+<ul>
+<li><a href="https://book.utilitr.org/01_R_Insee/Fiche_installer_packages.html" class="uri">https://book.utilitr.org/01_R_Insee/Fiche_installer_packages.html</a></li>
+<li><a href="https://book.utilitr.org/03_Fiches_thematiques/Fiche_comment_choisir_un_package.html" class="uri">https://book.utilitr.org/03_Fiches_thematiques/Fiche_comment_choisir_un_package.html</a></li>
+</ul>
 </section>
 <section id="gestion-de-la-mémoire" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="gestion-de-la-mémoire"><span class="header-section-number">2</span> Gestion de la mémoire</h2>
@@ -1041,21 +1046,26 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>peut aussi être source de problèmes, d'abord de maintenance du fait des dépendances (une mise-à-jour peut casser les dépendances), ensuite du fait que des packages peuvent disparaître ou ne plus être maintenus au cours du temps, engendrant des coûts de maintenance de code ;</span>
 <span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>peut engendrer des problèmes de rétrocompatibilité (un code écrit dans le passé ne fonctionne plus suite à une mise-à-jour) : il convient d'être conscient de ces considérations avant d'utiliser aveuglément des packages.</span>
 <span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="fu">## Gestion de la mémoire</span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>Pour en savoir plus sur les packages en <span class="in">`R`</span> :</span>
 <span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>La gestion de la mémoire est différente entre les logiciels. <span class="in">`R`</span> importe l'ensemble des données en mémoire vive, <span class="in">`SAS`</span> en copie une partie sur le disque dur. Ceci a plusieurs implications pour le travail statistique :</span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>si le volume des données excède la mémoire vive, il n'est pas possible de les traiter nativement en <span class="in">`R`</span>. Il faut alors utiliser des stratégies alternatives ;</span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>il faut être parcimonieux sur le nombre de colonnes à inclure dans les bases de données en <span class="in">`R`</span>. Par exemple, il vaut mieux recréer dans le programme les variables explicatives faciles à obtenir plutôt que les inclure dans la base de données, où elles occupent de la place et accaparent de la mémoire vive.</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="ot">&lt;https://book.utilitr.org/01_R_Insee/Fiche_installer_packages.html&gt;</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="ot">&lt;https://book.utilitr.org/03_Fiches_thematiques/Fiche_comment_choisir_un_package.html&gt;</span></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="fu">## Gestion de la mémoire</span></span>
 <span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>Pour en savoir plus sur la façon dont <span class="in">`R`</span> gère les données en mémoire vive : <span class="ot">&lt;https://adv-r.hadley.nz/names-values.html&gt;</span>.</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>La gestion de la mémoire est différente entre les logiciels. <span class="in">`R`</span> importe l'ensemble des données en mémoire vive, <span class="in">`SAS`</span> en copie une partie sur le disque dur. Ceci a plusieurs implications pour le travail statistique :</span>
 <span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>Quelles solutions adopter dans le cas où les données à manipuler ne tiennent pas en mémoire vive de l'ordinateur ?</span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>chercher à réduire la taille de la base de données en supprimant des colonnes inutiles ;</span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>chercher à modifier le processus de production pour le rendre moins gourmand en mémoire ;</span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>augmenter la mémoire vive de son ordinateur ;</span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>utiliser les packages <span class="in">`data.table`</span>, optimisé pour les grosses volumétries, et <span class="in">`arrow / duckdb`</span> qui peuvent gérer des données excédant la mémoire vive.</span></code><button title="Copier vers le presse-papier" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>si le volume des données excède la mémoire vive, il n'est pas possible de les traiter nativement en <span class="in">`R`</span>. Il faut alors utiliser des stratégies alternatives ;</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>il faut être parcimonieux sur le nombre de colonnes à inclure dans les bases de données en <span class="in">`R`</span>. Par exemple, il vaut mieux recréer dans le programme les variables explicatives faciles à obtenir plutôt que les inclure dans la base de données, où elles occupent de la place et accaparent de la mémoire vive.</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>Pour en savoir plus sur la façon dont <span class="in">`R`</span> gère les données en mémoire vive : <span class="ot">&lt;https://adv-r.hadley.nz/names-values.html&gt;</span>.</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>Quelles solutions adopter dans le cas où les données à manipuler ne tiennent pas en mémoire vive de l'ordinateur ?</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>chercher à réduire la taille de la base de données en supprimant des colonnes inutiles ;</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>chercher à modifier le processus de production pour le rendre moins gourmand en mémoire ;</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>augmenter la mémoire vive de son ordinateur ;</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>utiliser les packages <span class="in">`data.table`</span>, optimisé pour les grosses volumétries, et <span class="in">`arrow / duckdb`</span> qui peuvent gérer des données excédant la mémoire vive.</span></code><button title="Copier vers le presse-papier" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
