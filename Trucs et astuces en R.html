@@ -194,10 +194,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#les-listes" id="toc-les-listes" class="nav-link" data-scroll-target="#les-listes"><span class="header-section-number">10</span> Les listes</a></li>
   <li><a href="#différences-entre-sort-order-rank" id="toc-différences-entre-sort-order-rank" class="nav-link" data-scroll-target="#différences-entre-sort-order-rank"><span class="header-section-number">11</span> Différences entre sort(), order(), rank()</a></li>
   <li><a href="#ramasse-miettes-garbage-collector" id="toc-ramasse-miettes-garbage-collector" class="nav-link" data-scroll-target="#ramasse-miettes-garbage-collector"><span class="header-section-number">12</span> Ramasse-miettes (Garbage Collector)</a></li>
-  <li><a href="#informations-sur-r" id="toc-informations-sur-r" class="nav-link" data-scroll-target="#informations-sur-r"><span class="header-section-number">13</span> Informations sur R</a></li>
-  <li><a href="#trucs-et-astuces-divers" id="toc-trucs-et-astuces-divers" class="nav-link" data-scroll-target="#trucs-et-astuces-divers"><span class="header-section-number">14</span> Trucs et astuces divers</a></li>
-  <li><a href="#le-pipe-sur-r" id="toc-le-pipe-sur-r" class="nav-link" data-scroll-target="#le-pipe-sur-r"><span class="header-section-number">15</span> Le pipe sur R</a></li>
-  <li><a href="#conseils-divers" id="toc-conseils-divers" class="nav-link" data-scroll-target="#conseils-divers"><span class="header-section-number">16</span> Conseils divers</a></li>
+  <li><a href="#fonctions-try-et-trycatch-à-faire" id="toc-fonctions-try-et-trycatch-à-faire" class="nav-link" data-scroll-target="#fonctions-try-et-trycatch-à-faire"><span class="header-section-number">13</span> Fonctions try() et tryCatch() À FAIRE</a></li>
+  <li><a href="#informations-sur-r" id="toc-informations-sur-r" class="nav-link" data-scroll-target="#informations-sur-r"><span class="header-section-number">14</span> Informations sur R</a></li>
+  <li><a href="#trucs-et-astuces-divers" id="toc-trucs-et-astuces-divers" class="nav-link" data-scroll-target="#trucs-et-astuces-divers"><span class="header-section-number">15</span> Trucs et astuces divers</a></li>
+  <li><a href="#le-pipe-sur-r" id="toc-le-pipe-sur-r" class="nav-link" data-scroll-target="#le-pipe-sur-r"><span class="header-section-number">16</span> Le pipe sur R</a></li>
+  <li><a href="#conseils-divers" id="toc-conseils-divers" class="nav-link" data-scroll-target="#conseils-divers"><span class="header-section-number">17</span> Conseils divers</a></li>
   </ul>
 </nav>
 </nav>
@@ -1107,13 +1108,16 @@ $`2`
 <div class="sourceCode cell-code" id="cb227"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb227-1"><a href="#cb227-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used (Mb) gc trigger (Mb) max used (Mb)
-Ncells  905286 48.4    1414578 75.6  1414578 75.6
-Vcells 1755470 13.4    8388608 64.0  8278230 63.2</code></pre>
+Ncells  905263 48.4    1417101 75.7  1417101 75.7
+Vcells 1755472 13.4    8388608 64.0  8284672 63.3</code></pre>
 </div>
 </div>
 </section>
-<section id="informations-sur-r" class="level1" data-number="13">
-<h1 data-number="13"><span class="header-section-number">13</span> Informations sur R</h1>
+<section id="fonctions-try-et-trycatch-à-faire" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> Fonctions try() et tryCatch() À FAIRE</h1>
+</section>
+<section id="informations-sur-r" class="level1" data-number="14">
+<h1 data-number="14"><span class="header-section-number">14</span> Informations sur R</h1>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb229"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb229-1"><a href="#cb229-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Informations sur la session de R</span></span>
 <span id="cb229-2"><a href="#cb229-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span>
@@ -1133,8 +1137,8 @@ Vcells 1755470 13.4    8388608 64.0  8278230 63.2</code></pre>
 <span id="cb229-16"><a href="#cb229-16" aria-hidden="true" tabindex="-1"></a><span class="fu">.libPaths</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="trucs-et-astuces-divers" class="level1" data-number="14">
-<h1 data-number="14"><span class="header-section-number">14</span> Trucs et astuces divers</h1>
+<section id="trucs-et-astuces-divers" class="level1" data-number="15">
+<h1 data-number="15"><span class="header-section-number">15</span> Trucs et astuces divers</h1>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb230"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb230-1"><a href="#cb230-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un objet sous forme de code R !</span></span>
 <span id="cb230-2"><a href="#cb230-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"mtcars"</span>)</span>
@@ -1220,8 +1224,8 @@ Vcells 1755470 13.4    8388608 64.0  8278230 63.2</code></pre>
 </div>
 </div>
 </section>
-<section id="le-pipe-sur-r" class="level1" data-number="15">
-<h1 data-number="15"><span class="header-section-number">15</span> Le pipe sur R</h1>
+<section id="le-pipe-sur-r" class="level1" data-number="16">
+<h1 data-number="16"><span class="header-section-number">16</span> Le pipe sur R</h1>
 <p>Cet opérateur permet d’enchaîner les opérations et d’avoir un code plus lisible.</p>
 <p>Il existe différents types :</p>
 <ul>
@@ -1277,14 +1281,14 @@ Vcells 1755470 13.4    8388608 64.0  8278230 63.2</code></pre>
 <li>https://larmarange.github.io/guide-R/manipulation/pipe.html#le-pipe-natif-de-r</li>
 </ul>
 </section>
-<section id="conseils-divers" class="level1" data-number="16">
-<h1 data-number="16"><span class="header-section-number">16</span> Conseils divers</h1>
+<section id="conseils-divers" class="level1" data-number="17">
+<h1 data-number="17"><span class="header-section-number">17</span> Conseils divers</h1>
 <p>Il est conseillé d’éviter de nommer des variables temporaires <code>var</code>, car ce nom désigne la fonction <code>R</code> permettant de calculer une variance.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb239"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb239-1"><a href="#cb239-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple : variance d'un échantillon aléatoire de 1000 observations tiré d'une loi normale centrée réduite</span></span>
 <span id="cb239-2"><a href="#cb239-2" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(<span class="fu">rnorm</span>(<span class="dv">1000</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9912328</code></pre>
+<pre><code>[1] 0.962723</code></pre>
 </div>
 </div>
 
@@ -2524,104 +2528,106 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb241-610"><a href="#cb241-610" aria-hidden="true" tabindex="-1"></a><span class="in">gc()</span></span>
 <span id="cb241-611"><a href="#cb241-611" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb241-612"><a href="#cb241-612" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-613"><a href="#cb241-613" aria-hidden="true" tabindex="-1"></a><span class="fu"># Informations sur R</span></span>
+<span id="cb241-613"><a href="#cb241-613" aria-hidden="true" tabindex="-1"></a><span class="fu"># Fonctions try() et tryCatch() À FAIRE</span></span>
 <span id="cb241-614"><a href="#cb241-614" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-615"><a href="#cb241-615" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE, results='hide'}</span></span>
-<span id="cb241-616"><a href="#cb241-616" aria-hidden="true" tabindex="-1"></a><span class="in"># Informations sur la session de R</span></span>
-<span id="cb241-617"><a href="#cb241-617" aria-hidden="true" tabindex="-1"></a><span class="in">sessionInfo()</span></span>
-<span id="cb241-618"><a href="#cb241-618" aria-hidden="true" tabindex="-1"></a><span class="in">Sys.info()</span></span>
-<span id="cb241-619"><a href="#cb241-619" aria-hidden="true" tabindex="-1"></a><span class="in">.Platform</span></span>
-<span id="cb241-620"><a href="#cb241-620" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-621"><a href="#cb241-621" aria-hidden="true" tabindex="-1"></a><span class="in"># Version de R</span></span>
-<span id="cb241-622"><a href="#cb241-622" aria-hidden="true" tabindex="-1"></a><span class="in">R.version.string</span></span>
-<span id="cb241-623"><a href="#cb241-623" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-624"><a href="#cb241-624" aria-hidden="true" tabindex="-1"></a><span class="in"># Lien vers le bureau de l'utilisateur</span></span>
-<span id="cb241-625"><a href="#cb241-625" aria-hidden="true" tabindex="-1"></a><span class="in">file.path(path.expand('~'), "Desktop")</span></span>
-<span id="cb241-626"><a href="#cb241-626" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-627"><a href="#cb241-627" aria-hidden="true" tabindex="-1"></a><span class="in"># Chemin de l'exécutable R est-il installé ?</span></span>
-<span id="cb241-628"><a href="#cb241-628" aria-hidden="true" tabindex="-1"></a><span class="in">R.home("bin")</span></span>
-<span id="cb241-629"><a href="#cb241-629" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-630"><a href="#cb241-630" aria-hidden="true" tabindex="-1"></a><span class="in"># Où sont installés les packages R</span></span>
-<span id="cb241-631"><a href="#cb241-631" aria-hidden="true" tabindex="-1"></a><span class="in">.libPaths()</span></span>
-<span id="cb241-632"><a href="#cb241-632" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb241-633"><a href="#cb241-633" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-634"><a href="#cb241-634" aria-hidden="true" tabindex="-1"></a><span class="fu"># Trucs et astuces divers</span></span>
+<span id="cb241-615"><a href="#cb241-615" aria-hidden="true" tabindex="-1"></a><span class="fu"># Informations sur R</span></span>
+<span id="cb241-616"><a href="#cb241-616" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb241-617"><a href="#cb241-617" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE, results='hide'}</span></span>
+<span id="cb241-618"><a href="#cb241-618" aria-hidden="true" tabindex="-1"></a><span class="in"># Informations sur la session de R</span></span>
+<span id="cb241-619"><a href="#cb241-619" aria-hidden="true" tabindex="-1"></a><span class="in">sessionInfo()</span></span>
+<span id="cb241-620"><a href="#cb241-620" aria-hidden="true" tabindex="-1"></a><span class="in">Sys.info()</span></span>
+<span id="cb241-621"><a href="#cb241-621" aria-hidden="true" tabindex="-1"></a><span class="in">.Platform</span></span>
+<span id="cb241-622"><a href="#cb241-622" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb241-623"><a href="#cb241-623" aria-hidden="true" tabindex="-1"></a><span class="in"># Version de R</span></span>
+<span id="cb241-624"><a href="#cb241-624" aria-hidden="true" tabindex="-1"></a><span class="in">R.version.string</span></span>
+<span id="cb241-625"><a href="#cb241-625" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb241-626"><a href="#cb241-626" aria-hidden="true" tabindex="-1"></a><span class="in"># Lien vers le bureau de l'utilisateur</span></span>
+<span id="cb241-627"><a href="#cb241-627" aria-hidden="true" tabindex="-1"></a><span class="in">file.path(path.expand('~'), "Desktop")</span></span>
+<span id="cb241-628"><a href="#cb241-628" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb241-629"><a href="#cb241-629" aria-hidden="true" tabindex="-1"></a><span class="in"># Chemin de l'exécutable R est-il installé ?</span></span>
+<span id="cb241-630"><a href="#cb241-630" aria-hidden="true" tabindex="-1"></a><span class="in">R.home("bin")</span></span>
+<span id="cb241-631"><a href="#cb241-631" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb241-632"><a href="#cb241-632" aria-hidden="true" tabindex="-1"></a><span class="in"># Où sont installés les packages R</span></span>
+<span id="cb241-633"><a href="#cb241-633" aria-hidden="true" tabindex="-1"></a><span class="in">.libPaths()</span></span>
+<span id="cb241-634"><a href="#cb241-634" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb241-635"><a href="#cb241-635" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-636"><a href="#cb241-636" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb241-637"><a href="#cb241-637" aria-hidden="true" tabindex="-1"></a><span class="in"># Créer un objet sous forme de code R !</span></span>
-<span id="cb241-638"><a href="#cb241-638" aria-hidden="true" tabindex="-1"></a><span class="in">data("mtcars")</span></span>
-<span id="cb241-639"><a href="#cb241-639" aria-hidden="true" tabindex="-1"></a><span class="in">dput(mtcars)</span></span>
-<span id="cb241-640"><a href="#cb241-640" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb241-641"><a href="#cb241-641" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-642"><a href="#cb241-642" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb241-643"><a href="#cb241-643" aria-hidden="true" tabindex="-1"></a><span class="in"># En tidyverse, la fonction tribble peut être utile pour créer des bases lignes par lignes</span></span>
-<span id="cb241-644"><a href="#cb241-644" aria-hidden="true" tabindex="-1"></a><span class="in">library(tidyverse)</span></span>
-<span id="cb241-645"><a href="#cb241-645" aria-hidden="true" tabindex="-1"></a><span class="in">tribble(</span></span>
-<span id="cb241-646"><a href="#cb241-646" aria-hidden="true" tabindex="-1"></a><span class="in">  ~x, ~y,</span></span>
-<span id="cb241-647"><a href="#cb241-647" aria-hidden="true" tabindex="-1"></a><span class="in">  "a",   1,</span></span>
-<span id="cb241-648"><a href="#cb241-648" aria-hidden="true" tabindex="-1"></a><span class="in">  "b",   2</span></span>
-<span id="cb241-649"><a href="#cb241-649" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
-<span id="cb241-650"><a href="#cb241-650" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb241-651"><a href="#cb241-651" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-652"><a href="#cb241-652" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb241-653"><a href="#cb241-653" aria-hidden="true" tabindex="-1"></a><span class="in"># Outils de debogage</span></span>
-<span id="cb241-654"><a href="#cb241-654" aria-hidden="true" tabindex="-1"></a><span class="in">options(error = recover)</span></span>
-<span id="cb241-655"><a href="#cb241-655" aria-hidden="true" tabindex="-1"></a><span class="in">options(error=NULL)</span></span>
-<span id="cb241-656"><a href="#cb241-656" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb241-657"><a href="#cb241-657" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-658"><a href="#cb241-658" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb241-659"><a href="#cb241-659" aria-hidden="true" tabindex="-1"></a><span class="in"># Définir ses propres opérateurs</span></span>
-<span id="cb241-660"><a href="#cb241-660" aria-hidden="true" tabindex="-1"></a><span class="in"># R reconnait le texte entre %% comme un opérateur binaire</span></span>
-<span id="cb241-661"><a href="#cb241-661" aria-hidden="true" tabindex="-1"></a><span class="in"># Exemple, simplifier la fonction paste</span></span>
-<span id="cb241-662"><a href="#cb241-662" aria-hidden="true" tabindex="-1"></a><span class="in">'%+%' &lt;- function(x, y) { paste(x, y, sep = "") }</span></span>
-<span id="cb241-663"><a href="#cb241-663" aria-hidden="true" tabindex="-1"></a><span class="in">"Groupe_" %+% 0:9</span></span>
-<span id="cb241-664"><a href="#cb241-664" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb241-665"><a href="#cb241-665" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-666"><a href="#cb241-666" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb241-667"><a href="#cb241-667" aria-hidden="true" tabindex="-1"></a><span class="in"># Récupérer les éléments à la diagonale d'un dataframe</span></span>
-<span id="cb241-668"><a href="#cb241-668" aria-hidden="true" tabindex="-1"></a><span class="in">diag(as.matrix(mtcars))</span></span>
-<span id="cb241-669"><a href="#cb241-669" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb241-670"><a href="#cb241-670" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-671"><a href="#cb241-671" aria-hidden="true" tabindex="-1"></a><span class="fu"># Le pipe sur R</span></span>
+<span id="cb241-636"><a href="#cb241-636" aria-hidden="true" tabindex="-1"></a><span class="fu"># Trucs et astuces divers</span></span>
+<span id="cb241-637"><a href="#cb241-637" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb241-638"><a href="#cb241-638" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb241-639"><a href="#cb241-639" aria-hidden="true" tabindex="-1"></a><span class="in"># Créer un objet sous forme de code R !</span></span>
+<span id="cb241-640"><a href="#cb241-640" aria-hidden="true" tabindex="-1"></a><span class="in">data("mtcars")</span></span>
+<span id="cb241-641"><a href="#cb241-641" aria-hidden="true" tabindex="-1"></a><span class="in">dput(mtcars)</span></span>
+<span id="cb241-642"><a href="#cb241-642" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb241-643"><a href="#cb241-643" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb241-644"><a href="#cb241-644" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb241-645"><a href="#cb241-645" aria-hidden="true" tabindex="-1"></a><span class="in"># En tidyverse, la fonction tribble peut être utile pour créer des bases lignes par lignes</span></span>
+<span id="cb241-646"><a href="#cb241-646" aria-hidden="true" tabindex="-1"></a><span class="in">library(tidyverse)</span></span>
+<span id="cb241-647"><a href="#cb241-647" aria-hidden="true" tabindex="-1"></a><span class="in">tribble(</span></span>
+<span id="cb241-648"><a href="#cb241-648" aria-hidden="true" tabindex="-1"></a><span class="in">  ~x, ~y,</span></span>
+<span id="cb241-649"><a href="#cb241-649" aria-hidden="true" tabindex="-1"></a><span class="in">  "a",   1,</span></span>
+<span id="cb241-650"><a href="#cb241-650" aria-hidden="true" tabindex="-1"></a><span class="in">  "b",   2</span></span>
+<span id="cb241-651"><a href="#cb241-651" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb241-652"><a href="#cb241-652" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb241-653"><a href="#cb241-653" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb241-654"><a href="#cb241-654" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb241-655"><a href="#cb241-655" aria-hidden="true" tabindex="-1"></a><span class="in"># Outils de debogage</span></span>
+<span id="cb241-656"><a href="#cb241-656" aria-hidden="true" tabindex="-1"></a><span class="in">options(error = recover)</span></span>
+<span id="cb241-657"><a href="#cb241-657" aria-hidden="true" tabindex="-1"></a><span class="in">options(error=NULL)</span></span>
+<span id="cb241-658"><a href="#cb241-658" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb241-659"><a href="#cb241-659" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb241-660"><a href="#cb241-660" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb241-661"><a href="#cb241-661" aria-hidden="true" tabindex="-1"></a><span class="in"># Définir ses propres opérateurs</span></span>
+<span id="cb241-662"><a href="#cb241-662" aria-hidden="true" tabindex="-1"></a><span class="in"># R reconnait le texte entre %% comme un opérateur binaire</span></span>
+<span id="cb241-663"><a href="#cb241-663" aria-hidden="true" tabindex="-1"></a><span class="in"># Exemple, simplifier la fonction paste</span></span>
+<span id="cb241-664"><a href="#cb241-664" aria-hidden="true" tabindex="-1"></a><span class="in">'%+%' &lt;- function(x, y) { paste(x, y, sep = "") }</span></span>
+<span id="cb241-665"><a href="#cb241-665" aria-hidden="true" tabindex="-1"></a><span class="in">"Groupe_" %+% 0:9</span></span>
+<span id="cb241-666"><a href="#cb241-666" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb241-667"><a href="#cb241-667" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb241-668"><a href="#cb241-668" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb241-669"><a href="#cb241-669" aria-hidden="true" tabindex="-1"></a><span class="in"># Récupérer les éléments à la diagonale d'un dataframe</span></span>
+<span id="cb241-670"><a href="#cb241-670" aria-hidden="true" tabindex="-1"></a><span class="in">diag(as.matrix(mtcars))</span></span>
+<span id="cb241-671"><a href="#cb241-671" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb241-672"><a href="#cb241-672" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-673"><a href="#cb241-673" aria-hidden="true" tabindex="-1"></a>Cet opérateur permet d'enchaîner les opérations et d'avoir un code plus lisible.</span>
+<span id="cb241-673"><a href="#cb241-673" aria-hidden="true" tabindex="-1"></a><span class="fu"># Le pipe sur R</span></span>
 <span id="cb241-674"><a href="#cb241-674" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-675"><a href="#cb241-675" aria-hidden="true" tabindex="-1"></a>Il existe différents types :</span>
+<span id="cb241-675"><a href="#cb241-675" aria-hidden="true" tabindex="-1"></a>Cet opérateur permet d'enchaîner les opérations et d'avoir un code plus lisible.</span>
 <span id="cb241-676"><a href="#cb241-676" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-677"><a href="#cb241-677" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Le pipe de Rbase :** <span class="in">`|&gt;`</span></span>
+<span id="cb241-677"><a href="#cb241-677" aria-hidden="true" tabindex="-1"></a>Il existe différents types :</span>
 <span id="cb241-678"><a href="#cb241-678" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-679"><a href="#cb241-679" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Le pipe du tidyverse :** <span class="in">`%&gt;%`</span></span>
+<span id="cb241-679"><a href="#cb241-679" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Le pipe de Rbase :** <span class="in">`|&gt;`</span></span>
 <span id="cb241-680"><a href="#cb241-680" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-681"><a href="#cb241-681" aria-hidden="true" tabindex="-1"></a>Les deux pipes fonctionnent de la même manière mais diffèrent sur les points suivants :</span>
+<span id="cb241-681"><a href="#cb241-681" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Le pipe du tidyverse :** <span class="in">`%&gt;%`</span></span>
 <span id="cb241-682"><a href="#cb241-682" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-683"><a href="#cb241-683" aria-hidden="true" tabindex="-1"></a>+-----------------------------------------------+---------------------------+-----------------------------------------------------------------------+</span>
-<span id="cb241-684"><a href="#cb241-684" aria-hidden="true" tabindex="-1"></a>| Thème                                         | <span class="in">`|&gt;`</span>                      | <span class="in">`%&gt;%`</span>                                                                 |</span>
-<span id="cb241-685"><a href="#cb241-685" aria-hidden="true" tabindex="-1"></a>+===============================================+===========================+=======================================================================+</span>
-<span id="cb241-686"><a href="#cb241-686" aria-hidden="true" tabindex="-1"></a>| Placeholder (pour indiquer où placer l'objet) | <span class="in">`_`</span>                       | <span class="in">`.`</span>                                                                   |</span>
-<span id="cb241-687"><a href="#cb241-687" aria-hidden="true" tabindex="-1"></a>|                                               |                           |                                                                       |</span>
-<span id="cb241-688"><a href="#cb241-688" aria-hidden="true" tabindex="-1"></a>|                                               | <span class="in">`x |&gt; f(y, a = _)`</span>        | <span class="in">`x %&gt;% f(y, a = .)`</span>                                                   |</span>
-<span id="cb241-689"><a href="#cb241-689" aria-hidden="true" tabindex="-1"></a>+-----------------------------------------------+---------------------------+-----------------------------------------------------------------------+</span>
-<span id="cb241-690"><a href="#cb241-690" aria-hidden="true" tabindex="-1"></a>| Package                                       | Aucun : directement sur R | Magrittr (pipe disponible lorsqu'on effectue <span class="in">`library(tidyverse)`</span>) \| |</span>
+<span id="cb241-683"><a href="#cb241-683" aria-hidden="true" tabindex="-1"></a>Les deux pipes fonctionnent de la même manière mais diffèrent sur les points suivants :</span>
+<span id="cb241-684"><a href="#cb241-684" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb241-685"><a href="#cb241-685" aria-hidden="true" tabindex="-1"></a>+-----------------------------------------------+---------------------------+-----------------------------------------------------------------------+</span>
+<span id="cb241-686"><a href="#cb241-686" aria-hidden="true" tabindex="-1"></a>| Thème                                         | <span class="in">`|&gt;`</span>                      | <span class="in">`%&gt;%`</span>                                                                 |</span>
+<span id="cb241-687"><a href="#cb241-687" aria-hidden="true" tabindex="-1"></a>+===============================================+===========================+=======================================================================+</span>
+<span id="cb241-688"><a href="#cb241-688" aria-hidden="true" tabindex="-1"></a>| Placeholder (pour indiquer où placer l'objet) | <span class="in">`_`</span>                       | <span class="in">`.`</span>                                                                   |</span>
+<span id="cb241-689"><a href="#cb241-689" aria-hidden="true" tabindex="-1"></a>|                                               |                           |                                                                       |</span>
+<span id="cb241-690"><a href="#cb241-690" aria-hidden="true" tabindex="-1"></a>|                                               | <span class="in">`x |&gt; f(y, a = _)`</span>        | <span class="in">`x %&gt;% f(y, a = .)`</span>                                                   |</span>
 <span id="cb241-691"><a href="#cb241-691" aria-hidden="true" tabindex="-1"></a>+-----------------------------------------------+---------------------------+-----------------------------------------------------------------------+</span>
-<span id="cb241-692"><a href="#cb241-692" aria-hidden="true" tabindex="-1"></a>| Fonction                                      | Impossible                | Possible                                                              |</span>
+<span id="cb241-692"><a href="#cb241-692" aria-hidden="true" tabindex="-1"></a>| Package                                       | Aucun : directement sur R | Magrittr (pipe disponible lorsqu'on effectue <span class="in">`library(tidyverse)`</span>) \| |</span>
 <span id="cb241-693"><a href="#cb241-693" aria-hidden="true" tabindex="-1"></a>+-----------------------------------------------+---------------------------+-----------------------------------------------------------------------+</span>
-<span id="cb241-694"><a href="#cb241-694" aria-hidden="true" tabindex="-1"></a>| Temps de calcul                               | Rapide                    | Plus lent                                                             |</span>
+<span id="cb241-694"><a href="#cb241-694" aria-hidden="true" tabindex="-1"></a>| Fonction                                      | Impossible                | Possible                                                              |</span>
 <span id="cb241-695"><a href="#cb241-695" aria-hidden="true" tabindex="-1"></a>+-----------------------------------------------+---------------------------+-----------------------------------------------------------------------+</span>
-<span id="cb241-696"><a href="#cb241-696" aria-hidden="true" tabindex="-1"></a>| Opérateurs                                    | <span class="in">`|&gt;`</span>                      | <span class="in">`%&gt;%`</span> <span class="in">`%&lt;&gt;%`</span> <span class="in">`%$%`</span> <span class="in">`%!&gt;%`</span> <span class="in">`%T&gt;%`</span>                                      |</span>
+<span id="cb241-696"><a href="#cb241-696" aria-hidden="true" tabindex="-1"></a>| Temps de calcul                               | Rapide                    | Plus lent                                                             |</span>
 <span id="cb241-697"><a href="#cb241-697" aria-hidden="true" tabindex="-1"></a>+-----------------------------------------------+---------------------------+-----------------------------------------------------------------------+</span>
-<span id="cb241-698"><a href="#cb241-698" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-699"><a href="#cb241-699" aria-hidden="true" tabindex="-1"></a>*Source* :</span>
+<span id="cb241-698"><a href="#cb241-698" aria-hidden="true" tabindex="-1"></a>| Opérateurs                                    | <span class="in">`|&gt;`</span>                      | <span class="in">`%&gt;%`</span> <span class="in">`%&lt;&gt;%`</span> <span class="in">`%$%`</span> <span class="in">`%!&gt;%`</span> <span class="in">`%T&gt;%`</span>                                      |</span>
+<span id="cb241-699"><a href="#cb241-699" aria-hidden="true" tabindex="-1"></a>+-----------------------------------------------+---------------------------+-----------------------------------------------------------------------+</span>
 <span id="cb241-700"><a href="#cb241-700" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-701"><a href="#cb241-701" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>https://larmarange.github.io/guide-R/manipulation/pipe.html#le-pipe-natif-de-r</span>
+<span id="cb241-701"><a href="#cb241-701" aria-hidden="true" tabindex="-1"></a>*Source* :</span>
 <span id="cb241-702"><a href="#cb241-702" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-703"><a href="#cb241-703" aria-hidden="true" tabindex="-1"></a><span class="fu"># Conseils divers</span></span>
+<span id="cb241-703"><a href="#cb241-703" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>https://larmarange.github.io/guide-R/manipulation/pipe.html#le-pipe-natif-de-r</span>
 <span id="cb241-704"><a href="#cb241-704" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-705"><a href="#cb241-705" aria-hidden="true" tabindex="-1"></a>Il est conseillé d'éviter de nommer des variables temporaires <span class="in">`var`</span>, car ce nom désigne la fonction <span class="in">`R`</span> permettant de calculer une variance.</span>
+<span id="cb241-705"><a href="#cb241-705" aria-hidden="true" tabindex="-1"></a><span class="fu"># Conseils divers</span></span>
 <span id="cb241-706"><a href="#cb241-706" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-707"><a href="#cb241-707" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb241-708"><a href="#cb241-708" aria-hidden="true" tabindex="-1"></a><span class="in"># Exemple : variance d'un échantillon aléatoire de 1000 observations tiré d'une loi normale centrée réduite</span></span>
-<span id="cb241-709"><a href="#cb241-709" aria-hidden="true" tabindex="-1"></a><span class="in">var(rnorm(1000))</span></span>
-<span id="cb241-710"><a href="#cb241-710" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb241-707"><a href="#cb241-707" aria-hidden="true" tabindex="-1"></a>Il est conseillé d'éviter de nommer des variables temporaires <span class="in">`var`</span>, car ce nom désigne la fonction <span class="in">`R`</span> permettant de calculer une variance.</span>
+<span id="cb241-708"><a href="#cb241-708" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb241-709"><a href="#cb241-709" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb241-710"><a href="#cb241-710" aria-hidden="true" tabindex="-1"></a><span class="in"># Exemple : variance d'un échantillon aléatoire de 1000 observations tiré d'une loi normale centrée réduite</span></span>
+<span id="cb241-711"><a href="#cb241-711" aria-hidden="true" tabindex="-1"></a><span class="in">var(rnorm(1000))</span></span>
+<span id="cb241-712"><a href="#cb241-712" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copier vers le presse-papier" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
