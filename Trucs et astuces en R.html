@@ -1138,8 +1138,8 @@ $ix
 <div class="sourceCode cell-code" id="cb237"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb237-1"><a href="#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used (Mb) gc trigger (Mb) max used (Mb)
-Ncells  905657 48.4    1419315 75.8  1419315 75.8
-Vcells 1756280 13.4    8388608 64.0  8202594 62.6</code></pre>
+Ncells  905672 48.4    1417321 75.7  1417321 75.7
+Vcells 1756297 13.4    8388608 64.0  8203081 62.6</code></pre>
 </div>
 </div>
 </section>
@@ -1313,12 +1313,12 @@ Vcells 1756280 13.4    8388608 64.0  8202594 62.6</code></pre>
 </section>
 <section id="conseils-divers" class="level1" data-number="17">
 <h1 data-number="17"><span class="header-section-number">17</span> Conseils divers</h1>
-<p>Il est conseillé d’éviter de nommer des variables temporaires <code>var</code>, car ce nom désigne la fonction <code>R</code> permettant de calculer une variance.</p>
+<p>Il est déconseillé de nommer des variables temporaires <code>var</code>, car ce nom désigne la fonction <code>R</code> permettant de calculer une variance.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb249"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb249-1"><a href="#cb249-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple : variance d'un échantillon aléatoire de 1000 observations tiré d'une loi normale centrée réduite</span></span>
 <span id="cb249-2"><a href="#cb249-2" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(<span class="fu">rnorm</span>(<span class="dv">1000</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.027957</code></pre>
+<pre><code>[1] 1.062071</code></pre>
 </div>
 </div>
 
@@ -2665,7 +2665,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb251-717"><a href="#cb251-717" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb251-718"><a href="#cb251-718" aria-hidden="true" tabindex="-1"></a><span class="fu"># Conseils divers</span></span>
 <span id="cb251-719"><a href="#cb251-719" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb251-720"><a href="#cb251-720" aria-hidden="true" tabindex="-1"></a>Il est conseillé d'éviter de nommer des variables temporaires <span class="in">`var`</span>, car ce nom désigne la fonction <span class="in">`R`</span> permettant de calculer une variance.</span>
+<span id="cb251-720"><a href="#cb251-720" aria-hidden="true" tabindex="-1"></a>Il est déconseillé de nommer des variables temporaires <span class="in">`var`</span>, car ce nom désigne la fonction <span class="in">`R`</span> permettant de calculer une variance.</span>
 <span id="cb251-721"><a href="#cb251-721" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb251-722"><a href="#cb251-722" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
 <span id="cb251-723"><a href="#cb251-723" aria-hidden="true" tabindex="-1"></a><span class="in"># Exemple : variance d'un échantillon aléatoire de 1000 observations tiré d'une loi normale centrée réduite</span></span>
