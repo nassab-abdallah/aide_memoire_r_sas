@@ -108,6 +108,12 @@ library(lubridate)
 #library(arrow)
 ```
 
+## pandas {.unnumbered .unlisted}
+
+```{python, warning=FALSE, message=FALSE}
+import pandas as pd
+```
+
 :::
 
 ## Documentation (Utilit'R, *cheatsheets*, etc.)

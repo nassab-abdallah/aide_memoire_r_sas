@@ -117,6 +117,15 @@ paste0("Année passée : ", annee_1)
 
 ```
 
+## pandas {.unnumbered .unlisted}
+```{python, warning=FALSE, message=FALSE}
+# Afficher l'année
+from datetime import datetime
+annee_actuelle = datetime.now().year
+# Afficher l'année actuelle
+print("Année actuelle :", annee_actuelle)
+```
+
 :::
 
 ## Construction des instructions if / else
