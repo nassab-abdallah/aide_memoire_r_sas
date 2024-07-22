@@ -274,6 +274,29 @@ donnees_python = pd.DataFrame({
     "Note_Materiel": ["19", "14", "9", "8", "12", "9", "8", "13", "17", "15", "9", "12", "12", "8", "2", None, None, None, "13", "13", "13", "10", "10", "16", "10", "10", "10"],
     "poids_sondage": ["117.1", "98.3", "214.6", "84.7", "65.9", "148.2", "89.6", "100.3", "49.3", "148.2", "86.4", "99.2", "105.6", "123.1", "137.4", "187.6", "87.3", "87.3", "169.3", "169.3", "169.3", "169.3", "234.1", "189.3", "45.9", "45.9", "45.9"]
 })
+
+# Mise en forme des données
+
+# Python est sensible à la casse, il est pertinent d'harmoniser les noms des variables en minuscule
+donnees_python.columns = donnees_python.columns.str.lower()
+
+# On a importé toutes les variables en format caractère
+
+# On convertit certaines variables en format numérique
+enNumerique = ["duree", "note_contenu", "note_formateur", "note_moyens", "note_accompagnement", "note_materiel"]
+# Remplacer les valeurs None par NaN pour les colonnes numériques et convertir en Int64
+donnees_python[enNumerique] = donnees_python[enNumerique].astype(float)
+donnees_python['poids_sondage'] = donnees_python['poids_sondage'].astype(float)
+
+# Colonnes à convertir en date
+enDate = ['date_naissance', 'date_entree']
+donnees_python[enDate] = donnees_python[enDate].apply(pd.to_datetime, format='%d/%m/%Y', errors='coerce')
+
+# Date de sortie du dispositif
+# A FAIRE
+
+# Âge à l'entrée dans le dispositif
+donnees_python['age'] = (donnees_python['date_entree'] - donnees_python['date_naissance']).astype('<m8[Y]')
 ```
 
 :::
@@ -422,6 +445,17 @@ Si cette option est valorisée à TRUE, les valeurs numériques précédées par
 
 ```{r, warning=FALSE, message=FALSE}
 
+```
+
+### pandas {.unnumbered .unlisted}
+
+On utilisera les fonctions pd.reas_csv() ou reader.to_data_frame() pour les bases SAS.
+
+```{python, warning=FALSE, message=FALSE, results='hide'}
+#from sas7bdat import SAS7BDAT
+#import retrying
+#with SAS7BDAT(file_path) as reader:
+#    donnees = reader.to_data_frame()
 ```
 
 :::
