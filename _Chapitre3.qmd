@@ -47,6 +47,15 @@ chemin <- file.path("C:/Users", user, "Desktop")
 
 ```
 
+## pandas {.unnumbered .unlisted}
+```{python, warning=FALSE, message=FALSE}
+import os
+# On récupère déjà l'identifiant de l'utilisateur
+user = os.getenv('USERNAME')
+# Construire le chemin vers le bureau en texte
+chemin = "C:/Users/" + str(user) + "/Desktop"
+```
+
 :::
 
 ## Affichage de l'année
@@ -118,9 +127,8 @@ paste0("Année passée : ", annee_1)
 ```
 
 ## pandas {.unnumbered .unlisted}
-```{python, warning=FALSE, message=FALSE}
+```{python, warning=FALSE, message=FALSE, results='hide'}
 # Afficher l'année
-from datetime import datetime
 annee_actuelle = datetime.now().year
 # Afficher l'année actuelle
 print("Année actuelle :", annee_actuelle)
