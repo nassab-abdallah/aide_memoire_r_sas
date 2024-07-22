@@ -124,6 +124,8 @@ from datetime import datetime
 annee_actuelle = datetime.now().year
 # Afficher l'année actuelle
 print("Année actuelle :", annee_actuelle)
+annee_1 = annee_actuelle - 1
+print("Année précédente :", annee_1)
 ```
 
 :::
