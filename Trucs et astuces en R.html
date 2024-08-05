@@ -464,7 +464,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3 4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># seq se comporte comme seq_along sauf si le vecteur ne comprend qu'un élement, et comme seq_len s'il en comprend plusieurs</span></span>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># seq se comporte comme seq_along si le vecteur comprend plusieurs éléments, et comme seq_len s'il comprend un seul élément</span></span>
 <span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plusieurs éléments</span></span>
 <span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>vecteur <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>)</span>
@@ -1209,8 +1209,8 @@ $ix
 <div class="sourceCode cell-code" id="cb259"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb259-1"><a href="#cb259-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used (Mb) gc trigger (Mb) max used (Mb)
-Ncells  905852 48.4    1415762 75.7  1415762 75.7
-Vcells 1757158 13.5    8388608 64.0  8385376 64.0</code></pre>
+Ncells  905849 48.4    1415928 75.7  1415928 75.7
+Vcells 1757142 13.5    8388608 64.0  8385374 64.0</code></pre>
 </div>
 </div>
 </section>
@@ -1396,7 +1396,7 @@ Vcells 1757158 13.5    8388608 64.0  8385376 64.0</code></pre>
 <div class="sourceCode cell-code" id="cb273"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb273-1"><a href="#cb273-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple : variance d'un échantillon aléatoire de 1000 observations tiré d'une loi normale centrée réduite</span></span>
 <span id="cb273-2"><a href="#cb273-2" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(<span class="fu">rnorm</span>(<span class="dv">1000</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.065716</code></pre>
+<pre><code>[1] 1.02132</code></pre>
 </div>
 </div>
 
@@ -2177,7 +2177,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb275-147"><a href="#cb275-147" aria-hidden="true" tabindex="-1"></a><span class="in"># seq_along : créé une séquence d'éléments de 1 jusqu'au nombre d'éléments du vecteur</span></span>
 <span id="cb275-148"><a href="#cb275-148" aria-hidden="true" tabindex="-1"></a><span class="in">seq_along(c(7,9,1,0))</span></span>
 <span id="cb275-149"><a href="#cb275-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb275-150"><a href="#cb275-150" aria-hidden="true" tabindex="-1"></a><span class="in"># seq se comporte comme seq_along sauf si le vecteur ne comprend qu'un élement, et comme seq_len s'il en comprend plusieurs</span></span>
+<span id="cb275-150"><a href="#cb275-150" aria-hidden="true" tabindex="-1"></a><span class="in"># seq se comporte comme seq_along si le vecteur comprend plusieurs éléments, et comme seq_len s'il comprend un seul élément</span></span>
 <span id="cb275-151"><a href="#cb275-151" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb275-152"><a href="#cb275-152" aria-hidden="true" tabindex="-1"></a><span class="in"># Plusieurs éléments</span></span>
 <span id="cb275-153"><a href="#cb275-153" aria-hidden="true" tabindex="-1"></a><span class="in">vecteur &lt;- c(10, 20, 30)</span></span>
