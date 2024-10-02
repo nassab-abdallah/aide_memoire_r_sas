@@ -501,6 +501,14 @@ objet_5
 # Les listes
 
 ```{r, warning=FALSE, message=FALSE}
+# Créer une liste
+liste <- list()
+
+# Pré-allouer une liste de 5 éléments
+liste <- vector(mode = "list", 5)
+```
+
+```{r, warning=FALSE, message=FALSE}
 # Ajouter un élément à une liste
 liste <- list(1, 2)
 # Il faut passer par cette syntaxe
