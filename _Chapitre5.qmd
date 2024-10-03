@@ -525,6 +525,9 @@ varNotes <- donnees_tidyverse %>% select(!starts_with("note"))
 cols <- grep("^note", names(donnees_datatable), value = TRUE, ignore.case = TRUE)
 sel <- donnees_datatable[, .SD, .SDcols = -cols]
 sel <- donnees_datatable[, .SD, .SDcols = -patterns("^note")]
+
+# Autre possibilité
+sel <- donnees_datatable[, grep("^note", names(donnees_datatable)) := NULL]
 ```
 
 ## arrow/duckdb {.unnumbered .unlisted}
