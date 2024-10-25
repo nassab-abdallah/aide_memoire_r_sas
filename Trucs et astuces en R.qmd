@@ -705,6 +705,24 @@ Les deux pipes fonctionnent de la même manière mais diffèrent sur les points 
 
 -   https://larmarange.github.io/guide-R/manipulation/pipe.html#le-pipe-natif-de-r
 
+
+# Fonction pour coller (par exemple dans Excel) des données copiées dans le presse-papier
+
+Pour coller des données de R dans Excel, on peut :
+
+- faire passer la fonction CopierColler ci-dessous sur les données `R` que l'on souhaite copier dans Excel
+- coller le presse-papier dans Excel.
+
+```{r, warning=FALSE, message=FALSE}
+# Copier dans le presse-papier
+x <- mtcars
+CopierColler <- function(x, row.names = FALSE, col.names = TRUE, dec = ",", na = "", sep = "\t", quote = FALSE, ...) {
+  write.table(x, "clipboard", sep = sep, row.names = row.names, col.names = col.names, dec = dec, na = na, quote = quote, ...)
+}
+CopierColler(x)
+```
+
+
 # Conseils divers
 
 Il est déconseillé de nommer des variables temporaires `var`, car ce nom désigne la fonction `R` permettant de calculer une variance.
