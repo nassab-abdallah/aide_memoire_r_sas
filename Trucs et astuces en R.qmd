@@ -703,7 +703,7 @@ Les deux pipes fonctionnent de la même manière mais diffèrent sur les points 
 
 *Source* :
 
--   https://larmarange.github.io/guide-R/manipulation/pipe.html#le-pipe-natif-de-r
+-   <https://larmarange.github.io/guide-R/manipulation/pipe.html#le-pipe-natif-de-r>
 
 
 # Fonction pour coller (par exemple dans Excel) des données copiées dans le presse-papier
