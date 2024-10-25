@@ -710,11 +710,14 @@ Les deux pipes fonctionnent de la même manière mais diffèrent sur les points 
 
 Pour coller des données de R dans Excel, on peut :
 
-- faire passer la fonction CopierColler ci-dessous sur les données `R` que l'on souhaite copier dans Excel
-- coller le presse-papier dans Excel.
+- faire passer la fonction `R` CopierColler() ci-dessous sur les données `R` que l'on souhaite copier dans Excel ;
+- puis coller le presse-papier directement dans Excel.
+
+La fonction peut être assez pratique.
+
 
 ```{r, warning=FALSE, message=FALSE}
-# Copier dans le presse-papier
+# Copier des données dans le presse-papier
 x <- mtcars
 CopierColler <- function(x, row.names = FALSE, col.names = TRUE, dec = ",", na = "", sep = "\t", quote = FALSE, ...) {
   write.table(x, "clipboard", sep = sep, row.names = row.names, col.names = col.names, dec = dec, na = na, quote = quote, ...)
