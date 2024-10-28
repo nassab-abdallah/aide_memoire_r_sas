@@ -705,7 +705,7 @@ Les deux pipes fonctionnent de la même manière mais diffèrent sur les points 
 
 -   <https://larmarange.github.io/guide-R/manipulation/pipe.html#le-pipe-natif-de-r>
 
-# Fonction pour coller (par exemple dans Excel) des données copiées dans le presse-papier
+# Fonction pour coller (par exemple dans Excel) des données copiées depuis le presse-papier
 
 Pour coller des données de R dans Excel, on peut :
 
