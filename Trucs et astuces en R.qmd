@@ -720,7 +720,8 @@ x <- mtcars
 CopierColler <- function(x, row.names = FALSE, col.names = TRUE, dec = ",", na = "", sep = "\t", quote = FALSE, ...) {
   write.table(x, "clipboard", sep = sep, row.names = row.names, col.names = col.names, dec = dec, na = na, quote = quote, ...)
 }
-CopierColler(x)
+# Fonctionne sous système Windows, pas Linux
+#CopierColler(x)
 ```
 
 # Conseils divers
