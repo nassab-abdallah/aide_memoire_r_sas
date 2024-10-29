@@ -701,7 +701,7 @@ auMoins2022 <- donnees_tidyverse %>%
 ```{r, warning=FALSE, message=FALSE, results='hide'}
 # Personnes qui ont eu au moins une entrée en 2022
 # Une fonction year() est déjà implémentée en data.table, l'usage de lubridate est inutile
-auMoins2022 <- donnees_datatable[, if(any(data.table::year(date_entree) %in% 2022)) .SD, by = identifiant]
+auMoins2022 <- donnees_datatable[, if (any(data.table::year(date_entree) %in% 2022)) .SD, by = identifiant]
 
 # Autre solution
 auMoins2022 <- donnees_datatable[, if (sum(data.table::year(date_entree) == 2022, na.rm = TRUE) > 0) .SD, by = identifiant]
