@@ -2,7 +2,7 @@
 
 ## Emploi des guillemets et doubles guillemets
 
-Une macro-variable exprimée sous format caractère doit être entourée de "", et non ''.
+Une macro-variable exprimée sous format caractère doit être entourée de guillemets doubles ("") et non simples ('').
 
 ::: {.panel-tabset group="language"}
 
