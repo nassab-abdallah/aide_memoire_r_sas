@@ -93,6 +93,8 @@ Sys.sleep(1)
 tempsFin <- Sys.time()
 sprintf("Durée d'exécution : %s minutes", difftime(tempsFin, tempsDebut, units = "mins"))
 
+# Autre solution (attente de 1 centième de seconde)
+system.time(Sys.sleep(0.01))
 ```
 
 ## tidyverse {.unnumbered .unlisted}
@@ -106,6 +108,9 @@ Sys.sleep(1)
 # Affichage du temps de traitement (en minutes)
 tempsFin <- Sys.time()
 sprintf("Durée d'exécution : %s minutes", difftime(tempsFin, tempsDebut, units = "mins"))
+
+# Autre solution (attente de 1 centième de seconde)
+system.time(Sys.sleep(0.01))
 ```
 
 ## data.table {.unnumbered .unlisted}
@@ -119,6 +124,9 @@ Sys.sleep(1)
 # Affichage du temps de traitement (en minutes)
 tempsFin <- Sys.time()
 sprintf("Durée d'exécution : %s minutes", difftime(tempsFin, tempsDebut, units = "mins"))
+
+# Autre solution (attente de 1 centième de seconde)
+system.time(Sys.sleep(0.01))
 ```
 
 ## arrow/duckdb {.unnumbered .unlisted}
