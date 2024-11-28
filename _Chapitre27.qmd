@@ -2,7 +2,8 @@
 
 ## Emploi des guillemets et doubles guillemets
 
-Une macro exprimée sous format caractère doit être entourée de "", et non ''.
+Une macro-variable exprimée sous format caractère doit être entourée de "", et non ''.
+Par 
 
 ::: {.panel-tabset group="language"}
 
