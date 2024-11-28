@@ -1,4 +1,4 @@
-# Fonctions `SAS` et `R` utiles
+# Fonctions `SAS` et `R` utiles (durée d'exécution, exécuter un programme d'un autre fichier)
 
 ## Mesurer la durée d'exécution d'un programme
 ::: {.panel-tabset group="language"}
@@ -9,7 +9,7 @@
 proc sort data = donnees_sas;by identifiant date_entree;run;
 %let temps_fin = %sysfunc(datetime());
 
-%let duree = %sysevalf((&temps_fin. - &temps_debut.) / 60);
+%let duree = %sysevalf( (&temps_fin. - &temps_debut.) / 60 );
 %put Durée exécution : &duree minutes;
 ```
 
@@ -21,7 +21,7 @@ system.time(donnees_rbase <- donnees_rbase[order(donnees_rbase$identifiant, donn
 debut <- Sys.time()
 donnees_rbase <- donnees_rbase[order(donnees_rbase$identifiant, donnees_rbase$date_entree, na.last = FALSE), ]
 fin <- Sys.time()
-sprintf("Temps d'exécution : %s secondes !", fin - debut)
+sprintf("Temps d'exécution : %s minutes !", difftime(fin, debut, units = "mins"))
 ```
 
 ## tidyverse {.unnumbered .unlisted}
@@ -34,7 +34,7 @@ debut <- Sys.time()
 donnees_tidyverse <- donnees_tidyverse %>% 
               arrange(identifiant, date_entree)
 fin <- Sys.time()
-sprintf("Temps d'exécution : %s secondes !", fin - debut)
+sprintf("Temps d'exécution : %s minutes !", difftime(fin, debut, units = "mins"))
 ```
 
 ## data.table {.unnumbered .unlisted}
@@ -45,7 +45,7 @@ system.time(setorder(donnees_datatable, "identifiant", "date_entree", na.last = 
 debut <- Sys.time()
 setorder(donnees_datatable, "identifiant", "date_entree", na.last = FALSE)
 fin <- Sys.time()
-sprintf("Temps d'exécution : %s secondes !", fin - debut)
+sprintf("Temps d'exécution : %s minutes !", difftime(fin, debut, units = "mins"))
 
 started.at <- proc.time()
 setorder(donnees_datatable, "identifiant", "date_entree", na.last = FALSE)
