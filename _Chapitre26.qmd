@@ -1,4 +1,4 @@
-# Débogage
+# Débogage, temps d'exécution
 
 ## Outils d'aide au débogage 
 ::: {.panel-tabset group="language"}
@@ -53,6 +53,72 @@ options nosymbolgen nomprint nomlogic;
 # À FAIRE : autres outils
 #traceback()
 #browser()
+```
+
+## arrow/duckdb {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE}
+
+```
+
+:::
+
+## Mesure du temps d'exécution d'un programme 
+::: {.panel-tabset group="language"}
+
+## SAS {.unnumbered .unlisted}
+``` sas
+/* Temps d'exécution */
+%let temps_debut = %sysfunc(datetime());
+
+/* Attendre 1 seconde */
+data _null_;
+ call sleep(1, 1);
+run;
+
+/* Affichage du temps de traitement (en minutes) */
+%let temps_fin = %sysfunc(datetime());
+%let duree = %sysevalf( (&temps_fin - &temps_debut) / 60 );
+%put Durée exécution : &duree minutes;
+```
+
+## R base {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE, results='hide'}
+# Temps d'exécution
+tempsDebut <- Sys.time()
+
+# Attendre 1 seconde
+Sys.sleep(1)
+
+# Affichage du temps de traitement (en minutes)
+tempsFin <- Sys.time()
+sprintf("Durée d'exécution : %s minutes", difftime(tempsFin, tempsDebut, units = "mins"))
+
+```
+
+## tidyverse {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE, results='hide'}
+# Temps d'exécution
+tempsDebut <- Sys.time()
+
+# Attendre 1 seconde
+Sys.sleep(1)
+
+# Affichage du temps de traitement (en minutes)
+tempsFin <- Sys.time()
+sprintf("Durée d'exécution : %s minutes", difftime(tempsFin, tempsDebut, units = "mins"))
+```
+
+## data.table {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE, results='hide'}
+# Temps d'exécution
+tempsDebut <- Sys.time()
+
+# Attendre 1 seconde
+Sys.sleep(1)
+
+# Affichage du temps de traitement (en minutes)
+tempsFin <- Sys.time()
+sprintf("Durée d'exécution : %s minutes", difftime(tempsFin, tempsDebut, units = "mins"))
 ```
 
 ## arrow/duckdb {.unnumbered .unlisted}
