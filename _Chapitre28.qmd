@@ -73,8 +73,12 @@ proc datasets lib = work nolist;delete &aSupprimer.;run;
 #rm(donnees_rbase)
 
 # Supprimer plusieurs bases
-# Ne pas oublier list = !
+#rm("donnees_rbase", "donnees_tidyverse", "donnees_datatable")
+#rm(donnees_rbase, donnees_tidyverse, donnees_datatable)
+
+# Ou alors
 aSupprimer <- c("donnees_rbase", "donnees_tidyverse", "donnees_datatable")
+# Ne pas oublier list = !
 #rm(list = aSupprimer)
 ```
 
@@ -84,8 +88,12 @@ aSupprimer <- c("donnees_rbase", "donnees_tidyverse", "donnees_datatable")
 #rm(donnees_tidyverse)
 
 # Supprimer plusieurs bases
-# Ne pas oublier list = !
+#rm("donnees_rbase", "donnees_tidyverse", "donnees_datatable")
+#rm(donnees_rbase, donnees_tidyverse, donnees_datatable)
+
+# Ou alors
 aSupprimer <- c("donnees_rbase", "donnees_tidyverse", "donnees_datatable")
+# Ne pas oublier list = !
 #rm(list = aSupprimer)
 ```
 
@@ -95,8 +103,12 @@ aSupprimer <- c("donnees_rbase", "donnees_tidyverse", "donnees_datatable")
 #rm(donnees_datatable)
 
 # Supprimer plusieurs bases
-# Ne pas oublier list = !
+#rm("donnees_rbase", "donnees_tidyverse", "donnees_datatable")
+#rm(donnees_rbase, donnees_tidyverse, donnees_datatable)
+
+# Ou alors
 aSupprimer <- c("donnees_rbase", "donnees_tidyverse", "donnees_datatable")
+# Ne pas oublier list = !
 #rm(list = aSupprimer)
 ```
 
