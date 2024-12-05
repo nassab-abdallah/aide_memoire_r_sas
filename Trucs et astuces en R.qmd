@@ -642,6 +642,9 @@ R.home("bin")
 
 # Où sont installés les packages R
 .libPaths()
+
+# Version d'un package installé (ici openxlsx)
+# packageVersion("openxlsx")
 ```
 
 # Le comportement de l'opérateur c()
