@@ -633,6 +633,7 @@ Sys.info()
 
 # Version de R
 R.version.string
+getRversion()
 
 # Lien vers le bureau de l'utilisateur
 file.path(path.expand('~'), "Desktop")
