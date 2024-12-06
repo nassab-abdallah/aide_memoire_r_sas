@@ -181,6 +181,8 @@ Sans objet pour SAS.
 
 Si vous utilisez l'IDE `RStudio` : <https://rstudio.github.io/cheatsheets/rstudio-ide.pdf>
 
+Si l'encodage du fichier de programme ouvert ne convient pas, Fichier -> Reopen with Enccoding... -> et choisir le bon encodage.
+
 Plusieurs raccourcis clavier sont notamment très utiles :
 
 | Raccourci                                                 | Effet                                                                                    |
@@ -203,6 +205,8 @@ Plusieurs raccourcis clavier sont notamment très utiles :
 
 Si vous utilisez l'IDE `RStudio` : <https://rstudio.github.io/cheatsheets/rstudio-ide.pdf>
 
+Si l'encodage du fichier de programme ouvert ne convient pas, Fichier -> Reopen with Enccoding... -> et choisir le bon encodage.
+
 Plusieurs raccourcis clavier sont notamment très utiles :
 
 | Raccourci                                                 | Effet                                                                                    |
@@ -224,6 +228,8 @@ Plusieurs raccourcis clavier sont notamment très utiles :
 ## data.table {.unnumbered .unlisted}
 
 Si vous utilisez l'IDE `RStudio` : <https://rstudio.github.io/cheatsheets/rstudio-ide.pdf>
+
+Si l'encodage du fichier de programme ouvert ne convient pas, Fichier -> Reopen with Enccoding... -> et choisir le bon encodage.
 
 Plusieurs raccourcis clavier sont notamment très utiles :
 
