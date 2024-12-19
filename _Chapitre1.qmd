@@ -221,7 +221,7 @@ Plusieurs raccourcis clavier sont notamment très utiles :
 | Ctrl et flèche de droite ou de gauche                     | Passer d'un mot à l'autre de la ligne                                                    |
 | Alt et déplacement du curseur de la souris en haut ou bas | Permet de modifier simultanément le même emplacement de plusieurs lignes successives     |
 | Ctrl et Shift et U                                        | Mettre en minuscule les caractères sélectionnés                                             |
-| Ctrl et L                                                  | Vide la console                                                                                      |
+| Ctrl et L                                                  | Vider la console                                                                                      |
 
 : Raccourcis `RStudio`
 
