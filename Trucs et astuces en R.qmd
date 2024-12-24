@@ -621,7 +621,29 @@ Si la mémoire vive de l'ordinateur est saturée, on peut essayer de la "purger"
 gc()
 ```
 
-# Fonctions try() et tryCatch() À FAIRE
+# Fonctions `try()` et `tryCatch()`
+
+La fonction `try()` permet de poursuivre le programme malgré la survenue d'une erreur. Dans l'exemple suivant, le programme affiche bien "Suite du programme" malgré l'erreur au code précédent.
+
+```{r, warning=FALSE, message=FALSE}
+try(log("x"))
+print("Suite du programme")
+```
+
+La fonction `tryCatch()` est plus élaborée, et permet de programmer une valeur par défaut en cas d'erreur.
+
+La fonction suivante renvoie un NA si la fonction log() ne peut pas être appliquée, comme c'est le cas sur l'exemple pour la valeur "a".
+
+```{r, warning=FALSE, message=FALSE}
+FonctionLog <- function(x) {
+  tryCatch(
+    error = function(cnd) NA,
+    log(x)
+  )
+}
+FonctionLog("x")
+```
+
 
 # Informations sur R
 
