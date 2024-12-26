@@ -1031,7 +1031,12 @@ donnees_tidyverse <- donnees_tidyverse %>%
   arrange(identifiant, !is.na(date_entree), date_entree) %>%
   mutate(premiere_entree = head(date_entree, 1), .by = identifiant)
 
-# Autre solution
+# Autres solutions
+donnees_tidyverse <- donnees_tidyverse %>%
+  # Pour trier les données de la même façon que SAS
+  arrange(identifiant, !is.na(date_entree), date_entree) %>%
+  mutate(premiere_entree = first(date_entree), .by = identifiant)
+
 donnees_tidyverse <- donnees_tidyverse %>%
   # Pour trier les données de la même façon que SAS
   arrange(identifiant, !is.na(date_entree), date_entree) %>%
