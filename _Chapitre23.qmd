@@ -19,84 +19,210 @@ Les boucles ont généralement lieu au sein d'une macro.
 ```
 
 ## R base {.unnumbered .unlisted}
-```{r, warning=FALSE, message=FALSE, results='hide'}
 
+Il existe 2 grandes stratégies pour construire des boucles en `R` :
+
+1. Les boucles `for`
+
+Leur utilisation est basique :
+
+```{r, warning=FALSE, message=FALSE, results='hide'}
+for (i in 1:10) {
+  print(i)
+}
 ```
+
+3 mises en garde :
+
+- En cas d'utilisation d'un conteneur, il est judicieux de le préallouer pour des questions d'optimisation de la mémoire dans `R` :
+
+```{r, warning=FALSE, message=FALSE, results='hide'}
+conteneur <- vector("list", 10)
+for (i in 1:10) {
+  conteneur[[i]] <- i
+}
+```
+
+- Le symbole `:` fonctionne à la fois avec des séquences croissantes, mais aussi décroissantes, ce qui peut être source d'erreurs.
+
+```{r, warning=FALSE, message=FALSE, results='hide'}
+nb <- 0
+conteneur <- vector("list", nb)
+for (i in 1:nb) print(i)
+# Erreur
+# for (i in 1:nb) conteneur[[i]] <- i
+```
+
+Il vaut mieux utiliser `seq_along()`, qui ne fonctionne qu'en sens croissant.
+
+```{r, warning=FALSE, message=FALSE, results='hide'}
+nb <- 0
+conteneur <- vector("list", nb)
+for (i in seq_along(nb)) {
+  print(i)
+  conteneur[[i]] <- i
+}
+```
+
+- La boucle `for` peut supprimer les attributs des éléments lors de l'itération. Dans l'exemple suivant, le formatage des dates est supprimé lors de la boucle :
+
+```{r, warning=FALSE, message=FALSE, results='hide'}
+valeurs <- as.Date(c("2020-01-01", "2010-01-01"))
+for (i in valeurs) {
+  print(i)
+}
+```
+
+Il vaut mieux alors utiliser le code suivant, qui conserve les attributs :
+
+```{r, warning=FALSE, message=FALSE, results='hide'}
+valeurs <- as.Date(c("2020-01-01", "2010-01-01"))
+for (i in seq_along(valeurs)) {
+  print(valeurs[[i]])
+}
+```
+
+2. Les fonctions de la famille `apply` 
+
+Voir partie avancée.
 
 ## tidyverse {.unnumbered .unlisted}
-```{r, warning=FALSE, message=FALSE, results='hide'}
 
+Il existe 2 grandes stratégies pour construire des boucles en `R` :
+
+1. Les boucles `for`
+
+Leur utilisation est basique :
+
+```{r, warning=FALSE, message=FALSE, results='hide'}
+for (i in 1:10) {
+  print(i)
+}
 ```
+
+3 mises en garde :
+
+- En cas d'utilisation d'un conteneur, il est judicieux de le préallouer pour des questions d'optimisation de la mémoire dans `R` :
+
+```{r, warning=FALSE, message=FALSE, results='hide'}
+conteneur <- vector("list", 10)
+for (i in 1:10) {
+  conteneur[[i]] <- i
+}
+```
+
+- Le symbole `:` fonctionne à la fois avec des séquences croissantes, mais aussi décroissantes, ce qui peut être source d'erreurs.
+
+```{r, warning=FALSE, message=FALSE, results='hide'}
+nb <- 0
+conteneur <- vector("list", nb)
+for (i in 1:nb) print(i)
+# Erreur
+# for (i in 1:nb) conteneur[[i]] <- i
+```
+
+Il vaut mieux utiliser `seq_along()`, qui ne fonctionne qu'en sens croissant.
+
+```{r, warning=FALSE, message=FALSE, results='hide'}
+nb <- 0
+conteneur <- vector("list", nb)
+for (i in seq_along(nb)) {
+  print(i)
+  conteneur[[i]] <- i
+}
+```
+
+- La boucle `for` peut supprimer les attributs des éléments lors de l'itération. Dans l'exemple suivant, le formatage des dates est supprimé lors de la boucle :
+
+```{r, warning=FALSE, message=FALSE, results='hide'}
+valeurs <- as.Date(c("2020-01-01", "2010-01-01"))
+for (i in valeurs) {
+  print(i)
+}
+```
+
+Il vaut mieux alors utiliser le code suivant, qui conserve les attributs :
+
+```{r, warning=FALSE, message=FALSE, results='hide'}
+valeurs <- as.Date(c("2020-01-01", "2010-01-01"))
+for (i in seq_along(valeurs)) {
+  print(valeurs[[i]])
+}
+```
+
+2. Les fonctions de la famille `apply` 
+
+Voir partie avancée.
 
 ## data.table {.unnumbered .unlisted}
+
+Il existe 2 grandes stratégies pour construire des boucles en `R` :
+
+1. Les boucles `for`
+
+Leur utilisation est basique :
+
 ```{r, warning=FALSE, message=FALSE, results='hide'}
-
+for (i in 1:10) {
+  print(i)
+}
 ```
 
-## arrow/duckdb {.unnumbered .unlisted}
-```{r, warning=FALSE, message=FALSE}
+3 mises en garde :
 
+- En cas d'utilisation d'un conteneur, il est judicieux de le préallouer pour des questions d'optimisation de la mémoire dans `R` :
+
+```{r, warning=FALSE, message=FALSE, results='hide'}
+conteneur <- vector("list", 10)
+for (i in 1:10) {
+  conteneur[[i]] <- i
+}
 ```
+
+- Le symbole `:` fonctionne à la fois avec des séquences croissantes, mais aussi décroissantes, ce qui peut être source d'erreurs.
+
+```{r, warning=FALSE, message=FALSE, results='hide'}
+nb <- 0
+conteneur <- vector("list", nb)
+for (i in 1:nb) print(i)
+# Erreur
+# for (i in 1:nb) conteneur[[i]] <- i
+```
+
+Il vaut mieux utiliser `seq_along()`, qui ne fonctionne qu'en sens croissant.
+
+```{r, warning=FALSE, message=FALSE, results='hide'}
+nb <- 0
+conteneur <- vector("list", nb)
+for (i in seq_along(nb)) {
+  print(i)
+  conteneur[[i]] <- i
+}
+```
+
+- La boucle `for` peut supprimer les attributs des éléments lors de l'itération. Dans l'exemple suivant, le formatage des dates est supprimé lors de la boucle :
+
+```{r, warning=FALSE, message=FALSE, results='hide'}
+valeurs <- as.Date(c("2020-01-01", "2010-01-01"))
+for (i in valeurs) {
+  print(i)
+}
+```
+
+Il vaut mieux alors utiliser le code suivant, qui conserve les attributs :
+
+```{r, warning=FALSE, message=FALSE, results='hide'}
+valeurs <- as.Date(c("2020-01-01", "2010-01-01"))
+for (i in seq_along(valeurs)) {
+  print(valeurs[[i]])
+}
+```
+
+2. Les fonctions de la famille `apply` 
+
+Voir partie avancée.
 
 :::
-
-
-
-
-
-- Une boucle sans pré-allouer le conteneur peut être très lente
-
-means <- c(1, 50, 20)
-out <- vector("list", length(means))
-for (i in 1:length(means)) {
-  out[[i]] <- rnorm(10, means[[i]])
-}
-Next, beware of iterating over 1:length(x), which will fail in unhelpful ways if x has length 0:
-
-- Prendre garde à la syntaxe
-
-means <- c()
-out <- vector("list", length(means))
-for (i in 1:length(means)) {
-  out[[i]] <- rnorm(10, means[[i]])
-}
-#> Error in rnorm(10, means[[i]]): invalid arguments
-This occurs because : works with both increasing and decreasing sequences:
-
-1:length(means)
-#> [1] 1 0
-Use seq_along(x) instead. It always returns a value the same length as x:
-
-seq_along(means)
-#> integer(0)
-
-out <- vector("list", length(means))
-for (i in seq_along(means)) {
-  out[[i]] <- rnorm(10, means[[i]])
-}
-
-
-
-
-Finally, you might encounter problems when iterating over S3 vectors, as loops typically strip the attributes:
-
-xs <- as.Date(c("2020-01-01", "2010-01-01"))
-for (x in xs) {
-  print(x)
-}
-#> [1] 18262
-#> [1] 14610
-Work around this by calling [[ yourself:
-
-for (i in seq_along(xs)) {
-  print(xs[[i]])
-}
-#> [1] "2020-01-01"
-#> [1] "2010-01-01"
-
-
-
-
 
 ## Boucles imbriquées
 ::: {.panel-tabset group="language"}
