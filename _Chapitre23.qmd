@@ -1,5 +1,103 @@
 # Boucles
 
+## Généralités sur les boucles
+
+::: {.panel-tabset group="language"}
+
+## SAS {.unnumbered .unlisted}
+
+Les boucles ont généralement lieu au sein d'une macro.
+
+``` sas
+%macro Boucles;
+  %local i;
+  %do i = 1 %to 10;
+    %put &i.;
+  %end;
+%mend Boucles;
+%Boucles;
+```
+
+## R base {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE, results='hide'}
+
+```
+
+## tidyverse {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE, results='hide'}
+
+```
+
+## data.table {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE, results='hide'}
+
+```
+
+## arrow/duckdb {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE}
+
+```
+
+:::
+
+
+
+
+
+- Une boucle sans pré-allouer le conteneur peut être très lente
+
+means <- c(1, 50, 20)
+out <- vector("list", length(means))
+for (i in 1:length(means)) {
+  out[[i]] <- rnorm(10, means[[i]])
+}
+Next, beware of iterating over 1:length(x), which will fail in unhelpful ways if x has length 0:
+
+- Prendre garde à la syntaxe
+
+means <- c()
+out <- vector("list", length(means))
+for (i in 1:length(means)) {
+  out[[i]] <- rnorm(10, means[[i]])
+}
+#> Error in rnorm(10, means[[i]]): invalid arguments
+This occurs because : works with both increasing and decreasing sequences:
+
+1:length(means)
+#> [1] 1 0
+Use seq_along(x) instead. It always returns a value the same length as x:
+
+seq_along(means)
+#> integer(0)
+
+out <- vector("list", length(means))
+for (i in seq_along(means)) {
+  out[[i]] <- rnorm(10, means[[i]])
+}
+
+
+
+
+Finally, you might encounter problems when iterating over S3 vectors, as loops typically strip the attributes:
+
+xs <- as.Date(c("2020-01-01", "2010-01-01"))
+for (x in xs) {
+  print(x)
+}
+#> [1] 18262
+#> [1] 14610
+Work around this by calling [[ yourself:
+
+for (i in seq_along(xs)) {
+  print(xs[[i]])
+}
+#> [1] "2020-01-01"
+#> [1] "2010-01-01"
+
+
+
+
+
 ## Boucles imbriquées
 ::: {.panel-tabset group="language"}
 
