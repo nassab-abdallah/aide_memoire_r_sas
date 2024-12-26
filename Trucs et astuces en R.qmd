@@ -626,8 +626,7 @@ gc()
 La fonction `try()` permet de poursuivre le programme malgré la survenue d'une erreur. Dans l'exemple suivant, le programme affiche bien "Suite du programme" malgré l'erreur au code précédent.
 
 ```{r, warning=FALSE, message=FALSE}
-try(log("x"))
-print("Suite du programme")
+try(log("x")) ; print("Suite du programme")
 ```
 
 La fonction `tryCatch()` est plus élaborée, et permet de programmer une valeur par défaut en cas d'erreur.
