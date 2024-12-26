@@ -977,7 +977,7 @@ donnees_rbase_cor[donnees_rbase_cor$identifiant == "168", "note_contenu"] <- 8
 https://dplyr.tidyverse.org/reference/rows.html
 Note : `rows_update` ne modifie pas l'objet.
 
-```{r}
+```{r, warning=FALSE, message=FALSE, results='hide'}
 donnees_tidyverse_cor %>% 
   rows_update(tibble(identifiant = "168", note_contenu = 8), by = "identifiant") # guillemets nécessaires
 
@@ -1022,4 +1022,145 @@ donnees_python_cor.loc[donnees_python_cor['identifiant'] == '168', 'note_contenu
 
 :::
 
+## Sélectionner la première colonne non manquante d'une liste de colonnes (fonction `coalesce()`)
 
+On souhaite sélectionner la première note (parmi note_materiel, note_accompagnement, note_moyens, note_formateur et note_contenu) qui ne soit pas une valeur manquante (`NA`).
+
+::: {.panel-tabset group="language"}
+
+## SAS {.unnumbered .unlisted}
+``` sas
+%let notes = note_materiel, note_accompagnement, note_moyens, note_formateur, note_contenu;
+
+proc sql;
+  create table Premiere_Note_Non_Manquante as
+  select identifiant, coalesce(&notes.) as Premiere_Note_Non_Manquante
+  from donnees_sas;
+quit;
+```
+
+## R base {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE, results='hide'}
+notes <- c("note_materiel", "note_accompagnement", "note_moyens", "note_formateur", "note_contenu")
+premiere_note_non_manquante <- donnees_rbase
+premiere_note_non_manquante$premiere_note_non_manquante <- apply(premiere_note_non_manquante[, notes], 
+                                                                 1, 
+                                                                 function(x) x[!is.na(x)][1])
+premiere_note_non_manquante <- premiere_note_non_manquante[, c("identifiant", "premiere_note_non_manquante")]
+
+# On peut aussi utiliser la fonction dplyr::coalesce()
+notes <- c("note_materiel", "note_accompagnement", "note_moyens", "note_formateur", "note_contenu")
+premiere_note_non_manquante <- donnees_rbase
+premiere_note_non_manquante$premiere_note_non_manquante <- do.call(dplyr::coalesce, donnees_rbase[, notes])
+premiere_note_non_manquante <- premiere_note_non_manquante[, c("identifiant", "premiere_note_non_manquante")]
+```
+
+## tidyverse {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE, results='hide'}
+# Première solution
+premiere_note_non_manquante <- donnees_tidyverse %>% 
+  mutate(premiere_note_non_manquante = coalesce(note_materiel, note_accompagnement, note_moyens, note_formateur, note_contenu)) %>% 
+  select(identifiant, premiere_note_non_manquante)
+
+# Ou alors, si les variables figurent dans un vecteur extérieur
+notes <- c("note_materiel", "note_accompagnement", "note_moyens", "note_formateur", "note_contenu")
+premiere_note_non_manquante <- donnees_tidyverse %>% 
+  mutate(premiere_note_non_manquante = purrr::reduce(pick(all_of(notes)), coalesce)) %>% 
+  select(identifiant, premiere_note_non_manquante)
+```
+
+## data.table {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE, results='hide'}
+notes <- c("note_materiel", "note_accompagnement", "note_moyens", "note_formateur", "note_contenu")
+premiere_note_non_manquante <- donnees_datatable[, premiere_note_non_manquante := fcoalesce(.SD), .SDcols = notes][, .SD, .SDcols = c("identifiant", "premiere_note_non_manquante")]
+```
+
+## arrow/duckdb {.unnumbered .unlisted}
+
+```{r}
+
+```
+
+## pandas {.unnumbered .unlisted}
+```{python, warning=FALSE, message=FALSE, results='hide', python.reticulate = FALSE}
+
+```
+
+:::
+
+## Créer des colonnes à partir de chaînes de caractères
+
+On souhaite placer chacun des mots d'une colonne de chaînes de caractère dans une colonne propre.
+
+::: {.panel-tabset group="language"}
+
+## SAS {.unnumbered .unlisted}
+``` sas
+/* Exemple de base de données */
+data Colonne_A_Decouper;
+  infile cards dsd dlm='|';
+  format Texte $36.;
+  input Texte $;
+  cards;
+  Premier Deuxième
+  Premier Deuxième Troisième Quatrieme
+;
+run;
+
+/* On récupère le nombre maximal de mots */
+proc sql noprint;select max(countw(Texte, ' ')) into :nbMots from Colonne_A_Decouper;quit;
+
+/* On découpe la chaîne en autant de variables que de mots */
+data Colonne_A_Decouper;
+  set Colonne_A_Decouper;
+  %macro it;
+    %local i;
+    %do i = 1 %to &nbMots.;
+	  Var&i = scan(Texte, &i., ' ');
+	%end;
+  %mend it;
+  %it;
+run;
+```
+
+## R base {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE, results='hide'}
+colonne_a_decouper <- data.frame(texte = c("Premier Deuxième", "Premier Deuxième Troisième Quatrieme"))
+motsDecoupes <- strsplit(colonne_a_decouper[, "texte"], " ")
+nbMots <- sapply(motsDecoupes, length) |> max()
+# Utiliser rbind créé du recycling. Pour maintenir des NA lorsque les variables n'existent pas, on doit utiliser cette astuce.
+# Principe de fonctionnement : indexer un vecteur avec une valeur plus grande que sa taille retourne un NA à cet endroit
+# Avec lapply(motsDecoupes, `[`, seq_len(nbMots)), on complète les lignes incomplètes avec des NA
+colonne_a_decouper <- do.call(rbind, lapply(motsDecoupes, `[`, seq_len(nbMots))) |> as.data.frame()
+```
+
+## tidyverse {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE, results='hide'}
+colonne_a_decouper <- tibble(texte = c("Premier Deuxième", "Premier Deuxième Troisième Quatrieme"))
+# Le problème avec la version tidyverse est que le nombre de variables créées n'est pas établi automatiquement. Il faut le calculer prélablement dans la variable nbMots
+nbMots <- colonne_a_decouper %>%
+  mutate(nbMots = stringr::str_split(texte, " ")) %>%
+  pull(nbMots) %>% 
+  purrr::map_int(function(x) length(x)) |> 
+  max()
+colonne_a_decouper <- colonne_a_decouper %>% tidyr::separate(col = texte, into = paste0("V", 1:nbMots), sep = " ")
+```
+
+## data.table {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE, results='hide'}
+colonne_a_decouper <- data.table(texte = c("Premier Deuxième", "Premier Deuxième Troisième Quatrieme"))
+colonne_a_decouper <- colonne_a_decouper[, tstrsplit(texte, " ")]
+```
+
+## arrow/duckdb {.unnumbered .unlisted}
+
+```{r}
+
+```
+
+## pandas {.unnumbered .unlisted}
+```{python, warning=FALSE, message=FALSE, results='hide', python.reticulate = FALSE}
+
+```
+
+:::
