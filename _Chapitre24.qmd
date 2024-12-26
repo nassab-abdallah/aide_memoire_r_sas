@@ -1,4 +1,4 @@
-# Fonctions `SAS` et `R` utiles (durée d'exécution, exécuter un programme d'un autre fichier)
+# Fonctions `SAS` et `R` utiles
 
 ## Mesurer la durée d'exécution d'un programme
 ::: {.panel-tabset group="language"}
@@ -59,6 +59,32 @@ timetaken(started.at)
 
 :::
 
+## Purger la mémoire (`garbage collector`)
+
+::: {.panel-tabset group="language"}
+
+## SAS {.unnumbered .unlisted}
+Sans objet en `SAS`.
+
+## R base {.unnumbered .unlisted}
+
+En cas de mémoire vive saturée (erreur `Error: cannot allocate vector of size`), purger la mémoire avec la fonction `gc()` et relancer le programme peut régler le problème.
+
+## tidyverse {.unnumbered .unlisted}
+
+En cas de mémoire vive saturée (erreur `Error: cannot allocate vector of size`), purger la mémoire avec la fonction `gc()` et relancer le programme peut régler le problème.
+
+## data.table {.unnumbered .unlisted}
+
+En cas de mémoire vive saturée (erreur `Error: cannot allocate vector of size`), purger la mémoire avec la fonction `gc()` et relancer le programme peut régler le problème.
+
+## arrow/duckdb {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE}
+
+```
+
+:::
+
 ## Exécuter le code d'un autre fichier
 ::: {.panel-tabset group="language"}
 
@@ -68,6 +94,9 @@ timetaken(started.at)
 ```
 
 ## R base {.unnumbered .unlisted}
+
+Utiliser la fonction `source()`.
+
 ```{r, warning=FALSE, message=FALSE, results='hide'}
 # encoding permet de gérer l'encodage des caractères accentués
 # echo = TRUE affiche le script dans la console
@@ -77,6 +106,9 @@ timetaken(started.at)
 ```
 
 ## tidyverse {.unnumbered .unlisted}
+
+Utiliser la fonction `source()`.
+
 ```{r, warning=FALSE, message=FALSE, results='hide'}
 # encoding permet de gérer l'encodage des caractères accentués
 # echo = TRUE affiche le script dans la console
@@ -86,12 +118,59 @@ timetaken(started.at)
 ```
 
 ## data.table {.unnumbered .unlisted}
+
+Utiliser la fonction `source()`.
+
 ```{r, warning=FALSE, message=FALSE, results='hide'}
 # encoding permet de gérer l'encodage des caractères accentués
 # echo = TRUE affiche le script dans la console
 # max.deparse.length permet de s'assurer qu'un texte long est bien visible
 
 # source("chemin", encoding = "utf-8", echo = TRUE, max.deparse.length = 1e3)
+```
+
+## arrow/duckdb {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE}
+
+```
+
+:::
+
+## Enregistrer la log dans un fichier texte externe
+::: {.panel-tabset group="language"}
+
+## SAS {.unnumbered .unlisted}
+
+Utiliser la `proc printto`.
+
+## R base {.unnumbered .unlisted}
+
+Utiliser la fonction `sink()`.
+
+```{r, warning=FALSE, message=FALSE, results='hide'}
+#sink("output.log")
+#Code R à exécuter, encadré par deux sink()
+#sink()
+```
+
+## tidyverse {.unnumbered .unlisted}
+
+Utiliser la fonction `sink()`.
+
+```{r, warning=FALSE, message=FALSE, results='hide'}
+#sink("output.log")
+#Code R, encadré par deux sink()
+#sink()
+```
+
+## data.table {.unnumbered .unlisted}
+
+Utiliser la fonction `sink()`.
+
+```{r, warning=FALSE, message=FALSE, results='hide'}
+#sink("output.log")
+#Code R, encadré par deux sink()
+#sink()
 ```
 
 ## arrow/duckdb {.unnumbered .unlisted}
