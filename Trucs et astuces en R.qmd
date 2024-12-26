@@ -632,8 +632,6 @@ print("Suite du programme")
 
 La fonction `tryCatch()` est plus élaborée, et permet de programmer une valeur par défaut en cas d'erreur.
 
-La fonction suivante renvoie un NA si la fonction log() ne peut pas être appliquée, comme c'est le cas sur l'exemple pour la valeur "a".
-
 ```{r, warning=FALSE, message=FALSE}
 FonctionLog <- function(x) {
   tryCatch(
@@ -641,9 +639,14 @@ FonctionLog <- function(x) {
     log(x)
   )
 }
-FonctionLog("x")
 ```
 
+La fonction renvoie un NA si la fonction log() ne peut pas être appliquée, comme c'est le cas sur l'exemple pour la valeur "a".
+
+```{r, warning=FALSE, message=FALSE}
+FonctionLog(1)
+FonctionLog("x")
+```
 
 # Informations sur R
 
@@ -813,6 +816,30 @@ CopierColler <- function(x, row.names = FALSE, col.names = TRUE, dec = ",", na =
 #CopierColler(x)
 ```
 
+# La fonction `subset()`
+
+La fonction `subset()` présente deux intérêts par rapport à la sélection avec `[` :
+
+- les lignes où la condition évaluée est `NA` sont retirées :
+
+```{r, warning=FALSE, message=FALSE}
+exemple_subset <- data.frame(x = c(1, 2, NA), y = c("a", "b", "c"))
+# Avec []
+exemple_subset[exemple_subset$x == 1, ]
+# Avec subset()
+subset(exemple_subset, x == 1)
+```
+
+- l'option par défaut est `drop = FALSE`, ce qui garantit que la base de résultat est un dataframe :
+
+```{r, warning=FALSE, message=FALSE}
+exemple_subset <- data.frame(x = c(1, 2, NA), y = c("a", "b", "c"))
+# Avec []
+exemple_subset[exemple_subset$x == 1, "x"] %>% is.data.frame()
+# Avec subset()
+subset(exemple_subset, x == 1, x) %>% is.data.frame()
+```
+
 # Conseils divers
 
 Il est déconseillé de nommer des variables temporaires `var`, car ce nom désigne la fonction `R` permettant de calculer une variance.
@@ -836,4 +863,15 @@ sapply(integer(), function(x) c(x, x))
 ifelse(NA, 1L, 1L)
 # integer
 ifelse(FALSE, 1L, 1L)
+```
+
+La fonction `if` utilisée sans `else` renvoie `NULL` si la condition est `FALSE`. Ceci permet d'écrire de façon élégante des conditions simples. Par exemple, prendre en compte un s final à un nom seulement si la valeur est strictement supérieure à 1 :
+
+```{r, warning=FALSE, message=FALSE}
+NombreDeLignes <- function(baseDeDonnees) {
+  ligne <- nrow(baseDeDonnees)
+  paste0(ligne, " ligne", if (ligne > 1) "s")
+}
+NombreDeLignes(mtcars)
+NombreDeLignes(mtcars[1,])
 ```
