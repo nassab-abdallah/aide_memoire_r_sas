@@ -37,6 +37,7 @@ for (i in 1:10) {
 - En cas d'utilisation d'un conteneur, il est judicieux de le préallouer pour des questions d'optimisation de la mémoire dans `R` :
 
 ```{r, warning=FALSE, message=FALSE, results='hide'}
+# Permet de pré-allouer une liste pour y ajouter des données
 conteneur <- vector("list", 10)
 for (i in 1:10) {
   conteneur[[i]] <- i
@@ -83,6 +84,13 @@ for (i in seq_along(valeurs)) {
 ```
 
 2. Les fonctions de la famille `apply` 
+
+```{r, warning=FALSE, message=FALSE, results='hide'}
+# Sous forme de liste
+purrr::map(1:10, print)
+# Sous forme de vecteur
+purrr::map_int(1:10, print)
+```
 
 Voir partie avancée.
 
@@ -105,6 +113,7 @@ for (i in 1:10) {
 - En cas d'utilisation d'un conteneur, il est judicieux de le préallouer pour des questions d'optimisation de la mémoire dans `R` :
 
 ```{r, warning=FALSE, message=FALSE, results='hide'}
+# Permet de pré-allouer une liste pour y ajouter des données
 conteneur <- vector("list", 10)
 for (i in 1:10) {
   conteneur[[i]] <- i
@@ -151,6 +160,14 @@ for (i in seq_along(valeurs)) {
 ```
 
 2. Les fonctions de la famille `apply` 
+
+```{r, warning=FALSE, message=FALSE, results='hide'}
+# Sous forme de liste
+lapply(1:10, print)
+Map(print,1:10)
+# Sous forme de vecteur
+sapply(1:10, print)
+```
 
 Voir partie avancée.
 
@@ -173,6 +190,7 @@ for (i in 1:10) {
 - En cas d'utilisation d'un conteneur, il est judicieux de le préallouer pour des questions d'optimisation de la mémoire dans `R` :
 
 ```{r, warning=FALSE, message=FALSE, results='hide'}
+# Permet de pré-allouer une liste pour y ajouter des données
 conteneur <- vector("list", 10)
 for (i in 1:10) {
   conteneur[[i]] <- i
@@ -219,6 +237,14 @@ for (i in seq_along(valeurs)) {
 ```
 
 2. Les fonctions de la famille `apply` 
+
+```{r, warning=FALSE, message=FALSE, results='hide'}
+# Sous forme de liste
+lapply(1:10, print)
+Map(print,1:10)
+# Sous forme de vecteur
+sapply(1:10, print)
+```
 
 Voir partie avancée.
 
