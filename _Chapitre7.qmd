@@ -750,6 +750,10 @@ donnees_rbase[, paste0(notes, "_100")] <- donnees_rbase[, notes] / 20 * 100
 # Les variables sont modifiées dans cet exemple
 sur100 <- donnees_tidyverse %>% 
   mutate(across(starts_with("note"), ~ .x / 20 * 100))
+# Autre solution
+sur100 <- donnees_tidyverse %>% 
+  select(starts_with("note")) %>%
+  purrr::modify(~ .x / 20 * 100)
 
 # On  souhaite conserver les notes sur 100 dans d'autres variables, suffixées par _100
 donnees_tidyverse <- donnees_tidyverse %>% 
