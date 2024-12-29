@@ -288,7 +288,7 @@ table(donnees_rbase$note_superieure_moyenne, useNA = "always")
 ### tidyverse {.unnumbered .unlisted}
 ```{r, warning=FALSE, message=FALSE, results='hide'}
 moyenne <- donnees_tidyverse %>% pull(note_moyenne) %>% mean(na.rm = TRUE)
-donnees_tidyverse <- donnees_tidyverse %>% mutate(note_superieure_moyenne = ifelse(note_moyenne > moyenne, 1, 0))
+donnees_tidyverse <- donnees_tidyverse %>% mutate(note_superieure_moyenne = if_else(note_moyenne > moyenne, 1, 0))
 donnees_tidyverse %>% pull(note_superieure_moyenne) %>% table(useNA = "always")
 ```
 

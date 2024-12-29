@@ -880,3 +880,54 @@ Pré-allouer un vecteur de dimension 5 :
 ```{r, warning=FALSE, message=FALSE}
 x <- rep(NA, 5)
 ```
+
+
+# La fonction ```subset()```
+
+La fonction ```subset()``` présente deux intérêts par rapport à la sélection avec `[` :
+
+-   les lignes où la condition évaluée est `NA` sont retirées :
+
+```{r, warning=FALSE, message=FALSE}
+exemple_subset <- data.frame(x = c(1, 2, NA), y = c("a", "b", "c"))
+# Avec []
+exemple_subset[exemple_subset$x == 1, ]
+# Avec subset()
+subset(exemple_subset, x == 1)
+```
+
+-   l'option par défaut est `drop = FALSE`, ce qui garantit que la base de résultat est un dataframe :
+
+```{r, warning=FALSE, message=FALSE}
+exemple_subset <- data.frame(x = c(1, 2, NA), y = c("a", "b", "c"))
+# Avec []
+exemple_subset[exemple_subset$x == 1, "x"] %>% is.data.frame()
+# Avec subset()
+subset(exemple_subset, x == 1, x) %>% is.data.frame()
+```
+
+# Fonctions utiles
+
+## Fonctions diverses
+
+```browseURL()``` lance une page Internet.
+
+## Quelques fonctions mathématiques
+
+```integrate()``` calcule l'aire sous la courbe $f()$.
+
+```{r, warning=FALSE, message=FALSE}
+integrate(sin, 0, pi / 2)
+```
+
+```uniroot()``` trouve la valeur de $x$ telle que $f(x) = 0$.
+
+```{r, warning=FALSE, message=FALSE}
+uniroot(function(x) x ** 3, c(-1, 1))
+```
+
+```optimise()``` trouve le maximum ou le minimum d'une fonction sur un intervalle donné.
+
+```{r, warning=FALSE, message=FALSE}
+optimise(function(x) -x ** 2, c(-1, 1), maximum = TRUE)
+```

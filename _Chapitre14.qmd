@@ -333,7 +333,7 @@ donnees_tidyverse <- donnees_tidyverse %>%
   # Pour trier les données de la même façon que SAS
   arrange(identifiant, !is.na(date_entree), date_entree) %>% 
   group_by(identifiant) %>% 
-  mutate(premier_contrat = ifelse(row_number() == 1, 1, 0)) %>% 
+  mutate(premier_contrat = if_else(row_number() == 1, 1, 0)) %>% 
   ungroup()
 
 # Dernier contrat
@@ -341,7 +341,7 @@ donnees_tidyverse <- donnees_tidyverse %>%
   # Pour trier les données de la même façon que SAS
   arrange(identifiant, !is.na(date_entree), date_entree) %>% 
   group_by(identifiant) %>% 
-  mutate(dernier_contrat = ifelse(row_number() == n(), 1, 0)) %>% 
+  mutate(dernier_contrat = if_else(row_number() == n(), 1, 0)) %>% 
   ungroup()
 
 # Ni le premier, ni le dernier contrat
@@ -349,7 +349,7 @@ donnees_tidyverse <- donnees_tidyverse %>%
   # Pour trier les données de la même façon que SAS
   arrange(identifiant, !is.na(date_entree), date_entree) %>% 
   group_by(identifiant) %>% 
-  mutate(ni_prem_ni_der = ifelse( ! (row_number() == n() | row_number() == 1), 1, 0)) %>% 
+  mutate(ni_prem_ni_der = if_else( ! (row_number() == n() | row_number() == 1), 1, 0)) %>% 
   ungroup()
 ```
 
