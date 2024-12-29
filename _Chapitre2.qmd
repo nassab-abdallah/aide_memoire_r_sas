@@ -384,9 +384,9 @@ Pour importer des fichiers :
 
 Quelques éléments additionnels non couverts dans Utilit'R sont présentés ici.
 
-### La fonction readLines() de `R`
+### La fonction ```readLines()``` de `R`
 
-La fonction readLines() de `R` peut s'avérer utile lors de l'importation de fichiers très volumineux. Elle permet de n'importer que les premières lignes du fichier, sans importer l'ensemble de la base, et ainsi de visualiser rapidement le contenu des données et la nature de l'éventuel séparateur de colonnes.
+La fonction ```readLines()``` de `R` peut s'avérer utile lors de l'importation de fichiers très volumineux. Elle permet de n'importer que les premières lignes du fichier, sans importer l'ensemble de la base, et ainsi de visualiser rapidement le contenu des données et la nature de l'éventuel séparateur de colonnes.
 
 Les options de la fonction utiles sont :
 
