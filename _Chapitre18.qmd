@@ -258,39 +258,184 @@ empiler = pd.concat([notes, moyennes], ignore_index=True)
 
 :::
 
-## Ajouter une ligne de valeurs manquantes à une base de données
+## Ajouter ou supprimer des lignes ou colonnes de valeurs manquantes à une base de données
+
+### Ajouter une ligne de valeurs manquantes à une base de données
 
 ::: {.panel-tabset group="language"}
 
-## SAS {.unnumbered .unlisted}
+### SAS {.unnumbered .unlisted}
 ``` sas
 data Ajout;run;
-data Ajout_Missing;set Jointure Ajout;run;
+data Ajout_Ligne_Missing;set Jointure Ajout;run;
 ```
 
-## R base {.unnumbered .unlisted}
+### R base {.unnumbered .unlisted}
 ```{r, warning=FALSE, message=FALSE, results='hide'}
-ajout_na <- donnees_rbase
-ajout_na[nrow(ajout_na) + 1, ] <- NA
+ajout_ligne_na <- jointure_rbase 
+ajout_ligne_na[nrow(jointure_rbase ) + 1, ] <- NA
 ```
 
-## tidyverse {.unnumbered .unlisted}
+### tidyverse {.unnumbered .unlisted}
 ```{r, warning=FALSE, message=FALSE, results='hide'}
-ajout_na <- donnees_tidyverse %>%
+ajout_ligne_na <- jointure_tidyverse %>%
   bind_rows(tibble(NA))
 ```
 
-## data.table {.unnumbered .unlisted}
+### data.table {.unnumbered .unlisted}
 ```{r, warning=FALSE, message=FALSE, results='hide'}
-ajout_na <- rbindlist(list(donnees_datatable, data.table(NA)), fill = TRUE)
+ajout_ligne_na <- rbindlist(list(jointure_datatable, data.table(NA)), fill = TRUE)
 ```
 
-## arrow/duckdb {.unnumbered .unlisted}
+### arrow/duckdb {.unnumbered .unlisted}
 ```{r, warning=FALSE, message=FALSE}
 
 ```
 
-## pandas {.unnumbered .unlisted}
+### pandas {.unnumbered .unlisted}
+```{python, warning=FALSE, message=FALSE, results='hide', python.reticulate = FALSE}
+
+```
+
+:::
+
+### Supprimer toutes les lignes ne contenant que des valeurs manquantes
+
+::: {.panel-tabset group="language"}
+
+### SAS {.unnumbered .unlisted}
+``` sas
+data Enlever_Lignes_Missing;
+  set Ajout_Ligne_Missing;
+  if cmiss(of _character_) & cmiss(of _numeric_) then delete;
+run;
+```
+
+### R base {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE, results='hide'}
+enlever_lignes_missing <- ajout_ligne_na[rowSums(is.na(ajout_ligne_na)) < ncols(ajout_ligne_na), ]
+enlever_lignes_missing <- ajout_ligne_na[apply(ajout_ligne_na, 1, function(x) !all(is.na(x))), ]
+```
+
+### tidyverse {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE, results='hide'}
+enlever_lignes_missing <-  ajout_ligne_na %>% 
+  filter(if_any(everything(), ~ !is.na(.)))
+```
+
+### data.table {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE, results='hide'}
+enlever_lignes_missing <- ajout_ligne_na[setDT(ajout_ligne_na)[, .I[rowSums(is.na(.SD)) < ncol(ajout_ligne_na)]]]
+```
+
+### arrow/duckdb {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE}
+
+```
+
+### pandas {.unnumbered .unlisted}
+```{python, warning=FALSE, message=FALSE, results='hide', python.reticulate = FALSE}
+
+```
+
+:::
+
+### Ajouter une colonne de valeurs manquantes à une base de données
+
+::: {.panel-tabset group="language"}
+
+### SAS {.unnumbered .unlisted}
+``` sas
+data Ajout_Colonne_Missing;
+  set Jointure;
+  Colonne_Missing = .;
+run;
+```
+
+### R base {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE, results='hide'}
+ajout_colonne_missing <- jointure_rbase
+ajout_colonne_missing$colonne_missing <- NA
+```
+
+### tidyverse {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE, results='hide'}
+ajout_colonne_missing <- jointure_tidyverse %>%
+  mutate(colonne_missing = NA)
+```
+
+### data.table {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE, results='hide'}
+ajout_colonne_missing <- jointure_datatable
+ajout_colonne_missing[, colonne_missing := NA]
+```
+
+### arrow/duckdb {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE}
+
+```
+
+### pandas {.unnumbered .unlisted}
+```{python, warning=FALSE, message=FALSE, results='hide', python.reticulate = FALSE}
+
+```
+
+:::
+
+### Supprimer toutes les colonnes ne comprenant que des valeurs manquantes
+
+::: {.panel-tabset group="language"}
+
+### SAS {.unnumbered .unlisted}
+``` sas
+/* Stratégie possible */
+proc contents data = Ajout_Colonne_Missing out = Var noprint;run;
+proc sql noprint;select name into :nom_col separated by " " from Var order by varnum;run;
+
+%macro it;
+  %local i;
+  %global aSupprimer;
+  %let aSupprimer = ;
+  %do i = 1 %to %sysfunc(countw(&nom_col.));
+    %let var = %scan(&nom_col., &i.);
+	proc sql noprint;select nmiss(&var.) - count(*) into :valide from Ajout_Colonne_Missing;quit;
+	%if &valide. = 0 %then %let aSupprimer = &aSupprimer &var.;
+  %end;
+%mend it;
+%it;
+
+data Enlever_Colonne_Missing;
+  set Ajout_Colonne_Missing (drop = &aSupprimer.);
+run;
+```
+
+### R base {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE, results='hide'}
+enlever_colonne_missing <- Filter(function(x) !all(is.na(x)), ajout_colonne_missing)
+enlever_colonne_missing <- ajout_colonne_missing[, colSums(is.na(ajout_colonne_missing)) != nrow(ajout_colonne_missing)]
+```
+
+### tidyverse {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE, results='hide'}
+enlever_colonne_missing <- ajout_colonne_missing %>%
+  select(where(~ !all(is.na(.x))))
+
+# Ou encore
+enlever_colonne_missing <- ajout_colonne_missing %>% 
+  purrr::discard(~ all(is.na(.)))
+```
+
+### data.table {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE, results='hide'}
+enlever_colonne_missing <- ajout_colonne_missing[, colSums(is.na(ajout_colonne_missing)) != nrow(ajout_colonne_missing)]
+```
+
+### arrow/duckdb {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE}
+
+```
+
+### pandas {.unnumbered .unlisted}
 ```{python, warning=FALSE, message=FALSE, results='hide', python.reticulate = FALSE}
 
 ```
