@@ -1269,66 +1269,48 @@ financement_python['etat'] = (
 
 :::
 
-## Note moyenne par individu
-
-::: {.panel-tabset group="language"}
-
-## SAS {.unnumbered .unlisted}
-``` sas
-
-```
-
-## R base {.unnumbered .unlisted}
-```{r, warning=FALSE, message=FALSE, results='hide'}
-
-```
-
-## tidyverse {.unnumbered .unlisted}
-```{r, warning=FALSE, message=FALSE, results='hide'}
-
-```
-
-## data.table {.unnumbered .unlisted}
-```{r, warning=FALSE, message=FALSE, results='hide'}
-
-```
-
-## arrow/duckdb {.unnumbered .unlisted}
-```{r, warning=FALSE, message=FALSE}
-
-```
-
-## pandas {.unnumbered .unlisted}
-```{python, warning=FALSE, message=FALSE, results='hide', python.reticulate = FALSE}
-
-```
-
-:::
-
 ## Nombre de valeurs différentes par individu
 
-On cherche le nombre de csp différentes par individu.
+On cherche le nombre de niveaux différents par individu.
 
 ::: {.panel-tabset group="language"}
 
 ## SAS {.unnumbered .unlisted}
 ``` sas
-
+proc sql;
+  create table Diff_Niveau as
+  select Identifiant, count(distinct Niveau) as Diff_Niveau
+  from donnees_sas
+  group by Identifiant
+  order by Identifiant;
+quit;
 ```
 
 ## R base {.unnumbered .unlisted}
 ```{r, warning=FALSE, message=FALSE, results='hide'}
-
+diff_niveau <- aggregate(niveau ~ identifiant, data = donnees_rbase, FUN = function(x) length(unique(x)))
+diff_niveau <- tapply(donnees_rbase$niveau, donnees_rbase$identifiant, FUN = function(x) length(unique(x))) |> 
+  as.data.frame.table() |> 
+  setNames(c("identifiant", "niveau"))
 ```
 
 ## tidyverse {.unnumbered .unlisted}
 ```{r, warning=FALSE, message=FALSE, results='hide'}
+diff_niveau <- donnees_tidyverse %>% 
+  summarise(diff_niveau = n_distinct(niveau), .by = identifiant) %>%
+  arrange(identifiant)
 
+# Ou alors
+diff_niveau <- donnees_tidyverse %>% 
+  group_by(identifiant) %>% 
+  summarise(diff_niveau = n_distinct(niveau)) %>%
+  ungroup()
 ```
 
 ## data.table {.unnumbered .unlisted}
 ```{r, warning=FALSE, message=FALSE, results='hide'}
-
+diff_niveau <- donnees_datatable[, .(diff_niveau = uniqueN(niveau)), keyby = identifiant]
+diff_niveau <- donnees_datatable[, .(diff_niveau = length(unique(niveau))), keyby = identifiant]
 ```
 
 ## arrow/duckdb {.unnumbered .unlisted}

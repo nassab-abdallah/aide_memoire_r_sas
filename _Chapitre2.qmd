@@ -373,7 +373,17 @@ type(donnees_python)
 
 ## Importation de données extérieures
 
-Importer des données extérieures dans `SAS` ou `R` est sans doute la première tâche à laquelle est confronté l'utilisateur de ces logiciels. Ce point important est décrit sur le site Utilit'R : <https://www.book.utilitr.org/03_fiches_thematiques/fiche_import_fichiers_plats>.
+### Documentation Utilit'R
+
+::: {.panel-tabset group="language"}
+
+### SAS {.unnumbered .unlisted}
+
+Sans objet pour `SAS`.
+
+### R base {.unnumbered .unlisted}
+
+Importer des données extérieures dans `R` est sans doute la première tâche à laquelle est confronté l'utilisateur de ce logiciel. Ce point important est décrit sur le site Utilit'R : <https://www.book.utilitr.org/03_fiches_thematiques/fiche_import_fichiers_plats>.
 
 Pour importer des fichiers :
 
@@ -384,7 +394,50 @@ Pour importer des fichiers :
 
 Quelques éléments additionnels non couverts dans Utilit'R sont présentés ici.
 
-### La fonction ```readLines()``` de `R`
+### tidyverse {.unnumbered .unlisted}
+
+Importer des données extérieures dans `R` est sans doute la première tâche à laquelle est confronté l'utilisateur de ce logiciel. Ce point important est décrit sur le site Utilit'R : <https://www.book.utilitr.org/03_fiches_thematiques/fiche_import_fichiers_plats>.
+
+Pour importer des fichiers :
+
+-   plats (.csv, .tsv, .txt, etc.) : <https://book.utilitr.org/03_Fiches_thematiques/Fiche_import_fichiers_plats.html>
+-   `SAS` : <https://book.utilitr.org/03_Fiches_thematiques/Fiche_import_tables_sas.html>
+-   issus de tableurs (Excel, Calc) : <https://book.utilitr.org/03_Fiches_thematiques/Fiche_import_tableurs.html>
+-   parquet : <https://book.utilitr.org/03_Fiches_thematiques/Fiche_import_fichiers_parquet.html>
+
+Quelques éléments additionnels non couverts dans Utilit'R sont présentés ici.
+
+### data.table {.unnumbered .unlisted}
+
+Importer des données extérieures dans `R` est sans doute la première tâche à laquelle est confronté l'utilisateur de ce logiciel. Ce point important est décrit sur le site Utilit'R : <https://www.book.utilitr.org/03_fiches_thematiques/fiche_import_fichiers_plats>.
+
+Pour importer des fichiers :
+
+-   plats (.csv, .tsv, .txt, etc.) : <https://book.utilitr.org/03_Fiches_thematiques/Fiche_import_fichiers_plats.html>
+-   `SAS` : <https://book.utilitr.org/03_Fiches_thematiques/Fiche_import_tables_sas.html>
+-   issus de tableurs (Excel, Calc) : <https://book.utilitr.org/03_Fiches_thematiques/Fiche_import_tableurs.html>
+-   parquet : <https://book.utilitr.org/03_Fiches_thematiques/Fiche_import_fichiers_parquet.html>
+
+Quelques éléments additionnels non couverts dans Utilit'R sont présentés ici.
+
+### arrow/duckdb {.unnumbered .unlisted}
+
+
+### pandas {.unnumbered .unlisted}
+
+Sans objet pour `pandas`.
+
+:::
+
+### Importer les premières lignes de la base
+
+::: {.panel-tabset group="language"}
+
+### SAS {.unnumbered .unlisted}
+
+Sans objet pour `SAS`.
+
+### R base {.unnumbered .unlisted}
 
 La fonction ```readLines()``` de `R` peut s'avérer utile lors de l'importation de fichiers très volumineux. Elle permet de n'importer que les premières lignes du fichier, sans importer l'ensemble de la base, et ainsi de visualiser rapidement le contenu des données et la nature de l'éventuel séparateur de colonnes.
 
@@ -394,8 +447,37 @@ Les options de la fonction utiles sont :
 -   n : nombre maximal de lignes du fichier lues
 -   encoding : définir l’encodage du fichier ("UTF-8" ou "latin1")
 
+### tidyverse {.unnumbered .unlisted}
 
-### Spécificité des environnements
+La fonction ```readLines()``` de `R` peut s'avérer utile lors de l'importation de fichiers très volumineux. Elle permet de n'importer que les premières lignes du fichier, sans importer l'ensemble de la base, et ainsi de visualiser rapidement le contenu des données et la nature de l'éventuel séparateur de colonnes.
+
+Les options de la fonction utiles sont :
+
+-   con : chemin du fichier à importer
+-   n : nombre maximal de lignes du fichier lues
+-   encoding : définir l’encodage du fichier ("UTF-8" ou "latin1")
+
+### data.table {.unnumbered .unlisted}
+
+La fonction ```readLines()``` de `R` peut s'avérer utile lors de l'importation de fichiers très volumineux. Elle permet de n'importer que les premières lignes du fichier, sans importer l'ensemble de la base, et ainsi de visualiser rapidement le contenu des données et la nature de l'éventuel séparateur de colonnes.
+
+Les options de la fonction utiles sont :
+
+-   con : chemin du fichier à importer
+-   n : nombre maximal de lignes du fichier lues
+-   encoding : définir l’encodage du fichier ("UTF-8" ou "latin1")
+
+### arrow/duckdb {.unnumbered .unlisted}
+
+```{r, warning=FALSE, message=FALSE}
+
+```
+
+### pandas {.unnumbered .unlisted}
+
+:::
+
+### Importer toute la base
 
 ::: {.panel-tabset group="language"}
 
