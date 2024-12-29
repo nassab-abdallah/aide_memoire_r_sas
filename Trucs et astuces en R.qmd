@@ -584,7 +584,7 @@ lapply(liste, tail, 1)
 
 # Différences entre sort(), order(), rank()
 
-sort() trie un vecteur par ordre croissant. rank() donne le rang de chaque élément du vecteur, le plus petit élément se voyant attribué le rang 1. order() renvoie l'indice du vecteur trié par ordre croissant.
+```sort()``` trie un vecteur par ordre croissant. ```rank()``` donne le rang de chaque élément du vecteur, le plus petit élément se voyant attribué le rang 1. ```order()``` renvoie l'indice du vecteur trié par ordre croissant.
 
 ```{r, warning=FALSE, message=FALSE}
 vecteur <- c(5,3,1,2,4)
@@ -593,14 +593,14 @@ order(vecteur)
 rank(vecteur)
 ```
 
-Une autre solution que sort() pour trier un vecteur est :
+Une autre solution que ```sort()``` pour trier un vecteur est :
 
 ```{r, warning=FALSE, message=FALSE}
 vecteur <- c(5,3,1,2,4)
 vecteur[order(vecteur)]
 ```
 
-À noter aussi que sort() permet aussi d'exécuter simultanément les fonctions sort() et order(). Ainsi :
+À noter aussi que ```sort()``` permet aussi d'exécuter simultanément les fonctions ```sort()``` et ```order()```. Ainsi :
 
 ```{r, warning=FALSE, message=FALSE}
 vecteur <- c(5,3,1,2,4)
@@ -615,21 +615,21 @@ order(vecteur)
 
 # Ramasse-miettes (Garbage Collector)
 
-Si la mémoire vive de l'ordinateur est saturée, on peut essayer de la "purger" en utilisant la fonction gc() de `R`.
+Si la mémoire vive de l'ordinateur est saturée, on peut essayer de la "purger" en utilisant la fonction ```gc()``` de `R`.
 
 ```{r, warning=FALSE, message=FALSE}
 gc()
 ```
 
-# Fonctions `try()` et `tryCatch()`
+# Fonctions ```try()``` et ```tryCatch()```
 
-La fonction `try()` permet de poursuivre le programme malgré la survenue d'une erreur. Dans l'exemple suivant, le programme affiche bien "Suite du programme" malgré l'erreur au code précédent.
+La fonction ```try()``` permet de poursuivre le programme malgré la survenue d'une erreur. Dans l'exemple suivant, le programme affiche bien "Suite du programme" malgré l'erreur au code précédent.
 
 ```{r, warning=FALSE, message=FALSE}
 try(log("x")) ; print("Suite du programme")
 ```
 
-La fonction `tryCatch()` est plus élaborée, et permet de programmer une valeur par défaut en cas d'erreur.
+La fonction ```tryCatch()``` est plus élaborée, et permet de programmer une valeur par défaut en cas d'erreur.
 
 ```{r, warning=FALSE, message=FALSE}
 FonctionLog <- function(x) {
@@ -640,7 +640,7 @@ FonctionLog <- function(x) {
 }
 ```
 
-La fonction renvoie un NA si la fonction log() ne peut pas être appliquée, comme c'est le cas sur l'exemple pour la valeur "a".
+La fonction renvoie un NA si la fonction ```log()``` ne peut pas être appliquée, comme c'est le cas sur l'exemple pour la valeur "a".
 
 ```{r, warning=FALSE, message=FALSE}
 FonctionLog(1)
@@ -672,7 +672,7 @@ R.home("bin")
 # packageVersion("openxlsx")
 ```
 
-# Le comportement de l'opérateur c()
+# Le comportement de l'opérateur ```c()```
 
 ```{r, warning=FALSE, message=FALSE}
 # c() est instable : c(x, y) n'est pas forcément du même type que c(y, x)
@@ -800,7 +800,7 @@ Les deux pipes fonctionnent de la même manière mais diffèrent sur les points 
 
 Pour coller des données de R dans Excel, on peut :
 
--   faire passer la fonction `R` CopierColler() ci-dessous sur les données `R` que l'on souhaite copier dans Excel ;
+-   faire passer la fonction `R` ```CopierColler()``` proposée ci-dessous sur les données `R` que l'on souhaite copier dans Excel ;
 -   puis coller le presse-papier directement dans Excel.
 
 La fonction peut être assez pratique.
@@ -815,9 +815,9 @@ CopierColler <- function(x, row.names = FALSE, col.names = TRUE, dec = ",", na =
 #CopierColler(x)
 ```
 
-# La fonction `subset()`
+# La fonction ```subset()```
 
-La fonction `subset()` présente deux intérêts par rapport à la sélection avec `[` :
+La fonction ```subset()``` présente deux intérêts par rapport à la sélection avec `[` :
 
 -   les lignes où la condition évaluée est `NA` sont retirées :
 
