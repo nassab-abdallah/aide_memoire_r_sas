@@ -628,7 +628,7 @@ Les deux pipes fonctionnent de la même manière mais diffèrent sur les points 
 
 ## Conseils divers
 
-Il est déconseillé de nommer des variables temporaires `var`, car ce nom désigne la fonction `R` permettant de calculer une variance.
+Il est déconseillé de nommer des variables temporaires `var`, car ce nom désigne la fonction permettant de calculer une variance en `R`.
 
 ```{r, warning=FALSE, message=FALSE}
 # Exemple : variance d'un échantillon aléatoire de 1000 observations tiré d'une loi normale centrée réduite
@@ -651,7 +651,7 @@ ifelse(NA, 1L, 1L)
 ifelse(FALSE, 1L, 1L)
 ```
 
-La fonction `if` utilisée sans `else` renvoie `NULL` si la condition est `FALSE`. Ceci permet d'écrire de façon élégante des conditions simples. Par exemple, prendre en compte un s final à un nom seulement si la valeur est strictement supérieure à 1 :
+La fonction ```if``` utilisée sans ```else``` renvoie `NULL` si la condition est `FALSE`. Ceci permet d'écrire de façon élégante des conditions simples. Par exemple, prendre en compte un s final à un nom seulement si la valeur est strictement supérieure à 1 :
 
 ```{r, warning=FALSE, message=FALSE}
 NombreDeLignes <- function(baseDeDonnees) {
