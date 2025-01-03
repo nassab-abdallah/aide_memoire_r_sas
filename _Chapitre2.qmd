@@ -207,7 +207,7 @@ colnames(donnees_datatable) <- tolower(colnames(donnees_datatable))
 
 # On convertit certaines variables en format numérique
 enNumerique <- c("duree", "note_contenu", "note_formateur", "note_moyens", "note_accompagnement", "note_materiel")
-donnees_datatable[, lapply(.SD, as.integer), .SDcols = enNumerique]
+donnees_datatable[, (enNumerique) := lapply(.SD, as.integer), .SDcols = enNumerique]
 # Autre solution
 # En data.table, les instructions débutant par set modifient les éléments par référence, c'est-à-dire sans copie.
 # Ceci est plus efficace pour manipuler des données volumineuses.
