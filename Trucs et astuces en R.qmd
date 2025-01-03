@@ -138,7 +138,6 @@ liste <- list(1:26, letters)
 lapply(liste, tail, 1)
 ```
 
-
 ## Les affectations
 
 ### Généralités
@@ -166,7 +165,7 @@ x <- pi
 (x <- pi)
 ```
 
-### Le comportement de l'opérateur ```c()```
+### Le comportement de l'opérateur `c()`
 
 ```{r, warning=FALSE, message=FALSE}
 # c() est instable : c(x, y) n'est pas forcément du même type que c(y, x)
@@ -556,7 +555,6 @@ ifelse(1:3, 1:2, 1:2)
 #data.frame(1:2, 1:3)
 ```
 
-
 # Le saviez-vous ?
 
 ## Effets des calculs en virgule flottante
@@ -582,7 +580,7 @@ R.version.string
 getRversion()
 
 # Lien vers le bureau de l'utilisateur
-file.path(path.expand('~'), "Desktop")
+file.path(Sys.getenv("USERPROFILE"),"Desktop")
 
 # Chemin de l'exécutable R est-il installé ?
 R.home("bin")
@@ -651,7 +649,7 @@ ifelse(NA, 1L, 1L)
 ifelse(FALSE, 1L, 1L)
 ```
 
-La fonction ```if``` utilisée sans ```else``` renvoie `NULL` si la condition est `FALSE`. Ceci permet d'écrire de façon élégante des conditions simples. Par exemple, prendre en compte un s final à un nom seulement si la valeur est strictement supérieure à 1 :
+La fonction `if` utilisée sans `else` renvoie `NULL` si la condition est `FALSE`. Ceci permet d'écrire de façon élégante des conditions simples. Par exemple, prendre en compte un s final à un nom seulement si la valeur est strictement supérieure à 1 :
 
 ```{r, warning=FALSE, message=FALSE}
 NombreDeLignes <- function(baseDeDonnees) {
@@ -686,15 +684,15 @@ sum((1:1000)[(1:1000 %% 3) == 0 | (1:1000 %% 5) == 0])
 
 ## Ramasse-miettes (Garbage Collector)
 
-Si la mémoire vive de l'ordinateur est saturée, on peut essayer de la "purger" en utilisant la fonction ```gc()``` de `R`.
+Si la mémoire vive de l'ordinateur est saturée, on peut essayer de la "purger" en utilisant la fonction `gc()` de `R`.
 
 ```{r, warning=FALSE, message=FALSE}
 gc()
 ```
 
-## La fonction ```subset()```
+## La fonction `subset()`
 
-La fonction ```subset()``` présente deux intérêts par rapport à la sélection avec `[` :
+La fonction `subset()` présente deux intérêts par rapport à la sélection avec `[` :
 
 -   les lignes où la condition évaluée est `NA` sont retirées :
 
@@ -717,15 +715,15 @@ exemple_subset[exemple_subset$x == 1, "x"] %>% is.data.frame()
 subset(exemple_subset, x == 1, x) %>% is.data.frame()
 ```
 
-## Les fonctions ```try()``` et ```tryCatch()```
+## Les fonctions `try()` et `tryCatch()`
 
-La fonction ```try()``` permet de poursuivre le programme malgré la survenue d'une erreur. Dans l'exemple suivant, le programme affiche bien "Suite du programme" malgré l'erreur au code précédent.
+La fonction `try()` permet de poursuivre le programme malgré la survenue d'une erreur. Dans l'exemple suivant, le programme affiche bien "Suite du programme" malgré l'erreur au code précédent.
 
 ```{r, warning=FALSE, message=FALSE}
 try(log("x")) ; print("Suite du programme")
 ```
 
-La fonction ```tryCatch()``` est plus élaborée, et permet de programmer une valeur par défaut en cas d'erreur.
+La fonction `tryCatch()` est plus élaborée, et permet de programmer une valeur par défaut en cas d'erreur.
 
 ```{r, warning=FALSE, message=FALSE}
 FonctionLog <- function(x) {
@@ -736,16 +734,16 @@ FonctionLog <- function(x) {
 }
 ```
 
-La fonction renvoie un `NA` si la fonction ```log()``` ne peut pas être appliquée, comme c'est le cas sur l'exemple pour la valeur "a".
+La fonction renvoie un `NA` si la fonction `log()` ne peut pas être appliquée, comme c'est le cas sur l'exemple pour la valeur "a".
 
 ```{r, warning=FALSE, message=FALSE}
 FonctionLog(1)
 FonctionLog("x")
 ```
 
-## Les fonctions ```sort()```, ```order()``` et ```rank()```
+## Les fonctions `sort()`, `order()` et `rank()`
 
-```sort()``` trie un vecteur par ordre croissant. ```rank()``` donne le rang de chaque élément du vecteur, le plus petit élément se voyant attribué le rang 1. ```order()``` renvoie l'indice du vecteur trié par ordre croissant.
+`sort()` trie un vecteur par ordre croissant. `rank()` donne le rang de chaque élément du vecteur, le plus petit élément se voyant attribué le rang 1. `order()` renvoie l'indice du vecteur trié par ordre croissant.
 
 ```{r, warning=FALSE, message=FALSE}
 vecteur <- c(5,3,1,2,4)
@@ -754,14 +752,14 @@ order(vecteur)
 rank(vecteur)
 ```
 
-Une autre solution que ```sort()``` pour trier un vecteur est :
+Une autre solution que `sort()` pour trier un vecteur est :
 
 ```{r, warning=FALSE, message=FALSE}
 vecteur <- c(5,3,1,2,4)
 vecteur[order(vecteur)]
 ```
 
-À noter aussi que ```sort()``` permet aussi d'exécuter simultanément les fonctions ```sort()``` et ```order()```. Ainsi :
+À noter aussi que `sort()` permet aussi d'exécuter simultanément les fonctions `sort()` et `order()`. Ainsi :
 
 ```{r, warning=FALSE, message=FALSE}
 vecteur <- c(5,3,1,2,4)
@@ -775,7 +773,6 @@ order(vecteur)
 ```
 
 ## Les fonctions `:`, `seq()`, `seq_len()` et `seq_along()`
-
 
 ```{r, warning=FALSE, message=FALSE}
 # Ne pas confondre !
@@ -836,7 +833,7 @@ seq(vecteur)
 
 Pour coller des données de R dans Excel, on peut :
 
--   faire passer la fonction `R` ```CopierColler()``` proposée ci-dessous sur les données `R` que l'on souhaite copier dans Excel ;
+-   faire passer la fonction `R` `CopierColler()` proposée ci-dessous sur les données `R` que l'on souhaite copier dans Excel ;
 -   puis coller le presse-papier directement dans Excel.
 
 La fonction peut être assez pratique.
@@ -853,7 +850,7 @@ CopierColler <- function(x, row.names = FALSE, col.names = TRUE, dec = ",", na =
 
 ## Fonctions diverses
 
-```browseURL()``` lance une page Internet.
+`browseURL()` lance une page Internet.
 
 Outils de débogage :
 
@@ -863,7 +860,7 @@ options(error = recover)
 options(error=NULL)
 ```
 
-Fonction ```dput()```
+Fonction `dput()`
 
 ```{r, warning=FALSE, message=FALSE}
 # Créer un objet sous forme de code R !
@@ -871,7 +868,7 @@ data("mtcars")
 dput(mtcars)
 ```
 
-Fonction ```tribble()```
+Fonction `tribble()`
 
 ```{r, warning=FALSE, message=FALSE}
 # En tidyverse, la fonction tribble peut être utile pour créer des bases lignes par lignes
@@ -915,19 +912,19 @@ print("Salut !\nComment vas-tu ?")
 
 ## Quelques fonctions mathématiques
 
-```integrate()``` calcule l'aire sous la courbe $f()$.
+`integrate()` calcule l'aire sous la courbe $f()$.
 
 ```{r, warning=FALSE, message=FALSE}
 integrate(sin, 0, pi / 2)
 ```
 
-```uniroot()``` trouve la valeur de $x$ telle que $f(x) = 0$.
+`uniroot()` trouve la valeur de $x$ telle que $f(x) = 0$.
 
 ```{r, warning=FALSE, message=FALSE}
 uniroot(function(x) x ** 3, c(-1, 1))
 ```
 
-```optimise()``` trouve le maximum ou le minimum d'une fonction sur un intervalle donné.
+`optimise()` trouve le maximum ou le minimum d'une fonction sur un intervalle donné.
 
 ```{r, warning=FALSE, message=FALSE}
 optimise(function(x) -x ** 2, c(-1, 1), maximum = TRUE)
