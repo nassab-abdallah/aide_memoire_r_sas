@@ -72,6 +72,8 @@ Il se veut complémentaire de la documentation en ligne en français Utilit'R, n
 
 Enfin, si vous souhaitez collaborer à cet aide-mémoire ou nous faire part de votre avis, n'hésitez pas à nous contacter via nos adresses email.
 
+Nous vous adressons tous nos voeux pour cette nouvelle année 2025 !
+
 
 {{< include _Chapitre1.qmd >}}
 
