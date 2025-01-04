@@ -624,4 +624,5 @@ requete_duckdb %>% select_if(is.Date)
 ```{python, warning=FALSE, message=FALSE, results='hide', python.reticulate = FALSE}
 varDates = donnees_python.select_dtypes(include=['datetime64[ns]'])
 ```
+
 :::

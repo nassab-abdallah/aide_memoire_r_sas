@@ -51,7 +51,7 @@ library(sjmisc)
 nb <- donnees_tidyverse %>%
   janitor::tabyl(cspf, sexef) %>% 
   # colonne cspf comme nom de ligne
-  column_to_rownames(var="cspf")
+  column_to_rownames(var = "cspf")
 nb_transpose <- nb %>%
   sjmisc::rotate_df()
 ```
@@ -251,4 +251,5 @@ wide_python = long_python.pivot_table(index='identifiant',
                                       values='notes').reset_index()
 
 ```
+
 :::
