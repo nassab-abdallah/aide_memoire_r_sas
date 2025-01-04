@@ -515,9 +515,59 @@ donnees_python['date_r'] = pd.to_datetime('01/01/2000', format='%d/%m/%Y')
 
 :::
 
-## Changer le type de plusieurs variables À FAIRE
+## Changer le type de plusieurs variables
 
 ::: {.panel-tabset group="language"}
+
+## SAS {.unnumbered .unlisted}
+``` sas
+/* On souhaite réexprimer certaines dates dans un autre format */
+%let en_date = date_naissance date_entree;
+
+data Changer_plusieurs_formats;
+  set donnees_sas;
+  
+  %macro it;
+    %local i j;
+    %do i = 1 %to %sysfunc(countw(&en_date.));
+      %let j = %scan(&en_date., &i.);
+		  format &j. ddmmyy10.;
+    %end;
+  %mend it;
+  %it;
+  
+run;
+```
+
+## R base {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE, results='hide'}
+enNumerique <- c("duree", "note_contenu", "note_formateur")
+enDate <- c('date_naissance', 'date_entree')
+
+changer_plusieurs_formats <- donnees_rbase
+changer_plusieurs_formats[, enNumerique] <- lapply(changer_plusieurs_formats[, enNumerique], as.integer)
+changer_plusieurs_formats[, enDate]      <- lapply(changer_plusieurs_formats[, enDate], format, "%d/%m/%Y")
+```
+
+## tidyverse {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE, results='hide'}
+enNumerique <- c("duree", "note_contenu", "note_formateur")
+enDate <- c('date_naissance', 'date_entree')
+
+changer_plusieurs_formats <- donnees_tidyverse %>%
+  mutate(across(all_of(enNumerique), as.integer)) %>% 
+  mutate(across(all_of(enDate), ~ format(.x, "%d/%m/%Y")))
+```
+
+## data.table {.unnumbered .unlisted}
+```{r, warning=FALSE, message=FALSE, results='hide'}
+enNumerique <- c("duree", "note_contenu", "note_formateur")
+enDate <- c('date_naissance', 'date_entree')
+
+changer_plusieurs_formats <- copy(donnees_datatable)
+changer_plusieurs_formats[, (enNumerique) := lapply(.SD, as.integer),         .SD = enNumerique]
+changer_plusieurs_formats[, (enDate)      := lapply(.SD, format, "%d/%m/%Y"), .SD = enDate]
+```
 
 ## arrow/duckdb {.unnumbered .unlisted}
 ```{r, warning=FALSE, message=FALSE}
@@ -529,6 +579,11 @@ requete_duckdb %>%
   mutate_at(enDate, as.character) %>% 
   mutate_at(enDate, ~ as.Date(strptime(.,'%Y-%m-%d'))) %>% # strptime est une fonction duckdb
   select(enNumerique, enDate) %>% print(n=5)
+```
+
+## pandas {.unnumbered .unlisted}
+```{python, warning=FALSE, message=FALSE, results='hide', python.reticulate = FALSE}
+
 ```
 
 :::
