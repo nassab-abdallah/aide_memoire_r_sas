@@ -531,7 +531,7 @@ data Changer_plusieurs_formats;
     %local i j;
     %do i = 1 %to %sysfunc(countw(&en_date.));
       %let j = %scan(&en_date., &i.);
-		  format &j. ddmmyy10.;
+		  format &j. yymmdd10.;
     %end;
   %mend it;
   %it;
