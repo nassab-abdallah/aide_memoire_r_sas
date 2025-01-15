@@ -666,7 +666,7 @@ Pré-allouer un vecteur de dimension 5 :
 x <- rep(NA, 5)
 ```
 
-## LMist-comprehensions en `R`
+## List-comprehensions en `R`
 
 Equivalent des list-comprehensions de `Python` en `R` !
 
@@ -928,4 +928,12 @@ uniroot(function(x) x ** 3, c(-1, 1))
 
 ```{r, warning=FALSE, message=FALSE}
 optimise(function(x) -x ** 2, c(-1, 1), maximum = TRUE)
+```
+
+## Ajouter des guillemets dans une chaîne de caractères
+
+La fonction `shQuote()` permet d'ajouter des guillemets dans une chaîne de caractères.
+
+```{r, warning=FALSE, message=FALSE}
+paste("valeur =", shQuote("10"))
 ```
