@@ -20,9 +20,13 @@ format:
     page-layout: full
     code-tools: true
     
-# format : native    
+# format : native
+editor: source
 
-editor: visual
+embed-resources: true
+
+syntax-definitions: 
+  - sas.xml
 
 # Summary for listings and search engines
 description: |
