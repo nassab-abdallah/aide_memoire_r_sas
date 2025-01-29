@@ -6092,8 +6092,8 @@ length</code></pre>
 <div class="sourceCode cell-code" id="cb241"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb241-1"><a href="#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used (Mb) gc trigger (Mb) max used (Mb)
-Ncells  909393 48.6    1752475 93.6  1752475 93.6
-Vcells 1768719 13.5   10146329 77.5  7683661 58.7</code></pre>
+Ncells  909417 48.6    1752614 93.6  1752614 93.6
+Vcells 1768761 13.5   10146329 77.5  7676207 58.6</code></pre>
 </div>
 </div>
 </section>
@@ -6529,7 +6529,7 @@ $objective
 </section>
 <section id="importer-rapidement-un-fichier-r-dans-sas" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Importer rapidement un fichier <code>R</code> dans <code>SAS</code></h1>
-<p>Le format de données <code>SAS</code> étant propriétaire, il n’est pas possible de créer directement en <code>R</code> des bases <code>SAS</code> d’extension <code>.sas7bdat</code>. Une solution relativement rapide pour ce faire est de passer par le format intermédiaire <code>.xpt</code> qui conserve les noms et formats des variables.</p>
+<p>Le format de données <code>SAS</code> étant propriétaire, il n’est pas possible de créer directement en <code>R</code> des bases <code>SAS</code> d’extension <code>.sas7bdat</code>. Une solution relativement rapide pour importer une base <code>R</code> en <code>SAS</code> est de passer par le format intermédiaire <code>.xpt</code> qui conserve les noms et formats des variables.</p>
 <section id="copie-de-la-base-r-en-format-xpt" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="copie-de-la-base-r-en-format-xpt"><span class="header-section-number">5.1</span> Copie de la base <code>R</code> en format <code>xpt</code></h2>
 <p>Pour ce faire, il faut copier la base <code>R</code> en format <code>xpt</code> en utilisant la fonction <code>write_xpt()</code> du package <code>haven</code>. Pour que la manipulation proposée ici fonctionne, il faut bien veiller à ce que la version du <code>xpt</code> soit la version 5.</p>
@@ -8112,7 +8112,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb344-946"><a href="#cb344-946" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb344-947"><a href="#cb344-947" aria-hidden="true" tabindex="-1"></a><span class="fu"># Importer rapidement un fichier `R` dans `SAS`</span></span>
 <span id="cb344-948"><a href="#cb344-948" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb344-949"><a href="#cb344-949" aria-hidden="true" tabindex="-1"></a>Le format de données <span class="in">`SAS`</span> étant propriétaire, il n&#39;est pas possible de créer directement en <span class="in">`R`</span> des bases <span class="in">`SAS`</span> d&#39;extension <span class="in">`.sas7bdat`</span>. Une solution relativement rapide pour ce faire est de passer par le format intermédiaire <span class="in">`.xpt`</span> qui conserve les noms et formats des variables.</span>
+<span id="cb344-949"><a href="#cb344-949" aria-hidden="true" tabindex="-1"></a>Le format de données <span class="in">`SAS`</span> étant propriétaire, il n&#39;est pas possible de créer directement en <span class="in">`R`</span> des bases <span class="in">`SAS`</span> d&#39;extension <span class="in">`.sas7bdat`</span>. Une solution relativement rapide pour importer une base <span class="in">`R`</span> en <span class="in">`SAS`</span> est de passer par le format intermédiaire <span class="in">`.xpt`</span> qui conserve les noms et formats des variables.</span>
 <span id="cb344-950"><a href="#cb344-950" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb344-951"><a href="#cb344-951" aria-hidden="true" tabindex="-1"></a><span class="fu">## Copie de la base `R` en format `xpt`</span></span>
 <span id="cb344-952"><a href="#cb344-952" aria-hidden="true" tabindex="-1"></a></span>

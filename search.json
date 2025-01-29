@@ -154,7 +154,7 @@
     "href": "Trucs et astuces en R.html#ramasse-miettes-garbage-collector",
     "title": "Trucs et astuces en R",
     "section": "4.1 Ramasse-miettes (Garbage Collector)",
-    "text": "4.1 Ramasse-miettes (Garbage Collector)\nSi la mémoire vive de l’ordinateur est saturée, on peut essayer de la “purger” en utilisant la fonction gc() de R.\n\ngc()\n\n          used (Mb) gc trigger (Mb) max used (Mb)\nNcells  909393 48.6    1752475 93.6  1752475 93.6\nVcells 1768719 13.5   10146329 77.5  7683661 58.7",
+    "text": "4.1 Ramasse-miettes (Garbage Collector)\nSi la mémoire vive de l’ordinateur est saturée, on peut essayer de la “purger” en utilisant la fonction gc() de R.\n\ngc()\n\n          used (Mb) gc trigger (Mb) max used (Mb)\nNcells  909417 48.6    1752614 93.6  1752614 93.6\nVcells 1768761 13.5   10146329 77.5  7676207 58.6",
     "crumbs": [
       "Trucs et astuces"
     ]
