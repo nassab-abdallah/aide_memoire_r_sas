@@ -938,7 +938,7 @@ paste("valeur =", shQuote("10"))
 
 # Importer rapidement un fichier `R` dans `SAS`
 
-Le format de données `SAS` étant propriétaire, il n'est pas possible de créer directement en `R` des bases `SAS` d'extension `.sas7bdat`. Une solution relativement rapide pour ce faire est de passer par le format intermédiaire `.xpt` qui conserve les noms et formats des variables.
+Le format de données `SAS` étant propriétaire, il n'est pas possible de créer directement en `R` des bases `SAS` d'extension `.sas7bdat`. Une solution relativement rapide pour importer une base `R` en `SAS` est de passer par le format intermédiaire `.xpt` qui conserve les noms et formats des variables.
 
 ## Copie de la base `R` en format `xpt`
 
