@@ -134,7 +134,7 @@
     "href": "Trucs et astuces en R.html#conseils-divers",
     "title": "Trucs et astuces en R",
     "section": "3.4 Conseils divers",
-    "text": "3.4 Conseils divers\nIl est déconseillé de nommer des variables temporaires var, car ce nom désigne la fonction permettant de calculer une variance en R.\n\n# Exemple : variance d'un échantillon aléatoire de 1000 observations tiré d'une loi normale centrée réduite\nvar(rnorm(1000))\n\n[1] 1.031458\n\n\n\n# Le format en résultat de sapply est imprévisible\n# integer\nsapply(1L, function(x) c(x, x))\n\n     [,1]\n[1,]    1\n[2,]    1\n\n# list\nsapply(integer(), function(x) c(x, x))\n\nlist()\n\n\n\n# Le résultat de ifelse() dépend du format de la condition\n# logical\nifelse(NA, 1L, 1L)\n\n[1] NA\n\n# integer\nifelse(FALSE, 1L, 1L)\n\n[1] 1\n\n\nLa fonction if utilisée sans else renvoie NULL si la condition est FALSE. Ceci permet d’écrire de façon élégante des conditions simples. Par exemple, prendre en compte un s final à un nom seulement si la valeur est strictement supérieure à 1 :\n\nNombreDeLignes &lt;- function(baseDeDonnees) {\n  ligne &lt;- nrow(baseDeDonnees)\n  paste0(ligne, \" ligne\", if (ligne &gt; 1) \"s\")\n}\nNombreDeLignes(mtcars)\n\n[1] \"32 lignes\"\n\nNombreDeLignes(mtcars[1,])\n\n[1] \"1 ligne\"\n\n\nPré-allouer un vecteur de dimension 5 :\n\nx &lt;- rep(NA, 5)",
+    "text": "3.4 Conseils divers\nIl est déconseillé de nommer des variables temporaires var, car ce nom désigne la fonction permettant de calculer une variance en R.\n\n# Exemple : variance d'un échantillon aléatoire de 1000 observations tiré d'une loi normale centrée réduite\nvar(rnorm(1000))\n\n[1] 1.060657\n\n\n\n# Le format en résultat de sapply est imprévisible\n# integer\nsapply(1L, function(x) c(x, x))\n\n     [,1]\n[1,]    1\n[2,]    1\n\n# list\nsapply(integer(), function(x) c(x, x))\n\nlist()\n\n\n\n# Le résultat de ifelse() dépend du format de la condition\n# logical\nifelse(NA, 1L, 1L)\n\n[1] NA\n\n# integer\nifelse(FALSE, 1L, 1L)\n\n[1] 1\n\n\nLa fonction if utilisée sans else renvoie NULL si la condition est FALSE. Ceci permet d’écrire de façon élégante des conditions simples. Par exemple, prendre en compte un s final à un nom seulement si la valeur est strictement supérieure à 1 :\n\nNombreDeLignes &lt;- function(baseDeDonnees) {\n  ligne &lt;- nrow(baseDeDonnees)\n  paste0(ligne, \" ligne\", if (ligne &gt; 1) \"s\")\n}\nNombreDeLignes(mtcars)\n\n[1] \"32 lignes\"\n\nNombreDeLignes(mtcars[1,])\n\n[1] \"1 ligne\"\n\n\nPré-allouer un vecteur de dimension 5 :\n\nx &lt;- rep(NA, 5)",
     "crumbs": [
       "Trucs et astuces"
     ]
@@ -154,7 +154,7 @@
     "href": "Trucs et astuces en R.html#ramasse-miettes-garbage-collector",
     "title": "Trucs et astuces en R",
     "section": "4.1 Ramasse-miettes (Garbage Collector)",
-    "text": "4.1 Ramasse-miettes (Garbage Collector)\nSi la mémoire vive de l’ordinateur est saturée, on peut essayer de la “purger” en utilisant la fonction gc() de R.\n\ngc()\n\n          used (Mb) gc trigger (Mb) max used (Mb)\nNcells  909453 48.6    1768990 94.5  1768990 94.5\nVcells 1768348 13.5   10146329 77.5  7663695 58.5",
+    "text": "4.1 Ramasse-miettes (Garbage Collector)\nSi la mémoire vive de l’ordinateur est saturée, on peut essayer de la “purger” en utilisant la fonction gc() de R.\n\ngc()\n\n          used (Mb) gc trigger (Mb) max used (Mb)\nNcells  909528 48.6    1762680 94.2  1762680 94.2\nVcells 1769168 13.5   10146329 77.5  7682483 58.7",
     "crumbs": [
       "Trucs et astuces"
     ]
@@ -235,6 +235,26 @@
     "title": "Trucs et astuces en R",
     "section": "4.9 Ajouter des guillemets dans une chaîne de caractères",
     "text": "4.9 Ajouter des guillemets dans une chaîne de caractères\nLa fonction shQuote() permet d’ajouter des guillemets dans une chaîne de caractères.\n\npaste(\"valeur =\", shQuote(\"10\"))\n\n[1] \"valeur = '10'\"",
+    "crumbs": [
+      "Trucs et astuces"
+    ]
+  },
+  {
+    "objectID": "Trucs et astuces en R.html#copie-de-la-base-r-en-format-xpt",
+    "href": "Trucs et astuces en R.html#copie-de-la-base-r-en-format-xpt",
+    "title": "Trucs et astuces en R",
+    "section": "5.1 Copie de la base R en format xpt",
+    "text": "5.1 Copie de la base R en format xpt\nPour ce faire, il faut copier la base R en format xpt en utilisant la fonction write_xpt() du package haven. Pour que la manipulation proposée ici fonctionne, il faut bien veiller à ce que la version du xpt soit la version 5.\n\n# On copie la base mtcars en format xpt sur le bureau de l'utilisateur\nhaven::write_xpt(mtcars, file.path(Sys.getenv(\"USERPROFILE\"), \"Desktop\", \"mtcars.xpt\"), version = 5)",
+    "crumbs": [
+      "Trucs et astuces"
+    ]
+  },
+  {
+    "objectID": "Trucs et astuces en R.html#import-de-la-base-xpt-en-sas",
+    "href": "Trucs et astuces en R.html#import-de-la-base-xpt-en-sas",
+    "title": "Trucs et astuces en R",
+    "section": "5.2 Import de la base xpt en SAS",
+    "text": "5.2 Import de la base xpt en SAS\nLa base R copiée en format xpt peut ensuite être importée en SAS avec le code suivant :\nlibname xptfile xport \"C:\\Users\\&sysuserid.\\Desktop\\mtcars.xpt\";\nproc copy inlib = xptfile outlib = work;\nrun;\nPar défaut, la base est nommée du nom de la base xpt et se trouve dans la work de SAS, mais outlib peut être paramétré avec une autre libname.",
     "crumbs": [
       "Trucs et astuces"
     ]
