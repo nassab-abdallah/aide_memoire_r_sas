@@ -64,7 +64,7 @@ dim(cars)
 c(is.data.frame(cars), is.list(cars), is.vector(cars), is.array(cars))
 ```
 
-La notation L permet d'imposer à `R` de créer un nombre sous format `integer`d, moins gourmand en mémoire (pour des raisons d'efficacité).
+La notation L permet d'imposer à `R` de créer un nombre sous format `integer`, moins gourmand en mémoire (pour des raisons d'efficacité).
 
 ```{r, warning=FALSE, message=FALSE}
 class(1)
@@ -425,7 +425,7 @@ df$1
 # Utilisation de assign pour assigner une valeur à un objet en le désignant sous forme caractère
 assign('objet', 3:5)
 objet
-for(i in 1:5) assign(paste('objet', i, sep = '_'), i)
+for (i in 1:5) assign(paste('objet', i, sep = '_'), i)
 objet_5
 ```
 
@@ -629,7 +629,7 @@ Les deux pipes fonctionnent de la même manière mais diffèrent sur les points 
 
 ## Conseils divers
 
-Le format en résultat de sapply est imprévisible :
+Le format en résultat de `sapply` est imprévisible :
 
 ```{r, warning=FALSE, message=FALSE}
 # integer
@@ -638,7 +638,7 @@ sapply(1L, function(x) c(x, x))
 sapply(integer(), function(x) c(x, x))
 ```
 
-Le résultat de ifelse() dépend du format de la condition :
+Le résultat de `ifelse()` dépend du format de la condition :
 
 ```{r, warning=FALSE, message=FALSE}
 # logical
@@ -794,9 +794,9 @@ seq_len(n)
 ```{r, warning=FALSE, message=FALSE}
 # Préférer seq_along à : au cas où la taille de l'objet est 0
 x <- c() ;length(x)
-for(i in 1:length(x)) print(i)
-for(i in seq_along(x)) print(i)
-for(i in seq(along=x)) print(i)
+for (i in 1:length(x)) print(i)
+for (i in seq_along(x)) print(i)
+for (i in seq(along=x)) print(i)
 ```
 
 ```{r, warning=FALSE, message=FALSE}
@@ -898,8 +898,8 @@ exists("mtcars")
 
 ```{r, warning=FALSE, message=FALSE}
 # Penser au print
-for(i in 1:5) i
-for(i in 1:5) print(i)
+for (i in 1:5) i
+for (i in 1:5) print(i)
 ```
 
 ```{r, warning=FALSE, message=FALSE}
@@ -942,7 +942,7 @@ Le format de données `SAS` étant propriétaire, il n'est pas possible de crée
 
 ## Copie de la base `R` en format `xpt`
 
-Pour ce faire, il faut copier la base `R` en format `xpt` en utilisant la fonction `write_xpt()` du package `haven`. Pour que la manipulation proposée ici fonctionne, il faut bien veiller à ce que la version du `xpt` soit la version 5.
+Il faut d'abord copier la base `R` en format `xpt` en utilisant la fonction `write_xpt()` du package `haven`. Pour que la manipulation proposée ici fonctionne, il faut bien veiller à ce que la version du `xpt` soit la version 5.
 
 ```{r, warning=FALSE, message=FALSE}
 #| eval: false
