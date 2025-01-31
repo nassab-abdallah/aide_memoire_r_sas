@@ -5053,7 +5053,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">29 janvier 2025</p>
+      <p class="date">31 janvier 2025</p>
     </div>
   </div>
   
@@ -5104,7 +5104,7 @@ window.Quarto = {
 <pre><code>[1]  TRUE  TRUE FALSE FALSE</code></pre>
 </div>
 </div>
-<p>La notation L permet d’imposer à <code>R</code> de créer un nombre sous format <code>integer</code>d, moins gourmand en mémoire (pour des raisons d’efficacité).</p>
+<p>La notation L permet d’imposer à <code>R</code> de créer un nombre sous format <code>integer</code>, moins gourmand en mémoire (pour des raisons d’efficacité).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="dv">1</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -5299,12 +5299,12 @@ $`2`
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="co"># format double</span></span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">Sys.Date</span>())</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1]    NA 20117</code></pre>
+<pre><code>[1]    NA 20119</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># format Date</span></span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="fu">Sys.Date</span>(), <span class="cn">NA</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;2025-01-29&quot; NA          </code></pre>
+<pre><code>[1] &quot;2025-01-31&quot; NA          </code></pre>
 </div>
 </div>
 <div class="cell">
@@ -5702,7 +5702,7 @@ Levels: a b</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3 4 5</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb156"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb156-1"><a href="#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="fu">assign</span>(<span class="fu">paste</span>(<span class="st">&#39;objet&#39;</span>, i, <span class="at">sep =</span> <span class="st">&#39;_&#39;</span>), i)</span>
+<div class="sourceCode cell-code" id="cb156"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb156-1"><a href="#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="fu">assign</span>(<span class="fu">paste</span>(<span class="st">&#39;objet&#39;</span>, i, <span class="at">sep =</span> <span class="st">&#39;_&#39;</span>), i)</span>
 <span id="cb156-2"><a href="#cb156-2" aria-hidden="true" tabindex="-1"></a>objet_5</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5</code></pre>
@@ -6009,7 +6009,7 @@ length</code></pre>
 </section>
 <section id="conseils-divers" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="conseils-divers"><span class="header-section-number">3.4</span> Conseils divers</h2>
-<p>Le format en résultat de sapply est imprévisible :</p>
+<p>Le format en résultat de <code>sapply</code> est imprévisible :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb220"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb220-1"><a href="#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="co"># integer</span></span>
 <span id="cb220-2"><a href="#cb220-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span>L, <span class="cf">function</span>(x) <span class="fu">c</span>(x, x))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -6024,7 +6024,7 @@ length</code></pre>
 <pre><code>list()</code></pre>
 </div>
 </div>
-<p>Le résultat de ifelse() dépend du format de la condition :</p>
+<p>Le résultat de <code>ifelse()</code> dépend du format de la condition :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb224"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb224-1"><a href="#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="co"># logical</span></span>
 <span id="cb224-2"><a href="#cb224-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(<span class="cn">NA</span>, <span class="dv">1</span>L, <span class="dv">1</span>L)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -6092,8 +6092,8 @@ length</code></pre>
 <div class="sourceCode cell-code" id="cb241"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb241-1"><a href="#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used (Mb) gc trigger (Mb) max used (Mb)
-Ncells  909417 48.6    1752614 93.6  1752614 93.6
-Vcells 1768761 13.5   10146329 77.5  7676207 58.6</code></pre>
+Ncells  909423 48.6    1752757 93.7  1752757 93.7
+Vcells 1768779 13.5   10146329 77.5  7668639 58.6</code></pre>
 </div>
 </div>
 </section>
@@ -6273,13 +6273,13 @@ $ix
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb293"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb293-1"><a href="#cb293-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x)) <span class="fu">print</span>(i)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb293"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb293-1"><a href="#cb293-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x)) <span class="fu">print</span>(i)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1
 [1] 0</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb295"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb295-1"><a href="#cb295-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_along</span>(x)) <span class="fu">print</span>(i)</span>
-<span id="cb295-2"><a href="#cb295-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq</span>(<span class="at">along=</span>x)) <span class="fu">print</span>(i)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb295"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb295-1"><a href="#cb295-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(x)) <span class="fu">print</span>(i)</span>
+<span id="cb295-2"><a href="#cb295-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq</span>(<span class="at">along=</span>x)) <span class="fu">print</span>(i)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb296"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb296-1"><a href="#cb296-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Différences seq, seq_len et seq_along</span></span>
@@ -6452,8 +6452,8 @@ $ix
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb328"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb328-1"><a href="#cb328-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Penser au print</span></span>
-<span id="cb328-2"><a href="#cb328-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) i</span>
-<span id="cb328-3"><a href="#cb328-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="fu">print</span>(i)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb328-2"><a href="#cb328-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) i</span>
+<span id="cb328-3"><a href="#cb328-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="fu">print</span>(i)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1
 [1] 2
@@ -6532,7 +6532,7 @@ $objective
 <p>Le format de données <code>SAS</code> étant propriétaire, il n’est pas possible de créer directement en <code>R</code> des bases <code>SAS</code> d’extension <code>.sas7bdat</code>. Une solution relativement rapide pour importer une base <code>R</code> en <code>SAS</code> est de passer par le format intermédiaire <code>.xpt</code> qui conserve les noms et formats des variables.</p>
 <section id="copie-de-la-base-r-en-format-xpt" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="copie-de-la-base-r-en-format-xpt"><span class="header-section-number">5.1</span> Copie de la base <code>R</code> en format <code>xpt</code></h2>
-<p>Pour ce faire, il faut copier la base <code>R</code> en format <code>xpt</code> en utilisant la fonction <code>write_xpt()</code> du package <code>haven</code>. Pour que la manipulation proposée ici fonctionne, il faut bien veiller à ce que la version du <code>xpt</code> soit la version 5.</p>
+<p>Il faut d’abord copier la base <code>R</code> en format <code>xpt</code> en utilisant la fonction <code>write_xpt()</code> du package <code>haven</code>. Pour que la manipulation proposée ici fonctionne, il faut bien veiller à ce que la version du <code>xpt</code> soit la version 5.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb342"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb342-1"><a href="#cb342-1" aria-hidden="true" tabindex="-1"></a><span class="co"># On copie la base mtcars en format xpt sur le bureau de l&#39;utilisateur</span></span>
 <span id="cb342-2"><a href="#cb342-2" aria-hidden="true" tabindex="-1"></a>haven<span class="sc">::</span><span class="fu">write_xpt</span>(mtcars, <span class="fu">file.path</span>(<span class="fu">Sys.getenv</span>(<span class="st">&quot;USERPROFILE&quot;</span>), <span class="st">&quot;Desktop&quot;</span>, <span class="st">&quot;mtcars.xpt&quot;</span>), <span class="at">version =</span> <span class="dv">5</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -7238,7 +7238,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb344-64"><a href="#cb344-64" aria-hidden="true" tabindex="-1"></a><span class="in">c(is.data.frame(cars), is.list(cars), is.vector(cars), is.array(cars))</span></span>
 <span id="cb344-65"><a href="#cb344-65" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb344-66"><a href="#cb344-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb344-67"><a href="#cb344-67" aria-hidden="true" tabindex="-1"></a>La notation L permet d&#39;imposer à <span class="in">`R`</span> de créer un nombre sous format <span class="in">`integer`</span>d, moins gourmand en mémoire (pour des raisons d&#39;efficacité).</span>
+<span id="cb344-67"><a href="#cb344-67" aria-hidden="true" tabindex="-1"></a>La notation L permet d&#39;imposer à <span class="in">`R`</span> de créer un nombre sous format <span class="in">`integer`</span>, moins gourmand en mémoire (pour des raisons d&#39;efficacité).</span>
 <span id="cb344-68"><a href="#cb344-68" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb344-69"><a href="#cb344-69" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
 <span id="cb344-70"><a href="#cb344-70" aria-hidden="true" tabindex="-1"></a><span class="in">class(1)</span></span>
@@ -7599,7 +7599,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb344-425"><a href="#cb344-425" aria-hidden="true" tabindex="-1"></a><span class="in"># Utilisation de assign pour assigner une valeur à un objet en le désignant sous forme caractère</span></span>
 <span id="cb344-426"><a href="#cb344-426" aria-hidden="true" tabindex="-1"></a><span class="in">assign(&#39;objet&#39;, 3:5)</span></span>
 <span id="cb344-427"><a href="#cb344-427" aria-hidden="true" tabindex="-1"></a><span class="in">objet</span></span>
-<span id="cb344-428"><a href="#cb344-428" aria-hidden="true" tabindex="-1"></a><span class="in">for(i in 1:5) assign(paste(&#39;objet&#39;, i, sep = &#39;_&#39;), i)</span></span>
+<span id="cb344-428"><a href="#cb344-428" aria-hidden="true" tabindex="-1"></a><span class="in">for (i in 1:5) assign(paste(&#39;objet&#39;, i, sep = &#39;_&#39;), i)</span></span>
 <span id="cb344-429"><a href="#cb344-429" aria-hidden="true" tabindex="-1"></a><span class="in">objet_5</span></span>
 <span id="cb344-430"><a href="#cb344-430" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb344-431"><a href="#cb344-431" aria-hidden="true" tabindex="-1"></a></span>
@@ -7803,7 +7803,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb344-637"><a href="#cb344-637" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb344-638"><a href="#cb344-638" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conseils divers</span></span>
 <span id="cb344-639"><a href="#cb344-639" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb344-640"><a href="#cb344-640" aria-hidden="true" tabindex="-1"></a>Le format en résultat de sapply est imprévisible :</span>
+<span id="cb344-640"><a href="#cb344-640" aria-hidden="true" tabindex="-1"></a>Le format en résultat de <span class="in">`sapply`</span> est imprévisible :</span>
 <span id="cb344-641"><a href="#cb344-641" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb344-642"><a href="#cb344-642" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
 <span id="cb344-643"><a href="#cb344-643" aria-hidden="true" tabindex="-1"></a><span class="in"># integer</span></span>
@@ -7812,7 +7812,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb344-646"><a href="#cb344-646" aria-hidden="true" tabindex="-1"></a><span class="in">sapply(integer(), function(x) c(x, x))</span></span>
 <span id="cb344-647"><a href="#cb344-647" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb344-648"><a href="#cb344-648" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb344-649"><a href="#cb344-649" aria-hidden="true" tabindex="-1"></a>Le résultat de ifelse() dépend du format de la condition :</span>
+<span id="cb344-649"><a href="#cb344-649" aria-hidden="true" tabindex="-1"></a>Le résultat de <span class="in">`ifelse()`</span> dépend du format de la condition :</span>
 <span id="cb344-650"><a href="#cb344-650" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb344-651"><a href="#cb344-651" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
 <span id="cb344-652"><a href="#cb344-652" aria-hidden="true" tabindex="-1"></a><span class="in"># logical</span></span>
@@ -7968,9 +7968,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb344-802"><a href="#cb344-802" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
 <span id="cb344-803"><a href="#cb344-803" aria-hidden="true" tabindex="-1"></a><span class="in"># Préférer seq_along à : au cas où la taille de l&#39;objet est 0</span></span>
 <span id="cb344-804"><a href="#cb344-804" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- c() ;length(x)</span></span>
-<span id="cb344-805"><a href="#cb344-805" aria-hidden="true" tabindex="-1"></a><span class="in">for(i in 1:length(x)) print(i)</span></span>
-<span id="cb344-806"><a href="#cb344-806" aria-hidden="true" tabindex="-1"></a><span class="in">for(i in seq_along(x)) print(i)</span></span>
-<span id="cb344-807"><a href="#cb344-807" aria-hidden="true" tabindex="-1"></a><span class="in">for(i in seq(along=x)) print(i)</span></span>
+<span id="cb344-805"><a href="#cb344-805" aria-hidden="true" tabindex="-1"></a><span class="in">for (i in 1:length(x)) print(i)</span></span>
+<span id="cb344-806"><a href="#cb344-806" aria-hidden="true" tabindex="-1"></a><span class="in">for (i in seq_along(x)) print(i)</span></span>
+<span id="cb344-807"><a href="#cb344-807" aria-hidden="true" tabindex="-1"></a><span class="in">for (i in seq(along=x)) print(i)</span></span>
 <span id="cb344-808"><a href="#cb344-808" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb344-809"><a href="#cb344-809" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb344-810"><a href="#cb344-810" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
@@ -8072,8 +8072,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb344-906"><a href="#cb344-906" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb344-907"><a href="#cb344-907" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
 <span id="cb344-908"><a href="#cb344-908" aria-hidden="true" tabindex="-1"></a><span class="in"># Penser au print</span></span>
-<span id="cb344-909"><a href="#cb344-909" aria-hidden="true" tabindex="-1"></a><span class="in">for(i in 1:5) i</span></span>
-<span id="cb344-910"><a href="#cb344-910" aria-hidden="true" tabindex="-1"></a><span class="in">for(i in 1:5) print(i)</span></span>
+<span id="cb344-909"><a href="#cb344-909" aria-hidden="true" tabindex="-1"></a><span class="in">for (i in 1:5) i</span></span>
+<span id="cb344-910"><a href="#cb344-910" aria-hidden="true" tabindex="-1"></a><span class="in">for (i in 1:5) print(i)</span></span>
 <span id="cb344-911"><a href="#cb344-911" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb344-912"><a href="#cb344-912" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb344-913"><a href="#cb344-913" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
@@ -8116,7 +8116,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb344-950"><a href="#cb344-950" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb344-951"><a href="#cb344-951" aria-hidden="true" tabindex="-1"></a><span class="fu">## Copie de la base `R` en format `xpt`</span></span>
 <span id="cb344-952"><a href="#cb344-952" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb344-953"><a href="#cb344-953" aria-hidden="true" tabindex="-1"></a>Pour ce faire, il faut copier la base <span class="in">`R`</span> en format <span class="in">`xpt`</span> en utilisant la fonction <span class="in">`write_xpt()`</span> du package <span class="in">`haven`</span>. Pour que la manipulation proposée ici fonctionne, il faut bien veiller à ce que la version du <span class="in">`xpt`</span> soit la version 5.</span>
+<span id="cb344-953"><a href="#cb344-953" aria-hidden="true" tabindex="-1"></a>Il faut d&#39;abord copier la base <span class="in">`R`</span> en format <span class="in">`xpt`</span> en utilisant la fonction <span class="in">`write_xpt()`</span> du package <span class="in">`haven`</span>. Pour que la manipulation proposée ici fonctionne, il faut bien veiller à ce que la version du <span class="in">`xpt`</span> soit la version 5.</span>
 <span id="cb344-954"><a href="#cb344-954" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb344-955"><a href="#cb344-955" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
 <span id="cb344-956"><a href="#cb344-956" aria-hidden="true" tabindex="-1"></a><span class="in">#| eval: false</span></span>
