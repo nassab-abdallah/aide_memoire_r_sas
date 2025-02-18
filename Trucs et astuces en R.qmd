@@ -583,7 +583,7 @@ R.version.string
 getRversion()
 
 # Lien vers le bureau de l'utilisateur
-file.path(Sys.getenv("USERPROFILE"),"Desktop")
+file.path(Sys.getenv("USERPROFILE"), "Desktop")
 
 # Chemin de l'exécutable R est-il installé ?
 R.home("bin")
