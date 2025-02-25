@@ -105,6 +105,9 @@ donnees_rbase$niveau <- paste0(
   toupper(substr(donnees_rbase$niveau, 1, 1)),
   tolower(substr(donnees_rbase$niveau, 2, length(donnees_rbase$niveau)))
   )
+
+# Autre solution
+donnees_rbase$niveau <- tools::toTitleCase(donnees_rbase$niveau)
 ```
 
 ### tidyverse {.unnumbered .unlisted}
