@@ -294,8 +294,7 @@ library(kableExtra)
 
 # Création d'un tableau
 tab <- donnees_datatable[, xtabs(poids_sondage ~ cspf + sexef, data = donnees_datatable, addNA = TRUE) ]
-tab <- 
-addmargins(prop.table(tab)) * 100
+tab <- addmargins(prop.table(tab)) * 100
 
 # Afficher de façon plus jolie un tableau
 knitr::kable(tab)
