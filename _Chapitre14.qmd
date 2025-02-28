@@ -121,8 +121,9 @@ donnees_tidyverse <- donnees_tidyverse %>%
 ```{r, warning=FALSE, message=FALSE, results='hide'}
 # Numéro du contrat de chaque individu, contrat trié par date d'entrée
 setorder(donnees_datatable, "identifiant", "date_entree", na.last = FALSE)
-donnees_datatable[, numero_contrat := rowid(identifiant)]
 donnees_datatable[, numero_contrat := seq_len(.N), by = identifiant]
+# Beaucoup plus lent, à déconseiller !
+donnees_datatable[, numero_contrat := rowid(identifiant)]
 
 # Les seuls numéros de colonnes
 rowidv(donnees_datatable, identifiant)
