@@ -1310,6 +1310,7 @@ diff_niveau <- donnees_tidyverse %>%
 
 ## data.table {.unnumbered .unlisted}
 ```{r, warning=FALSE, message=FALSE, results='hide'}
+# length(unique()) est plus rapide s'il y a beaucoup de sous-groupes, sinon uniqueN() est plus rapide
 diff_niveau <- donnees_datatable[, .(diff_niveau = uniqueN(niveau)), keyby = identifiant]
 diff_niveau <- donnees_datatable[, .(diff_niveau = length(unique(niveau))), keyby = identifiant]
 ```
