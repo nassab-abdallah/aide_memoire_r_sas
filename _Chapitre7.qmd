@@ -391,6 +391,14 @@ donnees_tidyverse <- donnees_tidyverse %>%
 donnees_datatable[, agef := fcase(age < 26,             "1. De 15 à 25 ans",
                                   26 <= age & age < 50, "2. De 26 à 49 ans",
                                   age >= 50,            "3. 50 ans ou plus")]
+
+# Autre solution
+age_fmt <- c(
+  c(mapply(`=`, 0:25,   rep("1. De 15 à 25 ans", 26))),
+  c(mapply(`=`, 26:49,  rep("2. De 26 à 49 ans", 24))),
+  c(mapply(`=`, 50:100, rep("3. 50 ans ou plus", 51)))
+  )
+donnees_datatable[, agef := age_fmt[age]]
 ```
 
 ## arrow/duckdb {.unnumbered .unlisted}
